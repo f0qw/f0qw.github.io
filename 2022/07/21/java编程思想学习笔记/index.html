@@ -20,28 +20,35 @@
     var CONFIG = {"hostname":"www.kueen.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="kueen的博客">
-<meta property="og:url" content="https://www.kueen.top/index.html">
+  <meta name="description" content="linux常见命令cp12cp -r aaa&#x2F;* ccc将aaa目录下所有文件和文件夹拷贝到ccc目录下    #四、运算符 注意事项1、几乎所有运算符都只能操作基本类型（Primitives）。唯一的例外是 &#x3D;、&#x3D;&#x3D; 和 !&#x3D;，它们能操作所有对象（这也是令人混淆的一个地方）。除此以外，String 类支持 + 和 +&#x3D;。 赋值注意基本类型的赋值都是直接的，而不像对象，赋予的只是其内存的引用 12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java编程思想学习笔记">
+<meta property="og:url" content="https://www.kueen.top/2022/07/21/java%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="kueen的博客">
+<meta property="og:description" content="linux常见命令cp12cp -r aaa&#x2F;* ccc将aaa目录下所有文件和文件夹拷贝到ccc目录下    #四、运算符 注意事项1、几乎所有运算符都只能操作基本类型（Primitives）。唯一的例外是 &#x3D;、&#x3D;&#x3D; 和 !&#x3D;，它们能操作所有对象（这也是令人混淆的一个地方）。除此以外，String 类支持 + 和 +&#x3D;。 赋值注意基本类型的赋值都是直接的，而不像对象，赋予的只是其内存的引用 12">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202207212119306.png">
+<meta property="og:image" content="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202207212119537.png">
+<meta property="article:published_time" content="2022-07-21T08:08:22.000Z">
+<meta property="article:modified_time" content="2022-07-21T13:20:20.051Z">
 <meta property="article:author" content="chen">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202207212119306.png">
 
-<link rel="canonical" href="https://www.kueen.top/">
+<link rel="canonical" href="https://www.kueen.top/2022/07/21/java%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>kueen的博客</title>
+  <title>java编程思想学习笔记 | kueen的博客</title>
   
 
 
@@ -139,9 +146,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
@@ -157,10 +165,9 @@
       <meta itemprop="name" content="kueen的博客">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/21/java%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">java编程思想学习笔记</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          java编程思想学习笔记
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -184,7 +191,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="linux常见命令"><a href="#linux常见命令" class="headerlink" title="linux常见命令"></a>linux常见命令</h1><h2 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp -r aaa/* ccc</span><br><span class="line">将aaa目录下所有文件和文件夹拷贝到ccc目录下</span><br></pre></td></tr></table></figure>
+        <h1 id="linux常见命令"><a href="#linux常见命令" class="headerlink" title="linux常见命令"></a>linux常见命令</h1><h2 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp -r aaa/* ccc</span><br><span class="line">将aaa目录下所有文件和文件夹拷贝到ccc目录下</span><br></pre></td></tr></table></figure>
 
 
 
@@ -1756,89 +1763,30 @@
 <h3 id="终止与恢复"><a href="#终止与恢复" class="headerlink" title="终止与恢复"></a>终止与恢复</h3><p>异常处理理论上有两种基本模型。Java 支持终止模型（它是 Java 和 C++所支持的模型）。在这种模型中，将假设错误非常严重，以至于程序无法返回到异常发生的地方继续执行。一旦异常被抛出，就表明错误已无法挽回，也不能回来继续执行。</p>
 <p>另一种称为恢复模型。意思是异常处理程序的工作是修正错误，然后重新尝试调用出问题的方法，并认为第二次能成功。对于恢复模型，通常希望异常被处理之后能继续执行程序。如果想要用 Java 实现类似恢复的行为，那么在遇见错误时就不能抛出异常，而是调用方法来修正该错误。或者，把 try 块放在 while 循环里，这样就不断地进入 try 块，直到得到满意的结果。</p>
 <h2 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h2>
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://www.kueen.top/2022/07/18/%E6%B5%8B%E8%AF%95/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="chen">
-      <meta itemprop="description" content="">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="kueen的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/18/%E6%B5%8B%E8%AF%95/" class="post-title-link" itemprop="url">标题xxx</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-07-18 16:36:51" itemprop="dateCreated datePublished" datetime="2022-07-18T16:36:51+08:00">2022-07-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-21 21:17:24" itemprop="dateModified" datetime="2022-07-21T21:17:24+08:00">2022-07-21</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="首先测试图片的上传"><a href="#首先测试图片的上传" class="headerlink" title="首先测试图片的上传"></a>首先测试图片的上传</h1><p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202207212109647.png" alt="image-20220721210942748"></p>
-<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202207212112481.png" alt="image-20220721211252430"></p>
-<h1 id="测试表格样式"><a href="#测试表格样式" class="headerlink" title="测试表格样式"></a>测试表格样式</h1><p>==水电费收到==</p>
-<p><code>着重符号</code></p>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/07/18/%E6%B5%8B%E8%AF%95/" rel="prev" title="标题xxx">
+      <i class="fa fa-chevron-left"></i> 标题xxx
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
@@ -1891,6 +1839,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#linux%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">linux常见命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cp"><span class="nav-number">1.1.</span> <span class="nav-text">cp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">1.2.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%8B%E5%80%BC"><span class="nav-number">1.3.</span> <span class="nav-text">赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.4.</span> <span class="nav-text">算术运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%92%E5%A2%9E%E5%92%8C%E9%80%92%E5%87%8F"><span class="nav-number">1.5.</span> <span class="nav-text">递增和递减</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.6.</span> <span class="nav-text">关系运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.7.</span> <span class="nav-text">逻辑运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E9%9D%A2%E5%B8%B8%E9%87%8F%E5%80%BC"><span class="nav-number">1.8.</span> <span class="nav-text">字面常量值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.9.</span> <span class="nav-text">位运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%BB%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.10.</span> <span class="nav-text">移位运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.11.</span> <span class="nav-text">三元运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E9%99%B7%E9%98%B1"><span class="nav-number">1.12.</span> <span class="nav-text">常见陷阱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-number">1.13.</span> <span class="nav-text">类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E6%8F%90%E5%8D%87"><span class="nav-number">1.13.1.</span> <span class="nav-text">类型提升</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B2%A1%E6%9C%89sizeof"><span class="nav-number">1.14.</span> <span class="nav-text">没有sizeof</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E6%8E%A7%E5%88%B6%E6%B5%81"><span class="nav-number">2.</span> <span class="nav-text">五、控制流</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#goto"><span class="nav-number">2.1.</span> <span class="nav-text">goto</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E5%88%9D%E5%A7%8B%E5%8C%96%E5%92%8C%E6%B8%85%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">六、初始化和清理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E5%8F%82%E6%9E%84%E9%80%A0%E5%99%A8"><span class="nav-number">3.1.</span> <span class="nav-text">无参构造器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">3.2.</span> <span class="nav-text">this关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#static%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">3.3.</span> <span class="nav-text">static关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%90%E5%91%98%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">3.4.</span> <span class="nav-text">成员初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E5%99%A8%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">3.5.</span> <span class="nav-text">构造器初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F"><span class="nav-number">3.6.</span> <span class="nav-text">初始化顺序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E6%95%B0%E6%8D%AE%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">3.6.1.</span> <span class="nav-text">静态数据的初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F"><span class="nav-number">3.6.2.</span> <span class="nav-text">总的初始化顺序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">3.7.</span> <span class="nav-text">数组的初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.8.</span> <span class="nav-text">枚举类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E5%B0%81%E8%A3%85"><span class="nav-number">4.</span> <span class="nav-text">七、封装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%85%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">4.1.</span> <span class="nav-text">包的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="nav-number">4.2.</span> <span class="nav-text">访问权限修饰符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%85%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90"><span class="nav-number">4.2.1.</span> <span class="nav-text">包访问权限</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E5%A4%8D%E7%94%A8"><span class="nav-number">5.</span> <span class="nav-text">八、复用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%84%E5%90%88%E8%AF%AD%E6%B3%95"><span class="nav-number">5.1.</span> <span class="nav-text">组合语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E8%AF%AD%E6%B3%95"><span class="nav-number">5.2.</span> <span class="nav-text">继承语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%9F%BA%E7%B1%BB"><span class="nav-number">5.2.1.</span> <span class="nav-text">初始化基类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#final%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">5.3.</span> <span class="nav-text">final关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#final-%E6%96%B9%E6%B3%95"><span class="nav-number">5.3.1.</span> <span class="nav-text">final 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#final-%E5%92%8Cprivate"><span class="nav-number">5.3.2.</span> <span class="nav-text">final 和private</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#final-%E7%B1%BB"><span class="nav-number">5.3.3.</span> <span class="nav-text">final 类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B9%9D%E3%80%81%E5%A4%9A%E6%80%81"><span class="nav-number">6.</span> <span class="nav-text">九、多态</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8%E7%BB%91%E5%AE%9A"><span class="nav-number">6.1.</span> <span class="nav-text">方法调用绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%B7%E9%98%B1%EF%BC%9A%E2%80%9C%E9%87%8D%E5%86%99%E2%80%9D%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95"><span class="nav-number">6.2.</span> <span class="nav-text">陷阱：“重写”私有方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%B7%E9%98%B1%EF%BC%9A%E6%9E%84%E9%80%A0%E5%99%A8%E4%B8%AD%E7%9A%84%E5%A4%9A%E6%80%81%E8%A1%8C%E4%B8%BA"><span class="nav-number">6.3.</span> <span class="nav-text">陷阱：构造器中的多态行为</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%81%E3%80%81%E6%8E%A5%E5%8F%A3"><span class="nav-number">7.</span> <span class="nav-text">十、接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8A%BD%E8%B1%A1%E6%96%B9%E6%B3%95"><span class="nav-number">7.1.</span> <span class="nav-text">抽象类和抽象方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3%E5%88%9B%E5%BB%BA"><span class="nav-number">7.2.</span> <span class="nav-text">接口创建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E6%96%B9%E6%B3%95"><span class="nav-number">7.2.1.</span> <span class="nav-text">默认方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%AF%94%E8%BE%83"><span class="nav-number">7.3.</span> <span class="nav-text">抽象类和接口的比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E5%92%8C%E6%8E%A5%E5%8F%A3%E7%9A%84%E4%B8%80%E4%BA%9B%E9%94%99%E8%AF%AF"><span class="nav-number">7.4.</span> <span class="nav-text">继承和接口的一些错误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%86%85%E9%83%A8%E7%B1%BB"><span class="nav-number">7.5.</span> <span class="nav-text">创建内部类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5%E5%A4%96%E9%83%A8%E7%B1%BB"><span class="nav-number">7.6.</span> <span class="nav-text">链接外部类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-this-%E5%92%8C-new"><span class="nav-number">7.7.</span> <span class="nav-text">使用 .this 和 .new</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E7%B1%BB%E6%96%B9%E6%B3%95%E5%92%8C%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">7.8.</span> <span class="nav-text">内部类方法和作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BF%E5%90%8D%E5%86%85%E9%83%A8%E7%B1%BB"><span class="nav-number">7.9.</span> <span class="nav-text">匿名内部类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B5%8C%E5%A5%97%E7%B1%BB"><span class="nav-number">7.10.</span> <span class="nav-text">嵌套类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3%E5%86%85%E9%83%A8%E7%9A%84%E7%B1%BB"><span class="nav-number">7.10.1.</span> <span class="nav-text">接口内部的类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E5%A4%9A%E5%B1%82%E5%B5%8C%E5%A5%97%E7%B1%BB%E4%B8%AD%E8%AE%BF%E9%97%AE%E5%A4%96%E9%83%A8%E7%B1%BB%E7%9A%84%E6%88%90%E5%91%98"><span class="nav-number">7.10.2.</span> <span class="nav-text">从多层嵌套类中访问外部类的成员</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%86%85%E9%83%A8%E7%B1%BB"><span class="nav-number">7.11.</span> <span class="nav-text">为什么需要内部类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AD%E5%8C%85%E4%B8%8E%E5%9B%9E%E8%B0%83"><span class="nav-number">7.11.1.</span> <span class="nav-text">闭包与回调</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E5%86%85%E9%83%A8%E7%B1%BB"><span class="nav-number">7.12.</span> <span class="nav-text">继承内部类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E7%B1%BB%E4%B8%8D%E8%83%BD%E8%A2%AB%E8%A6%86%E7%9B%96"><span class="nav-number">7.13.</span> <span class="nav-text">内部类不能被覆盖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E7%B1%BB%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="nav-number">7.14.</span> <span class="nav-text">内部类标识符</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81%E9%9B%86%E5%90%88"><span class="nav-number">8.</span> <span class="nav-text">十二、集合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">8.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E5%85%83%E7%B4%A0%E7%BB%84"><span class="nav-number">8.2.</span> <span class="nav-text">添加元素组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E6%89%93%E5%8D%B0"><span class="nav-number">8.3.</span> <span class="nav-text">集合的打印</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%97%E8%A1%A8List"><span class="nav-number">8.4.</span> <span class="nav-text">列表List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8Iterator"><span class="nav-number">8.5.</span> <span class="nav-text">迭代器Iterator</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ListIterator"><span class="nav-number">8.5.1.</span> <span class="nav-text">ListIterator</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A0%86%E6%A0%88Stack"><span class="nav-number">8.6.</span> <span class="nav-text">堆栈Stack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%9F%E5%88%97-Queue"><span class="nav-number">8.7.</span> <span class="nav-text">队列 Queue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88Set"><span class="nav-number">8.8.</span> <span class="nav-text">集合Set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%A0%E5%B0%84Map"><span class="nav-number">8.9.</span> <span class="nav-text">映射Map</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1Map%E9%9B%86%E5%90%88%E6%A6%82%E8%BF%B0%E5%92%8C%E7%89%B9%E7%82%B9%E3%80%90%E7%90%86%E8%A7%A3%E3%80%91"><span class="nav-number">8.9.1.</span> <span class="nav-text">1.1Map集合概述和特点【理解】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2Map%E9%9B%86%E5%90%88%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E3%80%90%E5%BA%94%E7%94%A8%E3%80%91"><span class="nav-number">8.9.2.</span> <span class="nav-text">1.2Map集合的基本功能【应用】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3Map%E9%9B%86%E5%90%88%E7%9A%84%E8%8E%B7%E5%8F%96%E5%8A%9F%E8%83%BD%E3%80%90%E5%BA%94%E7%94%A8%E3%80%91"><span class="nav-number">8.9.3.</span> <span class="nav-text">1.3Map集合的获取功能【应用】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4Map%E9%9B%86%E5%90%88%E7%9A%84%E9%81%8D%E5%8E%86-%E6%96%B9%E5%BC%8F1-%E3%80%90%E5%BA%94%E7%94%A8%E3%80%91"><span class="nav-number">8.9.4.</span> <span class="nav-text">1.4Map集合的遍历(方式1)【应用】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5Map%E9%9B%86%E5%90%88%E7%9A%84%E9%81%8D%E5%8E%86-%E6%96%B9%E5%BC%8F2-%E3%80%90%E5%BA%94%E7%94%A8%E3%80%91"><span class="nav-number">8.9.5.</span> <span class="nav-text">1.5Map集合的遍历(方式2)【应用】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6%E7%94%A8forEach%E9%81%8D%E5%8E%86"><span class="nav-number">8.9.6.</span> <span class="nav-text">1.6用forEach遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1HashMap%E9%9B%86%E5%90%88%E6%A6%82%E8%BF%B0%E5%92%8C%E7%89%B9%E7%82%B9%E3%80%90%E7%90%86%E8%A7%A3%E3%80%91"><span class="nav-number">8.9.7.</span> <span class="nav-text">2.1HashMap集合概述和特点【理解】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2HashMap%E9%9B%86%E5%90%88%E5%BA%94%E7%94%A8%E6%A1%88%E4%BE%8B%E3%80%90%E5%BA%94%E7%94%A8%E3%80%91"><span class="nav-number">8.9.8.</span> <span class="nav-text">2.2HashMap集合应用案例【应用】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1TreeMap%E9%9B%86%E5%90%88%E6%A6%82%E8%BF%B0%E5%92%8C%E7%89%B9%E7%82%B9%E3%80%90%E7%90%86%E8%A7%A3%E3%80%91"><span class="nav-number">8.9.9.</span> <span class="nav-text">3.1TreeMap集合概述和特点【理解】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2TreeMap%E9%9B%86%E5%90%88%E5%BA%94%E7%94%A8%E6%A1%88%E4%BE%8B%E4%B8%80%E3%80%90%E5%BA%94%E7%94%A8%E3%80%91"><span class="nav-number">8.9.10.</span> <span class="nav-text">3.2TreeMap集合应用案例一【应用】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3TreeMap%E9%9B%86%E5%90%88%E5%BA%94%E7%94%A8%E6%A1%88%E4%BE%8B%E4%BA%8C%E3%80%90%E5%BA%94%E7%94%A8%E3%80%91"><span class="nav-number">8.9.11.</span> <span class="nav-text">3.3TreeMap集合应用案例二【应用】</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%81%E4%B8%89%E3%80%81%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B"><span class="nav-number">9.</span> <span class="nav-text">十三、函数式编程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E6%97%A7%E5%AF%B9%E6%AF%94"><span class="nav-number">9.1.</span> <span class="nav-text">新旧对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lambda-%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">9.2.</span> <span class="nav-text">Lambda 表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%92%E5%BD%92"><span class="nav-number">9.2.1.</span> <span class="nav-text">递归</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8"><span class="nav-number">9.3.</span> <span class="nav-text">方法引用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Runnable-%E6%8E%A5%E5%8F%A3"><span class="nav-number">9.3.1.</span> <span class="nav-text">Runnable 接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AA%E7%BB%91%E5%AE%9A%E7%9A%84%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8"><span class="nav-number">9.3.2.</span> <span class="nav-text">未绑定的方法引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%BC%95%E7%94%A8"><span class="nav-number">9.3.3.</span> <span class="nav-text">构造函数引用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%81%E6%94%AF%E6%8C%81"><span class="nav-number">9.4.</span> <span class="nav-text">流支持</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E6%95%B0%E6%B5%81"><span class="nav-number">9.4.1.</span> <span class="nav-text">随机数流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#int-%E7%B1%BB%E5%9E%8B%E7%9A%84%E8%8C%83%E5%9B%B4"><span class="nav-number">9.4.2.</span> <span class="nav-text">int 类型的范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#generate"><span class="nav-number">9.4.3.</span> <span class="nav-text">generate()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iterate"><span class="nav-number">9.4.4.</span> <span class="nav-text">iterate()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%81%E7%9A%84%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F"><span class="nav-number">9.4.5.</span> <span class="nav-text">流的建造者模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arrays"><span class="nav-number">9.4.6.</span> <span class="nav-text">Arrays</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">9.4.7.</span> <span class="nav-text">正则表达式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AD%E9%97%B4%E6%93%8D%E4%BD%9C"><span class="nav-number">9.5.</span> <span class="nav-text">中间操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%9F%E8%B8%AA%E5%92%8C%E8%B0%83%E8%AF%95"><span class="nav-number">9.5.1.</span> <span class="nav-text">跟踪和调试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%81%E5%85%83%E7%B4%A0%E6%8E%92%E5%BA%8F"><span class="nav-number">9.5.2.</span> <span class="nav-text">流元素排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0"><span class="nav-number">9.5.3.</span> <span class="nav-text">移除元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%87%BD%E6%95%B0%E5%88%B0%E5%85%83%E7%B4%A0"><span class="nav-number">9.5.4.</span> <span class="nav-text">应用函数到元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8-map-%E4%B8%AD%E7%BB%84%E5%90%88%E6%B5%81"><span class="nav-number">9.5.5.</span> <span class="nav-text">在 map() 中组合流</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Optional%E7%B1%BB"><span class="nav-number">9.6.</span> <span class="nav-text">Optional类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%88%E7%AB%AF%E6%93%8D%E4%BD%9C"><span class="nav-number">9.7.</span> <span class="nav-text">终端操作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%81%E4%BA%94%E3%80%81%E5%BC%82%E5%B8%B8"><span class="nav-number">10.</span> <span class="nav-text">十五、异常</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E6%A6%82%E5%BF%B5"><span class="nav-number">10.1.</span> <span class="nav-text">异常概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E5%8F%82%E6%95%B0"><span class="nav-number">10.2.</span> <span class="nav-text">异常参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E6%8D%95%E8%8E%B7"><span class="nav-number">10.3.</span> <span class="nav-text">异常捕获</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#try-%E8%AF%AD%E5%8F%A5%E5%9D%97"><span class="nav-number">10.3.1.</span> <span class="nav-text">try 语句块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E7%A8%8B%E5%BA%8F"><span class="nav-number">10.3.2.</span> <span class="nav-text">异常处理程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%88%E6%AD%A2%E4%B8%8E%E6%81%A2%E5%A4%8D"><span class="nav-number">10.3.3.</span> <span class="nav-text">终止与恢复</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8"><span class="nav-number">10.4.</span> <span class="nav-text">自定义异常</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
