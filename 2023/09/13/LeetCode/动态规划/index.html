@@ -20,19 +20,17 @@
     var CONFIG = {"hostname":"f0qw.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="动态规划1.斐波那契数列爬楼梯题目描述：有 N 阶楼梯，每次可以上一阶或者两阶，求有多少种上楼梯的方法。 定义一个数组 dp 存储上楼梯的方法数（为了方便讨论，数组下标从 1 开始），dp[i] 表示走到第 i 个楼梯的方法数目。 第 i 个楼梯可以从第 i-1 和 i-2 个楼梯再走一步到达，走到第 i 个楼梯的方法数为走到第 i-1 和第 i-2 个楼梯的方法数之和。 1dp[i] &#x3D; dp[">
+  <meta name="description" content="关于动态规划类专题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="动态规划">
 <meta property="og:url" content="http://f0qw.github.io/2023/09/13/LeetCode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/index.html">
 <meta property="og:site_name" content="f0qw的博客">
-<meta property="og:description" content="动态规划1.斐波那契数列爬楼梯题目描述：有 N 阶楼梯，每次可以上一阶或者两阶，求有多少种上楼梯的方法。 定义一个数组 dp 存储上楼梯的方法数（为了方便讨论，数组下标从 1 开始），dp[i] 表示走到第 i 个楼梯的方法数目。 第 i 个楼梯可以从第 i-1 和 i-2 个楼梯再走一步到达，走到第 i 个楼梯的方法数为走到第 i-1 和第 i-2 个楼梯的方法数之和。 1dp[i] &#x3D; dp[">
+<meta property="og:description" content="关于动态规划类专题">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://tuchuangmweb.oss-cn-shenzhen.aliyuncs.com/mweb/16946155778775..jpg">
-<meta property="og:image" content="http://f0qw.github.io/2023/09/13/LeetCode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/media/16946155778775.jpg">
 <meta property="og:image" content="https://tuchuangmweb.oss-cn-shenzhen.aliyuncs.com/mweb/16946155980671..jpg">
-<meta property="og:image" content="http://f0qw.github.io/2023/09/13/LeetCode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/media/16946155980671.jpg">
 <meta property="article:published_time" content="2023-09-13T14:30:48.769Z">
-<meta property="article:modified_time" content="2023-09-13T14:36:16.936Z">
+<meta property="article:modified_time" content="2024-05-14T16:04:23.220Z">
 <meta property="article:author" content="chen">
 <meta property="article:tag" content="动态规划">
 <meta name="twitter:card" content="summary">
@@ -221,10 +219,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2023-09-13 22:30:48 / Modified: 22:36:16" itemprop="dateCreated datePublished" datetime="2023-09-13T22:30:48+08:00">2023-09-13</time>
+              <time title="Created: 2023-09-13 22:30:48" itemprop="dateCreated datePublished" datetime="2023-09-13T22:30:48+08:00">2023-09-13</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-05-15 00:04:23" itemprop="dateModified" datetime="2024-05-15T00:04:23+08:00">2024-05-15</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -236,6 +240,7 @@
             </span>
 
           
+            <div class="post-description">关于动态规划类专题</div>
 
         </div>
       </header>
@@ -472,11 +477,10 @@
 <hr>
 <p>下面以上面prices = [1,2,3,0,2]为例子,看下四个状态数组的变化</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">buy[0] = -1   -prices[0]</span><br><span class="line">s1[0] = -1    -prices[0]</span><br><span class="line">sell[0] = 0</span><br><span class="line">s2[0] = 0</span><br><span class="line">---------</span><br><span class="line">buy[1] = -2</span><br><span class="line">s1[1] = -1</span><br><span class="line">sell[1] = 1</span><br><span class="line">s2[1] = 0</span><br><span class="line">---------</span><br><span class="line">buy[2] = -3</span><br><span class="line">s1[2] = -1</span><br><span class="line">sell[2] = 2</span><br><span class="line">s2[2] = 1</span><br><span class="line">---------</span><br><span class="line">buy[3] = 1</span><br><span class="line">s1[3] = -1</span><br><span class="line">sell[3] = -1</span><br><span class="line">s2[3] = 2</span><br><span class="line">---------</span><br><span class="line">buy[4] = 0</span><br><span class="line">s1[4] = 1</span><br><span class="line">sell[4] = 3</span><br><span class="line">s2[4] = 2</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><img src="https://tuchuangmweb.oss-cn-shenzhen.aliyuncs.com/mweb/16946155778775..jpg"><br><img src="media/16946155778775.jpg"></p>
+<p><img src="https://tuchuangmweb.oss-cn-shenzhen.aliyuncs.com/mweb/16946155778775..jpg"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxProfit</span><span class="params">(<span class="type">int</span>[] prices)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (prices == <span class="literal">null</span> || prices.length == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> <span class="variable">N</span> <span class="operator">=</span> prices.length;</span><br><span class="line">    <span class="type">int</span>[] buy = <span class="keyword">new</span> <span class="title class_">int</span>[N]; <span class="comment">//buy[i]表示购买了第i天这个股票后的最大总存款</span></span><br><span class="line">    <span class="type">int</span>[] s1 = <span class="keyword">new</span> <span class="title class_">int</span>[N]; <span class="comment">//持有小于等于i天的股票后的最大总存款</span></span><br><span class="line">    <span class="type">int</span>[] sell = <span class="keyword">new</span> <span class="title class_">int</span>[N];<span class="comment">//卖掉小于等于i天的股票后的最大总存款</span></span><br><span class="line">    <span class="type">int</span>[] s2 = <span class="keyword">new</span> <span class="title class_">int</span>[N]; <span class="comment">//在小于i的时候已经卖出了股票，现在第i天处于冷却期或者不持有观望状态的最大总存款</span></span><br><span class="line">    s1[<span class="number">0</span>]=buy[<span class="number">0</span>] = -prices[<span class="number">0</span>];</span><br><span class="line">    sell[<span class="number">0</span>] = s2[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; N; i++) &#123;</span><br><span class="line">        buy[i] = s2[i - <span class="number">1</span>] - prices[i];</span><br><span class="line">        s1[i] = Math.max(buy[i - <span class="number">1</span>], s1[i - <span class="number">1</span>]);</span><br><span class="line">        sell[i] = Math.max(buy[i - <span class="number">1</span>], s1[i - <span class="number">1</span>]) + prices[i];</span><br><span class="line">        s2[i] = Math.max(s2[i - <span class="number">1</span>], sell[i - <span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Math.max(sell[N - <span class="number">1</span>], s2[N - <span class="number">1</span>]);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="多次买卖-但卖需要交易费用的股票交易"><a href="#多次买卖-但卖需要交易费用的股票交易" class="headerlink" title="多次买卖,但卖需要交易费用的股票交易"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/description/">多次买卖,但卖需要交易费用的股票交易</a></h2><p><img src="https://tuchuangmweb.oss-cn-shenzhen.aliyuncs.com/mweb/16946155980671..jpg"></p>
-<p><img src="media/16946155980671.jpg"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxProfit</span><span class="params">(<span class="type">int</span>[] prices, <span class="type">int</span> fee)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">N</span> <span class="operator">=</span> prices.length;</span><br><span class="line">    <span class="type">int</span>[] buy = <span class="keyword">new</span> <span class="title class_">int</span>[N];</span><br><span class="line">    <span class="type">int</span>[] s1 = <span class="keyword">new</span> <span class="title class_">int</span>[N];</span><br><span class="line">    <span class="type">int</span>[] sell = <span class="keyword">new</span> <span class="title class_">int</span>[N];</span><br><span class="line">    <span class="type">int</span>[] s2 = <span class="keyword">new</span> <span class="title class_">int</span>[N];</span><br><span class="line">    s1[<span class="number">0</span>] = buy[<span class="number">0</span>] = -prices[<span class="number">0</span>];</span><br><span class="line">    sell[<span class="number">0</span>] = s2[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; N; i++) &#123;</span><br><span class="line">        buy[i] = Math.max(sell[i - <span class="number">1</span>], s2[i - <span class="number">1</span>]) - prices[i];</span><br><span class="line">        s1[i] = Math.max(buy[i - <span class="number">1</span>], s1[i - <span class="number">1</span>]);</span><br><span class="line">        sell[i] = Math.max(buy[i - <span class="number">1</span>], s1[i - <span class="number">1</span>]) - fee + prices[i];</span><br><span class="line">        s2[i] = Math.max(s2[i - <span class="number">1</span>], sell[i - <span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Math.max(sell[N - <span class="number">1</span>], s2[N - <span class="number">1</span>]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="只能进行两次的股票交易"><a href="#只能进行两次的股票交易" class="headerlink" title="只能进行两次的股票交易"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iii/description/">只能进行两次的股票交易</a></h2><blockquote>
@@ -532,10 +536,13 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/09/13/%E6%9C%AA%E5%91%BD%E5%90%8D/" rel="prev" title="">
-      <i class="fa fa-chevron-left"></i> 
+    <a href="/2023/03/13/%E5%AF%86%E7%A0%81%E6%96%87%E7%AB%A0/%E4%B8%AA%E4%BA%BA%E8%AE%B0%E4%BA%8B/" rel="prev" title="个人记事">
+      <i class="fa fa-chevron-left"></i> 个人记事
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2024/05/15/%E5%AF%86%E7%A0%81%E6%96%87%E7%AB%A0/hexo%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" rel="next" title="hexo使用指南">
+      hexo使用指南 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -609,18 +616,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">1</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">1</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -647,7 +654,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
