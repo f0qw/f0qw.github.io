@@ -27,12 +27,14 @@
 <meta property="og:site_name" content="f0qw的博客">
 <meta property="og:description" content="个人go学习笔记">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-1256613067.cos.ap-guangzhou.myqcloud.com/image-20250413005239477.png?imageSlim">
 <meta property="article:published_time" content="2025-04-12T10:13:18.749Z">
-<meta property="article:modified_time" content="2025-04-12T10:50:02.831Z">
+<meta property="article:modified_time" content="2025-04-12T17:17:37.619Z">
 <meta property="article:author" content="chen">
 <meta property="article:tag" content="学习笔记">
 <meta property="article:tag" content="2025">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-1256613067.cos.ap-guangzhou.myqcloud.com/image-20250413005239477.png?imageSlim">
 
 <link rel="canonical" href="http://f0qw.github.io/2025/04/12/go/Go%E7%B2%BE%E8%BF%9B%E4%B9%8B%E8%B7%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
 
@@ -217,10 +219,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2025-04-12 18:13:18 / Modified: 18:50:02" itemprop="dateCreated datePublished" datetime="2025-04-12T18:13:18+08:00">2025-04-12</time>
+              <time title="Created: 2025-04-12 18:13:18" itemprop="dateCreated datePublished" datetime="2025-04-12T18:13:18+08:00">2025-04-12</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2025-04-13 01:17:37" itemprop="dateModified" datetime="2025-04-13T01:17:37+08:00">2025-04-13</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -243,44 +251,67 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Go精进之路读书笔记"><a href="#Go精进之路读书笔记" class="headerlink" title="Go精进之路读书笔记"></a>Go精进之路读书笔记</h1><h2 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h2><h3 id="1、包名"><a href="#1、包名" class="headerlink" title="1、包名"></a>1、包名</h3><ul>
+        <h1 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h1><h2 id="包名"><a href="#包名" class="headerlink" title="包名"></a>包名</h2><ul>
 <li>尽量使用单个英文单词作为包名，避免使用复数形式。</li>
 <li>包名统一小写，多个单词时也是全小写，例如tencentcloud</li>
 <li>包名应避免与标准库或其他第三方库冲突，最好使用全局唯一的名字。</li>
 </ul>
-<h3 id="2、常量"><a href="#2、常量" class="headerlink" title="2、常量"></a>2、常量</h3><ul>
+<h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><ul>
 <li>常量应该使用全大写字母命名，例如 <code>MAX_SIZE</code>。</li>
 <li>多个单词之间可以使用下划线分隔，例如 <code>DEFAULT_TIMEOUT</code>。</li>
 </ul>
-<h3 id="3、变量"><a href="#3、变量" class="headerlink" title="3、变量"></a>3、变量</h3><ul>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><ul>
 <li>变量名应该使用驼峰命名法（Camel Case），例如 <code>myVariable</code>。</li>
 <li>对于布尔类型的变量，可以使用形容词或动词+ed 形式的命名，例如 <code>isReady</code>、<code>completed</code>。</li>
 <li>对于计数器或迭代器变量，可以使用单个字母命名，如 <code>i</code>、<code>j</code>、<code>k</code>。</li>
 </ul>
-<h3 id="4、函数"><a href="#4、函数" class="headerlink" title="4、函数"></a>4、函数</h3><ul>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ul>
 <li>函数名应该使用驼峰命名法（Camel Case），例如 <code>getUserInfo</code>。</li>
 <li>函数名应当以动词开头，例如 <code>calculateTotal</code>、<code>getUserName</code>。</li>
 <li>对于返回布尔类型结果的函数，命名时可以使用形容词或动词+ed 形式，例如 <code>isValid</code>、<code>isFinished</code>。</li>
 <li>函数名不携带包名的上下文信息，因为包名和函数名总是成对出现的</li>
 </ul>
-<h3 id="5、结构体"><a href="#5、结构体" class="headerlink" title="5、结构体"></a>5、结构体</h3><ul>
+<h2 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h2><ul>
 <li>结构体名应使用驼峰命名法（Camel Case），首字母大写，例如 <code>UserInfo</code>。</li>
 <li>结构体名应使用名词或名词短语，避免使用动词或动词短语。</li>
 </ul>
-<h3 id="6、接口"><a href="#6、接口" class="headerlink" title="6、接口"></a>6、接口</h3><ul>
+<h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><ul>
 <li>接口名应该使用驼峰命名法（Camel Case），首字母大写，例如 <code>OrderService</code>。</li>
 <li>接口名应以 er 结尾，表示该接口描述了一个对象的行为，例如 <code>Reader</code>、<code>Writer</code>。</li>
 </ul>
-<h3 id="7-文件名"><a href="#7-文件名" class="headerlink" title="7. 文件名"></a>7. 文件名</h3><ul>
+<h2 id="文件名"><a href="#文件名" class="headerlink" title="文件名"></a>文件名</h2><ul>
 <li>文件使用全小写 snake 命名风格，比如: xxx_server.go</li>
 </ul>
-<h3 id="8-仓库的根目录"><a href="#8-仓库的根目录" class="headerlink" title="8. 仓库的根目录"></a>8. 仓库的根目录</h3><ul>
+<h2 id="仓库的根目录"><a href="#仓库的根目录" class="headerlink" title="仓库的根目录"></a>仓库的根目录</h2><ul>
 <li>采用小写 + 减号，比如: xxx-server</li>
 </ul>
-<h3 id="9-普通目录"><a href="#9-普通目录" class="headerlink" title="9. 普通目录"></a>9. 普通目录</h3><ul>
+<h2 id="普通目录"><a href="#普通目录" class="headerlink" title="普通目录"></a>普通目录</h2><ul>
 <li>尽可能采用单个英文单词，如果实在不便需要采用多单词者，则采用全小写，比如 tencentcloud<br>（一般包名只由小写字母组成，不能包含大写字母和下划线）</li>
 </ul>
-<h2 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h2><p>啊</p>
+<h1 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h1><p>Go语言沿袭了静态编译型语言的传统：使用变量之前需要先进行变量的声明。</p>
+<p>Go语言有两类变量。</p>
+<ul>
+<li>包级变量（package variable）：在package级别可见的变量。如果是导出变量，则该包级变量也可以被视为全局变量。</li>
+<li>局部变量（local variable）：函数或方法体内声明的变量，仅在函数或方法体内可见。</li>
+</ul>
+<p><img src="https://img-1256613067.cos.ap-guangzhou.myqcloud.com/image-20250413005239477.png?imageSlim" alt="image-20250413005239477"></p>
+<h2 id="声明并显示初始化"><a href="#声明并显示初始化" class="headerlink" title="声明并显示初始化"></a>声明并显示初始化</h2><p>声明时会有默认值，如果想要自定义初始值，则叫声明并显示初始化。</p>
+<p>如果没有显式初始化，Go语言会让这些变量拥有初始的“零值”。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> EOF = errors.New(<span class="string">&quot;EOF&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不想要用默认类型时</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="type">int32</span>(<span class="number">17</span>)</span><br><span class="line"><span class="keyword">var</span> f = <span class="type">float32</span>(<span class="number">3.14</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 对于局部变量则可以如下使用短变量声明形式</span></span><br><span class="line">a := <span class="type">int32</span>(<span class="number">17</span>)</span><br><span class="line">f := <span class="type">float32</span>(<span class="number">3.14</span>)</span><br><span class="line">s := []<span class="type">byte</span>(<span class="string">&quot;hello, gopher!&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 尽量在分支控制时应用短变量声明形式</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">WriteTo</span><span class="params">(w io.Writer)</span></span> (n <span class="type">int64</span>, err <span class="type">error</span>) &#123;</span><br><span class="line">    <span class="comment">// 笔者注：在if循环控制语句中使用短变量声明形式</span></span><br><span class="line">    <span class="keyword">if</span> wv, ok := w.(buffersWriter); ok &#123;</span><br><span class="line">        <span class="keyword">return</span> wv.writeBuffers()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 笔者注：在for条件控制语句中使用短变量声明形式</span></span><br><span class="line">    <span class="keyword">for</span> _, b := <span class="keyword">range</span> *v &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>包级变量的声明全部集中放在源文件头部呢？</p>
+<p>使用静态编程语言的开发人员都知道，变量声明最佳实践中还有一条：就近原则，即尽可能在靠近第一次使用变量的位置声明该变量。</p>
+<p>但是如果一个包级变量在包内部被多处使用，那么这个变量还是放在源文件头部声明比较适合。</p>
+<h2 id="声明并延迟初始化"><a href="#声明并延迟初始化" class="headerlink" title="声明并延迟初始化"></a>声明并延迟初始化</h2><p>由于良好的函数/方法设计讲究的是“单一职责”，因此每个函数/方法规模都不大，很少需要应用var块来聚类声明局部变量。当然，如果你在声明局部变量时遇到适合聚类的应用场景，你也应该毫不犹豫地使用var块来声明多个局部变量。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> (</span><br><span class="line">        tcp      *TCPAddr</span><br><span class="line">        udp      *UDPAddr</span><br><span class="line">        ip       *IPAddr</span><br><span class="line">        wildcard <span class="type">bool</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h1 id="常量-1"><a href="#常量-1" class="headerlink" title="常量"></a>常量</h1><h2 id="有类型常量和无类型常量"><a href="#有类型常量和无类型常量" class="headerlink" title="有类型常量和无类型常量"></a>有类型常量和无类型常量</h2><p><strong>区分：</strong></p>
+<ul>
+<li><p>有类型常量运算时要强制转换的</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> myInt <span class="type">int</span></span><br><span class="line"><span class="keyword">const</span> n myInt = <span class="number">13</span></span><br><span class="line"><span class="keyword">const</span> m <span class="type">int</span> = n + <span class="number">5</span>     <span class="comment">// 编译器错误,因为myInt不能直接转为int</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a <span class="type">int</span> = <span class="number">5</span></span><br><span class="line">    fmt.Println(a + n)     <span class="comment">// 编译器错误</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>无类型常量在参与变量赋值和计算过程时无须显式类型转换，从而达到简化代码的目的：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    a  = <span class="number">5</span></span><br><span class="line">    pi = <span class="number">3.1415926</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> myInt <span class="type">int</span></span><br><span class="line"><span class="keyword">type</span> myFloat <span class="type">float32</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> j myInt = a</span><br><span class="line">    <span class="keyword">var</span> f myFloat = pi</span><br><span class="line">    <span class="keyword">var</span> e <span class="type">float64</span> = a + pi</span><br><span class="line"></span><br><span class="line">    fmt.Println(j)    <span class="comment">// 输出：5</span></span><br><span class="line">    fmt.Println(f)                <span class="comment">// 输出：3.1415926</span></span><br><span class="line">    fmt.Printf(<span class="string">&quot;%T, %v\n&quot;</span>, e, e)  <span class="comment">// float64, 8.1415926</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
 
     </div>
 
@@ -362,7 +393,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Go%E7%B2%BE%E8%BF%9B%E4%B9%8B%E8%B7%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0"><span class="nav-number">1.</span> <span class="nav-text">Go精进之路读书笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83"><span class="nav-number">1.1.</span> <span class="nav-text">命名规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%8C%85%E5%90%8D"><span class="nav-number">1.1.1.</span> <span class="nav-text">1、包名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E5%B8%B8%E9%87%8F"><span class="nav-number">1.1.2.</span> <span class="nav-text">2、常量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E5%8F%98%E9%87%8F"><span class="nav-number">1.1.3.</span> <span class="nav-text">3、变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E5%87%BD%E6%95%B0"><span class="nav-number">1.1.4.</span> <span class="nav-text">4、函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81%E7%BB%93%E6%9E%84%E4%BD%93"><span class="nav-number">1.1.5.</span> <span class="nav-text">5、结构体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6%E3%80%81%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.1.6.</span> <span class="nav-text">6、接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E6%96%87%E4%BB%B6%E5%90%8D"><span class="nav-number">1.1.7.</span> <span class="nav-text">7. 文件名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-%E4%BB%93%E5%BA%93%E7%9A%84%E6%A0%B9%E7%9B%AE%E5%BD%95"><span class="nav-number">1.1.8.</span> <span class="nav-text">8. 仓库的根目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-%E6%99%AE%E9%80%9A%E7%9B%AE%E5%BD%95"><span class="nav-number">1.1.9.</span> <span class="nav-text">9. 普通目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E"><span class="nav-number">1.2.</span> <span class="nav-text">变量声明</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83"><span class="nav-number">1.</span> <span class="nav-text">命名规范</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%85%E5%90%8D"><span class="nav-number">1.1.</span> <span class="nav-text">包名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E9%87%8F"><span class="nav-number">1.2.</span> <span class="nav-text">常量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F"><span class="nav-number">1.3.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0"><span class="nav-number">1.4.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93"><span class="nav-number">1.5.</span> <span class="nav-text">结构体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.6.</span> <span class="nav-text">接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%90%8D"><span class="nav-number">1.7.</span> <span class="nav-text">文件名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%93%E5%BA%93%E7%9A%84%E6%A0%B9%E7%9B%AE%E5%BD%95"><span class="nav-number">1.8.</span> <span class="nav-text">仓库的根目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%99%AE%E9%80%9A%E7%9B%AE%E5%BD%95"><span class="nav-number">1.9.</span> <span class="nav-text">普通目录</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E"><span class="nav-number">2.</span> <span class="nav-text">变量声明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A3%B0%E6%98%8E%E5%B9%B6%E6%98%BE%E7%A4%BA%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">2.1.</span> <span class="nav-text">声明并显示初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A3%B0%E6%98%8E%E5%B9%B6%E5%BB%B6%E8%BF%9F%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">2.2.</span> <span class="nav-text">声明并延迟初始化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E9%87%8F-1"><span class="nav-number">3.</span> <span class="nav-text">常量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E7%B1%BB%E5%9E%8B%E5%B8%B8%E9%87%8F%E5%92%8C%E6%97%A0%E7%B1%BB%E5%9E%8B%E5%B8%B8%E9%87%8F"><span class="nav-number">3.1.</span> <span class="nav-text">有类型常量和无类型常量</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

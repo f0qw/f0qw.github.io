@@ -1,141 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Go精进之路读书笔记</title>
-    <url>/2025/04/12/go/Go%E7%B2%BE%E8%BF%9B%E4%B9%8B%E8%B7%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="Go精进之路读书笔记"><a href="#Go精进之路读书笔记" class="headerlink" title="Go精进之路读书笔记"></a>Go精进之路读书笔记</h1><h2 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h2><h3 id="1、包名"><a href="#1、包名" class="headerlink" title="1、包名"></a>1、包名</h3><ul>
-<li>尽量使用单个英文单词作为包名，避免使用复数形式。</li>
-<li>包名统一小写，多个单词时也是全小写，例如tencentcloud</li>
-<li>包名应避免与标准库或其他第三方库冲突，最好使用全局唯一的名字。</li>
-</ul>
-<h3 id="2、常量"><a href="#2、常量" class="headerlink" title="2、常量"></a>2、常量</h3><ul>
-<li>常量应该使用全大写字母命名，例如 <code>MAX_SIZE</code>。</li>
-<li>多个单词之间可以使用下划线分隔，例如 <code>DEFAULT_TIMEOUT</code>。</li>
-</ul>
-<h3 id="3、变量"><a href="#3、变量" class="headerlink" title="3、变量"></a>3、变量</h3><ul>
-<li>变量名应该使用驼峰命名法（Camel Case），例如 <code>myVariable</code>。</li>
-<li>对于布尔类型的变量，可以使用形容词或动词+ed 形式的命名，例如 <code>isReady</code>、<code>completed</code>。</li>
-<li>对于计数器或迭代器变量，可以使用单个字母命名，如 <code>i</code>、<code>j</code>、<code>k</code>。</li>
-</ul>
-<h3 id="4、函数"><a href="#4、函数" class="headerlink" title="4、函数"></a>4、函数</h3><ul>
-<li>函数名应该使用驼峰命名法（Camel Case），例如 <code>getUserInfo</code>。</li>
-<li>函数名应当以动词开头，例如 <code>calculateTotal</code>、<code>getUserName</code>。</li>
-<li>对于返回布尔类型结果的函数，命名时可以使用形容词或动词+ed 形式，例如 <code>isValid</code>、<code>isFinished</code>。</li>
-<li>函数名不携带包名的上下文信息，因为包名和函数名总是成对出现的</li>
-</ul>
-<h3 id="5、结构体"><a href="#5、结构体" class="headerlink" title="5、结构体"></a>5、结构体</h3><ul>
-<li>结构体名应使用驼峰命名法（Camel Case），首字母大写，例如 <code>UserInfo</code>。</li>
-<li>结构体名应使用名词或名词短语，避免使用动词或动词短语。</li>
-</ul>
-<h3 id="6、接口"><a href="#6、接口" class="headerlink" title="6、接口"></a>6、接口</h3><ul>
-<li>接口名应该使用驼峰命名法（Camel Case），首字母大写，例如 <code>OrderService</code>。</li>
-<li>接口名应以 er 结尾，表示该接口描述了一个对象的行为，例如 <code>Reader</code>、<code>Writer</code>。</li>
-</ul>
-<h3 id="7-文件名"><a href="#7-文件名" class="headerlink" title="7. 文件名"></a>7. 文件名</h3><ul>
-<li>文件使用全小写 snake 命名风格，比如: xxx_server.go</li>
-</ul>
-<h3 id="8-仓库的根目录"><a href="#8-仓库的根目录" class="headerlink" title="8. 仓库的根目录"></a>8. 仓库的根目录</h3><ul>
-<li>采用小写 + 减号，比如: xxx-server</li>
-</ul>
-<h3 id="9-普通目录"><a href="#9-普通目录" class="headerlink" title="9. 普通目录"></a>9. 普通目录</h3><ul>
-<li>尽可能采用单个英文单词，如果实在不便需要采用多单词者，则采用全小写，比如 tencentcloud<br>（一般包名只由小写字母组成，不能包含大写字母和下划线）</li>
-</ul>
-<h2 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h2><p>啊</p>
-]]></content>
-      <categories>
-        <category>go</category>
-      </categories>
-      <tags>
-        <tag>学习笔记</tag>
-        <tag>2025</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>python3指南</title>
-    <url>/2024/05/16/python/python3%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>python中单引号字符串和双引号字符串是相同的，他们没有任何区别。<code>同时在 Python 中，没有单独的 char 数据类型</code>。同时还有三引号字符串，可以在三引号中自由地使用单引号和双引号。例如：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;This is a multi-line string. This is the first line.</span></span><br><span class="line"><span class="string">This is the second line.</span></span><br><span class="line"><span class="string">&quot;What&#x27;s your name?,&quot; I asked.</span></span><br><span class="line"><span class="string">He said &quot;Bond, James Bond.&quot;</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>如果想要使用原始字符串</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">r&quot;Newlines are indicated by \n&quot;</span></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="format-方法"><a href="#format-方法" class="headerlink" title="format 方法"></a>format 方法</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">age = <span class="number">20</span></span><br><span class="line">name = <span class="string">&#x27;Swaroop&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&#123;0&#125; was &#123;1&#125; years old when he wrote this book&#x27;</span>.<span class="built_in">format</span>(name, age))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Why is &#123;0&#125; playing with that python?&#x27;</span>.<span class="built_in">format</span>(name))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&#123;&#125; was &#123;&#125; years old when he wrote this book&#x27;</span>.<span class="built_in">format</span>(name, age))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Why is &#123;&#125; playing with that python?&#x27;</span>.<span class="built_in">format</span>(name))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 取十进制小数点后的精度为 3 ，得到的浮点数为 &#x27;0.333&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&#123;0:.3f&#125;&#x27;</span>.<span class="built_in">format</span>(<span class="number">1.0</span>/<span class="number">3</span>))</span><br><span class="line"><span class="comment"># 填充下划线 (_) ，文本居中</span></span><br><span class="line"><span class="comment"># 将 &#x27;___hello___&#x27; 的宽度扩充为 11 </span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&#123;0:_^11&#125;&#x27;</span>.<span class="built_in">format</span>(<span class="string">&#x27;hello&#x27;</span>))</span><br><span class="line"><span class="comment"># 用基于关键字的方法打印显示 &#x27;Swaroop wrote A Byte of Python&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&#123;name&#125; wrote &#123;book&#125;&#x27;</span>.<span class="built_in">format</span>(name=<span class="string">&#x27;Swaroop&#x27;</span>, book=<span class="string">&#x27;A Byte of Python&#x27;</span>))</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="运算符与表达式"><a href="#运算符与表达式" class="headerlink" title="运算符与表达式"></a>运算符与表达式</h1><p><strong>计算的顺序</strong><br><code>lambda</code> ：Lambda 表达式<br><code>if - else</code> ：条件表达式<br><code>or</code> ：布尔或<br><code>and</code> ：布尔与<br><code>not x</code> ：布尔非<br><code>in, not in, is, is not, &lt;, &lt;=, &gt;, &gt;=, !=, ==</code> ：比较，包括成员资格测试和身份测试<br><code>|</code> ：按位或<br><code>^</code> ：按位异或<br><code>&amp;</code> ：按位与<br><code>&lt;&lt;, &gt;&gt;</code> ：移位<br><code>+, -</code> ：加减法<br><code>*, /, //, %</code> ：乘除法，取整和取余<br><code>+x, -x, ~x</code> ：正负号，按位非<br><code>**</code> ：求幂<br><code>x[index], x[index:index], x(arguments...), x.attribute</code> ：订阅，切片，调用，属性引用<br><code>(expressions...), [expressions...], &#123;key: value...&#125;, &#123;expressions...&#125;</code> ： 绑定或者元组显示，列表显示，字典显示，设置显示</p>
-<h1 id="控制流"><a href="#控制流" class="headerlink" title="控制流"></a>控制流</h1><h2 id="if和while"><a href="#if和while" class="headerlink" title="if和while"></a>if和while</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">number = <span class="number">23</span></span><br><span class="line">running = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> running:</span><br><span class="line">    guess = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;Enter an integer : &#x27;</span>))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> guess == number:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Congratulations, you guessed it.&#x27;</span>)</span><br><span class="line">        <span class="comment"># 这会导致 while 循环停止</span></span><br><span class="line">        running = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">elif</span> guess &lt; number:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;No, it is a little higher than that.&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;No, it is a little lower than that.&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;The while loop is over.&#x27;</span>)</span><br><span class="line">    <span class="comment"># 你可以在此处继续进行其它你想做的操作</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Done&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="for"><a href="#for" class="headerlink" title="for"></a>for</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># else 部分是可选的。如果程序有该部分，那么在 for 循环结束后一定会执行一次该部分。</span></span><br><span class="line"><span class="comment"># 除非遇到 break 语句</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">5</span>):</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;The for loop is over&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="global语句"><a href="#global语句" class="headerlink" title="global语句"></a>global语句</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = <span class="number">50</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>():</span><br><span class="line">    <span class="keyword">global</span> x</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;x is&#x27;</span>, x) <span class="comment"># x is 50</span></span><br><span class="line">    x = <span class="number">2</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Changed global x to&#x27;</span>, x) <span class="comment"># Changed global x to 2</span></span><br><span class="line"></span><br><span class="line">func()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Value of x is&#x27;</span>, x) <span class="comment"># Value of x is 2</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="默认参数值"><a href="#默认参数值" class="headerlink" title="默认参数值"></a>默认参数值</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">say</span>(<span class="params">message, times=<span class="number">1</span></span>):</span><br><span class="line">    <span class="built_in">print</span>(message * times)</span><br><span class="line"></span><br><span class="line">say(<span class="string">&#x27;Hello&#x27;</span>)</span><br><span class="line">say(<span class="string">&#x27;World&#x27;</span>, <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="关键字参数"><a href="#关键字参数" class="headerlink" title="关键字参数"></a>关键字参数</h2><p>这样做有两个优势：其一，这样给函数传递参数时更加简单，因为我们不需要担心参数的位置。其二，我们可以只给我们想要改变的参数赋值，让其他参数使用默认值。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>(<span class="params">a, b=<span class="number">5</span>, c=<span class="number">10</span></span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;a is&#x27;</span>, a, <span class="string">&#x27;and b is&#x27;</span>, b, <span class="string">&#x27;and c is&#x27;</span>, c)</span><br><span class="line"></span><br><span class="line">func(<span class="number">3</span>, <span class="number">7</span>)</span><br><span class="line">func(<span class="number">25</span>, c=<span class="number">24</span>)  <span class="comment"># c是关键字参数，其中b又有默认参数</span></span><br><span class="line">func(c=<span class="number">50</span>, a=<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="可变参数"><a href="#可变参数" class="headerlink" title="可变参数"></a>可变参数</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">total</span>(<span class="params">a=<span class="number">5</span>, *numbers, **phonebook</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;a&#x27;</span>, a)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 遍历元组中的所有项</span></span><br><span class="line">    <span class="keyword">for</span> single_item <span class="keyword">in</span> numbers:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;single_item&#x27;</span>, single_item)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 遍历字典中的所有项</span></span><br><span class="line">    <span class="keyword">for</span> first_part, second_part <span class="keyword">in</span> phonebook.items():</span><br><span class="line">        <span class="built_in">print</span>(first_part,second_part)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(total(<span class="number">10</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,Jack=<span class="number">1123</span>,John=<span class="number">2231</span>,Inge=<span class="number">1560</span>))</span><br></pre></td></tr></table></figure>
-<p>最后的None是因为函数没有返回值</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ python function_varargs.py</span><br><span class="line">a 10</span><br><span class="line">single_item 1</span><br><span class="line">single_item 2</span><br><span class="line">single_item 3</span><br><span class="line">Inge 1560</span><br><span class="line">John 2231</span><br><span class="line">Jack 1123</span><br><span class="line">None</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="文档字符串"><a href="#文档字符串" class="headerlink" title="文档字符串"></a>文档字符串</h2><p>Python 有一个十分美妙的特性 文档字符串 (documentation strings)，通常简称为 DocStrings。<br>我们可以通过 print_max 函数的 <strong>doc</strong> 属性来访问它的 DocStrings，注意：属性 doc 的前后都有两个下划线。你只需要记住 Python 把 任何 东西都当作对象，这也包括函数<br>如果你在 Python 中已经尝试过 help()，那么你已经见识到 DocStings 的用处了。help() 函数做的事情就是抓取对应函数的 <strong>doc</strong> 属性，并以美观的方式打印出来。你可以对上面编写的函数尝试这一点，只需要在代码的最后加上一行 help(print_max) 。记住 按 q 可以退出 help。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">print_max</span>(<span class="params">x, y</span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;Prints the maximum of two numbers.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    The two values must be integers.&#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="comment"># 如果有必要，将参数转为整数</span></span><br><span class="line">    x = <span class="built_in">int</span>(x)</span><br><span class="line">    y = <span class="built_in">int</span>(y)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> x &gt; y:</span><br><span class="line">        <span class="built_in">print</span>(x, <span class="string">&#x27;is maximum&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(y, <span class="string">&#x27;is maximum&#x27;</span>)</span><br><span class="line"></span><br><span class="line">print_max(<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(print_max.__doc__)</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h1><h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h1 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h1><h1 id="输入与输出"><a href="#输入与输出" class="headerlink" title="输入与输出"></a>输入与输出</h1><h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1><h1 id="标准库"><a href="#标准库" class="headerlink" title="标准库"></a>标准库</h1>]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>学习笔记</tag>
-        <tag>2025</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>个人记事</title>
-    <url>/2023/03/13/%E5%AF%86%E7%A0%81%E6%96%87%E7%AB%A0/%E4%B8%AA%E4%BA%BA%E8%AE%B0%E4%BA%8B/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="fd13a96a249cb62f810296154bb8b712cba1cbeea42e057bb20bbc4ee2b44a22">a6abe3973317fe2591a8f79ea5f67e54ec2157222991e90e2d11a5a3109df0a387ca2ae0efd513beb356b1ffeed9cf691fb8bef13df4add0e958a11b0b7ffb70d9c3807c045afd5951ab97a1b6088eed8d273d630de3cdcb56951603252db0c4447f0ca6950c2ddf1fcf44d5bce533432fedaf6ce3ce7ac07038f6d7240f827ff9da881ba3638581c89a5f1acaeff672a8f54903e6043b5c12e18b6af7b91a039d2758423ea5f2e808d645eb4caad72de217c9dacf100fa02a20bd47f95c13f3a82ee0e99acb3d484109d7b9846169ce3e9671b1827cca284147987137b0d17997f287f1792d6df160e6dd676ec439b6c00d70743ec16635306ac662a1dee2d61e9d7237df6a5581e3ee9ce768b08079bd89963774981328a27c22cccb8dd7a8133a0284d8267e58b79bbb8a1bfa1383</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">请输入密码查看</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>密码文章</category>
-      </categories>
-      <tags>
-        <tag>其他</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo使用指南</title>
-    <url>/2024/05/15/%E5%AF%86%E7%A0%81%E6%96%87%E7%AB%A0/hexo%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="c60c8e9597da43d0867ad22e073e06db9458d9b12026d0466e678c6edbf4fbe5">a6abe3973317fe2591a8f79ea5f67e54ec2157222991e90e2d11a5a3109df0a39dbfed400361c239759829fe0d93a3c252abe160eae637332800dbd191278dd2fac8a44da9794383c81b9522f1818ffd7d6877e83874c394b1d592885c553cabeb3c9c3a587bcc93a010fe9964bab1ff455e38985145ac59617267e588001ae944dc88c3006aefe9465fcf2be2a0e36ae136626c17252655807a41b03a103b90e82b37c60367159473618e90339c43cb01fc30886d56de6787f6fa14b30206e516d7f76050a80a09e012150e15a0ed98afae3fd267f5542da95eaf95b27b89269d9858c2ab33badfd2439990be86c0fe5014ef37bbe47fed1d2da41ee53e5144ecdba275a8a66e4ad25cf28602a9a11e2183ece8d75d8ed417a082b76fe6c9e3d26983e9b57a332fd5ef6e62942cf014568074ac30f8cf124b8de4adadaeb546af45e1d6f3d4a473df187b6618dff7413da06cc74b2881a92dc4e09195663babe6f03be3a66865f0aff105dac8a8e7b2b4e3f250bb15470ad93e645bb0f58ea8afbe61d130ba222cd9de76776586d7a37e75cf8b4c7777f75b7dfcdc5621360521f08f821b7548526f839f7796d6064608755f12d93c05e194f84b1e01297994be670741cbe055738ee25221df5ddfb1666c0f1ea61c60b4046d7471cccd12e8d25517c64e012d9e60443ee9efb8b2d1328e7bc6d10482dc940a15b59df4a7cd28cfd2f9fd01bc1b247fd113618c5dfc6d4fce53465770e2aa2b1a027330069118e0bb5ef28f71673b7b191c7301f5cb9ec383dd7bed3e7a9f9753280e0df4f9a07a0e6997969e760a6f4374db3077b0373e822048d77164a0836d62c1fbfba868113c73c4f3ff2da9b7b07ee0c513ca613665440d18860c834150efec99cf5134c38b21c6ecf1ff2820edd500a7f746bc848a258a1e9a2c64088c8fcbf3151aee84fd02ee6f6d5ca710cc9ad818a85796990edbb0f1b89da02db64596c1cc40de47e99e35d9506e8741e6e4d94c0eeedc324c745b977664b9ec722df0a43bb574378d392066e2a4835518877f59602a74b3e8a0bcaf7554864f9c5fdf26b48d8b79d7fde9c868bc8e2676f768872ba4b1dd823dd85278529ee827cbe1cfb2d4f0ed015de9b35ca7b443428e09c393980394ba0519d50b7313d3df4f6655c0f0146cd64e829fc73049fc61f17542b7c21f78a351d98b2b42659e7ad47bbb9420becf71a061457d9d2c0bae5c4ad7ac4687b338dd54ce1221b9b03ac3f521198f1782c30fdea2595744ab5e9d0bf5e70e26fc2ef550f8af2b7d014bb6efe216852189c11a77d1ebbc6e44a2479f322dd2bf066d25931f6c57f9b674ffc85e8f367f29e9172d018ab56ca6c0b02c2c042c993cc55b458d45c34e571aa7ebd524e24cb404286f89e771e4e5fc98ee7eb38a81fba154da12d06e64f58578f32cd5a7f6f52e8813e3d1d1cf582305e13acda15ac4b9267e854338e03daa43d077ba7130d57d6bffe3741bd886dea7037eab9abc7085a66a8711cb337549b492f112dba8e576dbe794c00c44a0790efd052203e68df120ce5f0b85147003d949eabee60255d7175573fe004779e20664abda2df32e4c29e57613bc025f3298d1e2f742bb0b2219a537e380b57e5a552120028f00444f453317932882563735d9564bfe3eb22b52963f6ac7806da506a8a7b8cfd2eb94f22dcc4f99afdd955d927b2cbbb0e7ab55c4ecaf0ffc3cb5603588c3dbe1710707086fab466ab43d74d73a55bf915be67c93acbecf5d5fc9f46b1a05f4bfdb542acdd61e2d762e0cce3b2623810827149ac23d13eee466bf372c6c742c78bb024b355dac11222970f6d5c8ef3e359921f211f8a1fb06a9abebf6e5ae5ff87ffb877f512afa67745027ebcdd9eb436af2aae79c51d4a12fcd24320a4c5429a5142810f2cf804aa2843f7362ac9d8189aa69573b02a98fb153fdb3cf3ca7cf39bda6acf9c98e10722209b23ba277aa14702ab1548691b1804b1444b33aa5dc6c55c3c0928abaa5dd7b0f69981287064464f700390d71e240dda394e5fdacf9d1c3224563252eabbaf9aa11126474efcfd1b8b20ce02214e0becf93c88b98063587aa4bab71eba53fadf8176a4a7a834f9336826d384722a40e55859ed05b627802852740407aa5dd6d45e98d7409d1c8c3ce33110d767aabeb4290e2fe25f374a3feeae35267bd88a174cfc7890a899277f3f73c3ea1605a0519ccb53c8e00c335bacce6888f82e5c931352011e3496f46675ea233071114dc56c04f289dda68b58f9fd07e00d22df63e5335465da2878864b6e7804bf7f7ec9524b886ab3a3320ed7e4bc647c575f677ee6e7a68617cf0a80768b3bbbd6fc87b0a24b68ca2b5920e11dd026757f132037441c293999bd505ccdeaf3f0ece9892a5258272cf34f5cb02a7c36f307e5bce1d1ce387a04cec20fa6e494c196899dac6a74f8edc7b9061efc2c50bde11327c185c85df765ee1b64e8e66fc09d21f4a5f9f1f8dd4f5c19d866ba2af3f66513f61b1788acabe2f2b38c8be8e16e9cb9db4f41a9aff68456255308ba05bc4861f0fdc54c5d60100dc5ff6d64f1dcd7a4a7d459d53e86f3ade6aa16b1ac8547f00de55651d97665b56bc8ea115cfab4c6cc6b92288f3b409b36ec35b7a808cab2b294c7816bed747e2804717ff7ec84313a70714d29237d80b94b694c79b9045b40c5c4f6f8ea37dffa6126e8d3fa5b955da172a5c9b6b8373b3b753eefd342d3983e459099262f15244e4cd9166d2241f5a7350d79339b6c4f5ac6ae6441b60b0e3a4ed90c48ee1bcd13cc4b6d7daf4741a207a898123d63b1df78dac6bedec7c930d4461aef7bd4d8968e3ef2e11b1e9c653c30db4434d9a5dffddff5f1cd0bd5b4444a72f6a1a0f98d25c2db4cdf5560a789a6d4e91bc491d84e11cbc82b62536d3b106b2af5e2adbe7bf51cb319819d87b1d3ab645425ac473c4e15cbe4d55a9940a4fbd29d06c33b5afc5073905f8570fd1346b62f62191123d5e8f193441917cc57f91f3c10742665780d4775984f45e10138105e9deae21be909995adbc5b0cb9c7bee50b244c3b46e80d538a3814b1af91c813f7d3c5f3f6eb5320639cf6b04ef80c1219c84316874b059bc5da2cb74373ae30ac9b68fd4e61d1fde66facb55987c1b4f25d4ed6c6f2d085c21630db8e5352b50eb3a6f20f912b5f01025be23ed19a40b752e783998316cc3c2561bcd4336e514d8d25cb2eecd93e207aa6834b3300b5a3d2f8be44b01433b54a9ea81972017deb2260c765c73808dafc9b54ba7f3699cfae92df4401474d99cd8f77d413ead09e3a3265d52a6d0cb4bf2338fe2f5f2266dcb1953fe0fa256e38cde3a4b8f0dba33fe8101c1e422b6ec10e56c2d8c8ff146daf2abe8048d5f24bd0a07e36822c176b3795b9cc75494eff6ee6df985504e66814c02b2a81297da9ec57c3e492ae9348bf296f82e6b09ee62d9401028cd58487847c3e569d7553c420075907dc177f03dd994ba1e5884c22535179bcc919b4b5b2afa4555bbbaa5183ebcbc52f68a81358df9514c3670cb0dc5ef116efa08cb0207fc7604dfbf719455667fe0d58a7c89142e5b671f924157f8ca2ab4ab7dc57aa49e3372536ca50fa41bc6e60fa833c9bf6ff814edbff7c6d0bb7a9ba3a871820573b1dac1665fdd9dad8df77b0cb86664c4338b79a10aae58058573e9a003f13ead47121a3871e22a836087a51a56508ff73fcafdf24907ce126b93fa9edfb4272dfc0022adf088cc4fb4cfa1d64d4cd4a5aa4a9f48a3bec155dff</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">请输入密码查看</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>密码文章</category>
-      </categories>
-      <tags>
-        <tag>软件使用</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>动态规划</title>
     <url>/2023/09/13/LeetCode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
     <content><![CDATA[<h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><h1 id="1-斐波那契数列"><a href="#1-斐波那契数列" class="headerlink" title="1.斐波那契数列"></a>1.斐波那契数列</h1><h2 id="爬楼梯"><a href="#爬楼梯" class="headerlink" title="爬楼梯"></a><a href="https://leetcode.cn/problems/climbing-stairs/description/">爬楼梯</a></h2><p>aa题目描述：有 N 阶楼梯，每次可以上一阶或者两阶，求有多少种上楼梯的方法。</p>
@@ -419,6 +284,164 @@
       </categories>
       <tags>
         <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Go精进之路读书笔记</title>
+    <url>/2025/04/12/go/Go%E7%B2%BE%E8%BF%9B%E4%B9%8B%E8%B7%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h1><h2 id="包名"><a href="#包名" class="headerlink" title="包名"></a>包名</h2><ul>
+<li>尽量使用单个英文单词作为包名，避免使用复数形式。</li>
+<li>包名统一小写，多个单词时也是全小写，例如tencentcloud</li>
+<li>包名应避免与标准库或其他第三方库冲突，最好使用全局唯一的名字。</li>
+</ul>
+<h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><ul>
+<li>常量应该使用全大写字母命名，例如 <code>MAX_SIZE</code>。</li>
+<li>多个单词之间可以使用下划线分隔，例如 <code>DEFAULT_TIMEOUT</code>。</li>
+</ul>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><ul>
+<li>变量名应该使用驼峰命名法（Camel Case），例如 <code>myVariable</code>。</li>
+<li>对于布尔类型的变量，可以使用形容词或动词+ed 形式的命名，例如 <code>isReady</code>、<code>completed</code>。</li>
+<li>对于计数器或迭代器变量，可以使用单个字母命名，如 <code>i</code>、<code>j</code>、<code>k</code>。</li>
+</ul>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ul>
+<li>函数名应该使用驼峰命名法（Camel Case），例如 <code>getUserInfo</code>。</li>
+<li>函数名应当以动词开头，例如 <code>calculateTotal</code>、<code>getUserName</code>。</li>
+<li>对于返回布尔类型结果的函数，命名时可以使用形容词或动词+ed 形式，例如 <code>isValid</code>、<code>isFinished</code>。</li>
+<li>函数名不携带包名的上下文信息，因为包名和函数名总是成对出现的</li>
+</ul>
+<h2 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h2><ul>
+<li>结构体名应使用驼峰命名法（Camel Case），首字母大写，例如 <code>UserInfo</code>。</li>
+<li>结构体名应使用名词或名词短语，避免使用动词或动词短语。</li>
+</ul>
+<h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><ul>
+<li>接口名应该使用驼峰命名法（Camel Case），首字母大写，例如 <code>OrderService</code>。</li>
+<li>接口名应以 er 结尾，表示该接口描述了一个对象的行为，例如 <code>Reader</code>、<code>Writer</code>。</li>
+</ul>
+<h2 id="文件名"><a href="#文件名" class="headerlink" title="文件名"></a>文件名</h2><ul>
+<li>文件使用全小写 snake 命名风格，比如: xxx_server.go</li>
+</ul>
+<h2 id="仓库的根目录"><a href="#仓库的根目录" class="headerlink" title="仓库的根目录"></a>仓库的根目录</h2><ul>
+<li>采用小写 + 减号，比如: xxx-server</li>
+</ul>
+<h2 id="普通目录"><a href="#普通目录" class="headerlink" title="普通目录"></a>普通目录</h2><ul>
+<li>尽可能采用单个英文单词，如果实在不便需要采用多单词者，则采用全小写，比如 tencentcloud<br>（一般包名只由小写字母组成，不能包含大写字母和下划线）</li>
+</ul>
+<h1 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h1><p>Go语言沿袭了静态编译型语言的传统：使用变量之前需要先进行变量的声明。</p>
+<p>Go语言有两类变量。</p>
+<ul>
+<li>包级变量（package variable）：在package级别可见的变量。如果是导出变量，则该包级变量也可以被视为全局变量。</li>
+<li>局部变量（local variable）：函数或方法体内声明的变量，仅在函数或方法体内可见。</li>
+</ul>
+<p><img src="https://img-1256613067.cos.ap-guangzhou.myqcloud.com/image-20250413005239477.png?imageSlim" alt="image-20250413005239477"></p>
+<h2 id="声明并显示初始化"><a href="#声明并显示初始化" class="headerlink" title="声明并显示初始化"></a>声明并显示初始化</h2><p>声明时会有默认值，如果想要自定义初始值，则叫声明并显示初始化。</p>
+<p>如果没有显式初始化，Go语言会让这些变量拥有初始的“零值”。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> EOF = errors.New(<span class="string">&quot;EOF&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不想要用默认类型时</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="type">int32</span>(<span class="number">17</span>)</span><br><span class="line"><span class="keyword">var</span> f = <span class="type">float32</span>(<span class="number">3.14</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 对于局部变量则可以如下使用短变量声明形式</span></span><br><span class="line">a := <span class="type">int32</span>(<span class="number">17</span>)</span><br><span class="line">f := <span class="type">float32</span>(<span class="number">3.14</span>)</span><br><span class="line">s := []<span class="type">byte</span>(<span class="string">&quot;hello, gopher!&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 尽量在分支控制时应用短变量声明形式</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">WriteTo</span><span class="params">(w io.Writer)</span></span> (n <span class="type">int64</span>, err <span class="type">error</span>) &#123;</span><br><span class="line">    <span class="comment">// 笔者注：在if循环控制语句中使用短变量声明形式</span></span><br><span class="line">    <span class="keyword">if</span> wv, ok := w.(buffersWriter); ok &#123;</span><br><span class="line">        <span class="keyword">return</span> wv.writeBuffers()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 笔者注：在for条件控制语句中使用短变量声明形式</span></span><br><span class="line">    <span class="keyword">for</span> _, b := <span class="keyword">range</span> *v &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>包级变量的声明全部集中放在源文件头部呢？</p>
+<p>使用静态编程语言的开发人员都知道，变量声明最佳实践中还有一条：就近原则，即尽可能在靠近第一次使用变量的位置声明该变量。</p>
+<p>但是如果一个包级变量在包内部被多处使用，那么这个变量还是放在源文件头部声明比较适合。</p>
+<h2 id="声明并延迟初始化"><a href="#声明并延迟初始化" class="headerlink" title="声明并延迟初始化"></a>声明并延迟初始化</h2><p>由于良好的函数/方法设计讲究的是“单一职责”，因此每个函数/方法规模都不大，很少需要应用var块来聚类声明局部变量。当然，如果你在声明局部变量时遇到适合聚类的应用场景，你也应该毫不犹豫地使用var块来声明多个局部变量。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> (</span><br><span class="line">        tcp      *TCPAddr</span><br><span class="line">        udp      *UDPAddr</span><br><span class="line">        ip       *IPAddr</span><br><span class="line">        wildcard <span class="type">bool</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h1 id="常量-1"><a href="#常量-1" class="headerlink" title="常量"></a>常量</h1><h2 id="有类型常量和无类型常量"><a href="#有类型常量和无类型常量" class="headerlink" title="有类型常量和无类型常量"></a>有类型常量和无类型常量</h2><p><strong>区分：</strong></p>
+<ul>
+<li><p>有类型常量运算时要强制转换的</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> myInt <span class="type">int</span></span><br><span class="line"><span class="keyword">const</span> n myInt = <span class="number">13</span></span><br><span class="line"><span class="keyword">const</span> m <span class="type">int</span> = n + <span class="number">5</span>     <span class="comment">// 编译器错误,因为myInt不能直接转为int</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a <span class="type">int</span> = <span class="number">5</span></span><br><span class="line">    fmt.Println(a + n)     <span class="comment">// 编译器错误</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>无类型常量在参与变量赋值和计算过程时无须显式类型转换，从而达到简化代码的目的：</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    a  = <span class="number">5</span></span><br><span class="line">    pi = <span class="number">3.1415926</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> myInt <span class="type">int</span></span><br><span class="line"><span class="keyword">type</span> myFloat <span class="type">float32</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> j myInt = a</span><br><span class="line">    <span class="keyword">var</span> f myFloat = pi</span><br><span class="line">    <span class="keyword">var</span> e <span class="type">float64</span> = a + pi</span><br><span class="line"></span><br><span class="line">    fmt.Println(j)    <span class="comment">// 输出：5</span></span><br><span class="line">    fmt.Println(f)                <span class="comment">// 输出：3.1415926</span></span><br><span class="line">    fmt.Printf(<span class="string">&quot;%T, %v\n&quot;</span>, e, e)  <span class="comment">// float64, 8.1415926</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>go</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+        <tag>2025</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python3指南</title>
+    <url>/2024/05/16/python/python3%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>python中单引号字符串和双引号字符串是相同的，他们没有任何区别。<code>同时在 Python 中，没有单独的 char 数据类型</code>。同时还有三引号字符串，可以在三引号中自由地使用单引号和双引号。例如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;This is a multi-line string. This is the first line.</span></span><br><span class="line"><span class="string">This is the second line.</span></span><br><span class="line"><span class="string">&quot;What&#x27;s your name?,&quot; I asked.</span></span><br><span class="line"><span class="string">He said &quot;Bond, James Bond.&quot;</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果想要使用原始字符串</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">r&quot;Newlines are indicated by \n&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="format-方法"><a href="#format-方法" class="headerlink" title="format 方法"></a>format 方法</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">age = <span class="number">20</span></span><br><span class="line">name = <span class="string">&#x27;Swaroop&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&#123;0&#125; was &#123;1&#125; years old when he wrote this book&#x27;</span>.<span class="built_in">format</span>(name, age))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Why is &#123;0&#125; playing with that python?&#x27;</span>.<span class="built_in">format</span>(name))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&#123;&#125; was &#123;&#125; years old when he wrote this book&#x27;</span>.<span class="built_in">format</span>(name, age))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Why is &#123;&#125; playing with that python?&#x27;</span>.<span class="built_in">format</span>(name))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 取十进制小数点后的精度为 3 ，得到的浮点数为 &#x27;0.333&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&#123;0:.3f&#125;&#x27;</span>.<span class="built_in">format</span>(<span class="number">1.0</span>/<span class="number">3</span>))</span><br><span class="line"><span class="comment"># 填充下划线 (_) ，文本居中</span></span><br><span class="line"><span class="comment"># 将 &#x27;___hello___&#x27; 的宽度扩充为 11 </span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&#123;0:_^11&#125;&#x27;</span>.<span class="built_in">format</span>(<span class="string">&#x27;hello&#x27;</span>))</span><br><span class="line"><span class="comment"># 用基于关键字的方法打印显示 &#x27;Swaroop wrote A Byte of Python&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&#123;name&#125; wrote &#123;book&#125;&#x27;</span>.<span class="built_in">format</span>(name=<span class="string">&#x27;Swaroop&#x27;</span>, book=<span class="string">&#x27;A Byte of Python&#x27;</span>))</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="运算符与表达式"><a href="#运算符与表达式" class="headerlink" title="运算符与表达式"></a>运算符与表达式</h1><p><strong>计算的顺序</strong><br><code>lambda</code> ：Lambda 表达式<br><code>if - else</code> ：条件表达式<br><code>or</code> ：布尔或<br><code>and</code> ：布尔与<br><code>not x</code> ：布尔非<br><code>in, not in, is, is not, &lt;, &lt;=, &gt;, &gt;=, !=, ==</code> ：比较，包括成员资格测试和身份测试<br><code>|</code> ：按位或<br><code>^</code> ：按位异或<br><code>&amp;</code> ：按位与<br><code>&lt;&lt;, &gt;&gt;</code> ：移位<br><code>+, -</code> ：加减法<br><code>*, /, //, %</code> ：乘除法，取整和取余<br><code>+x, -x, ~x</code> ：正负号，按位非<br><code>**</code> ：求幂<br><code>x[index], x[index:index], x(arguments...), x.attribute</code> ：订阅，切片，调用，属性引用<br><code>(expressions...), [expressions...], &#123;key: value...&#125;, &#123;expressions...&#125;</code> ： 绑定或者元组显示，列表显示，字典显示，设置显示</p>
+<h1 id="控制流"><a href="#控制流" class="headerlink" title="控制流"></a>控制流</h1><h2 id="if和while"><a href="#if和while" class="headerlink" title="if和while"></a>if和while</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">number = <span class="number">23</span></span><br><span class="line">running = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> running:</span><br><span class="line">    guess = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;Enter an integer : &#x27;</span>))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> guess == number:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Congratulations, you guessed it.&#x27;</span>)</span><br><span class="line">        <span class="comment"># 这会导致 while 循环停止</span></span><br><span class="line">        running = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">elif</span> guess &lt; number:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;No, it is a little higher than that.&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;No, it is a little lower than that.&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;The while loop is over.&#x27;</span>)</span><br><span class="line">    <span class="comment"># 你可以在此处继续进行其它你想做的操作</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Done&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="for"><a href="#for" class="headerlink" title="for"></a>for</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># else 部分是可选的。如果程序有该部分，那么在 for 循环结束后一定会执行一次该部分。</span></span><br><span class="line"><span class="comment"># 除非遇到 break 语句</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">5</span>):</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;The for loop is over&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="global语句"><a href="#global语句" class="headerlink" title="global语句"></a>global语句</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = <span class="number">50</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>():</span><br><span class="line">    <span class="keyword">global</span> x</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;x is&#x27;</span>, x) <span class="comment"># x is 50</span></span><br><span class="line">    x = <span class="number">2</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Changed global x to&#x27;</span>, x) <span class="comment"># Changed global x to 2</span></span><br><span class="line"></span><br><span class="line">func()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Value of x is&#x27;</span>, x) <span class="comment"># Value of x is 2</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="默认参数值"><a href="#默认参数值" class="headerlink" title="默认参数值"></a>默认参数值</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">say</span>(<span class="params">message, times=<span class="number">1</span></span>):</span><br><span class="line">    <span class="built_in">print</span>(message * times)</span><br><span class="line"></span><br><span class="line">say(<span class="string">&#x27;Hello&#x27;</span>)</span><br><span class="line">say(<span class="string">&#x27;World&#x27;</span>, <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="关键字参数"><a href="#关键字参数" class="headerlink" title="关键字参数"></a>关键字参数</h2><p>这样做有两个优势：其一，这样给函数传递参数时更加简单，因为我们不需要担心参数的位置。其二，我们可以只给我们想要改变的参数赋值，让其他参数使用默认值。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>(<span class="params">a, b=<span class="number">5</span>, c=<span class="number">10</span></span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;a is&#x27;</span>, a, <span class="string">&#x27;and b is&#x27;</span>, b, <span class="string">&#x27;and c is&#x27;</span>, c)</span><br><span class="line"></span><br><span class="line">func(<span class="number">3</span>, <span class="number">7</span>)</span><br><span class="line">func(<span class="number">25</span>, c=<span class="number">24</span>)  <span class="comment"># c是关键字参数，其中b又有默认参数</span></span><br><span class="line">func(c=<span class="number">50</span>, a=<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="可变参数"><a href="#可变参数" class="headerlink" title="可变参数"></a>可变参数</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">total</span>(<span class="params">a=<span class="number">5</span>, *numbers, **phonebook</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;a&#x27;</span>, a)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 遍历元组中的所有项</span></span><br><span class="line">    <span class="keyword">for</span> single_item <span class="keyword">in</span> numbers:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;single_item&#x27;</span>, single_item)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 遍历字典中的所有项</span></span><br><span class="line">    <span class="keyword">for</span> first_part, second_part <span class="keyword">in</span> phonebook.items():</span><br><span class="line">        <span class="built_in">print</span>(first_part,second_part)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(total(<span class="number">10</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,Jack=<span class="number">1123</span>,John=<span class="number">2231</span>,Inge=<span class="number">1560</span>))</span><br></pre></td></tr></table></figure>
+<p>最后的None是因为函数没有返回值</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ python function_varargs.py</span><br><span class="line">a 10</span><br><span class="line">single_item 1</span><br><span class="line">single_item 2</span><br><span class="line">single_item 3</span><br><span class="line">Inge 1560</span><br><span class="line">John 2231</span><br><span class="line">Jack 1123</span><br><span class="line">None</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="文档字符串"><a href="#文档字符串" class="headerlink" title="文档字符串"></a>文档字符串</h2><p>Python 有一个十分美妙的特性 文档字符串 (documentation strings)，通常简称为 DocStrings。<br>我们可以通过 print_max 函数的 <strong>doc</strong> 属性来访问它的 DocStrings，注意：属性 doc 的前后都有两个下划线。你只需要记住 Python 把 任何 东西都当作对象，这也包括函数<br>如果你在 Python 中已经尝试过 help()，那么你已经见识到 DocStings 的用处了。help() 函数做的事情就是抓取对应函数的 <strong>doc</strong> 属性，并以美观的方式打印出来。你可以对上面编写的函数尝试这一点，只需要在代码的最后加上一行 help(print_max) 。记住 按 q 可以退出 help。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">print_max</span>(<span class="params">x, y</span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;Prints the maximum of two numbers.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    The two values must be integers.&#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="comment"># 如果有必要，将参数转为整数</span></span><br><span class="line">    x = <span class="built_in">int</span>(x)</span><br><span class="line">    y = <span class="built_in">int</span>(y)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> x &gt; y:</span><br><span class="line">        <span class="built_in">print</span>(x, <span class="string">&#x27;is maximum&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(y, <span class="string">&#x27;is maximum&#x27;</span>)</span><br><span class="line"></span><br><span class="line">print_max(<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(print_max.__doc__)</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h1><h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h1 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h1><h1 id="输入与输出"><a href="#输入与输出" class="headerlink" title="输入与输出"></a>输入与输出</h1><h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1><h1 id="标准库"><a href="#标准库" class="headerlink" title="标准库"></a>标准库</h1>]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+        <tag>2025</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>个人记事</title>
+    <url>/2023/03/13/%E5%AF%86%E7%A0%81%E6%96%87%E7%AB%A0/%E4%B8%AA%E4%BA%BA%E8%AE%B0%E4%BA%8B/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="fd13a96a249cb62f810296154bb8b712cba1cbeea42e057bb20bbc4ee2b44a22">a6abe3973317fe2591a8f79ea5f67e54ec2157222991e90e2d11a5a3109df0a387ca2ae0efd513beb356b1ffeed9cf691fb8bef13df4add0e958a11b0b7ffb70d9c3807c045afd5951ab97a1b6088eed8d273d630de3cdcb56951603252db0c4447f0ca6950c2ddf1fcf44d5bce533432fedaf6ce3ce7ac07038f6d7240f827ff9da881ba3638581c89a5f1acaeff672a8f54903e6043b5c12e18b6af7b91a039d2758423ea5f2e808d645eb4caad72de217c9dacf100fa02a20bd47f95c13f3a82ee0e99acb3d484109d7b9846169ce3e9671b1827cca284147987137b0d17997f287f1792d6df160e6dd676ec439b6c00d70743ec16635306ac662a1dee2d61e9d7237df6a5581e3ee9ce768b08079bd89963774981328a27c22cccb8dd7a8133a0284d8267e58b79bbb8a1bfa1383</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">请输入密码查看</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>密码文章</category>
+      </categories>
+      <tags>
+        <tag>其他</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo使用指南</title>
+    <url>/2024/05/15/%E5%AF%86%E7%A0%81%E6%96%87%E7%AB%A0/hexo%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="c60c8e9597da43d0867ad22e073e06db9458d9b12026d0466e678c6edbf4fbe5">a6abe3973317fe2591a8f79ea5f67e54ec2157222991e90e2d11a5a3109df0a39dbfed400361c239759829fe0d93a3c252abe160eae637332800dbd191278dd2fac8a44da9794383c81b9522f1818ffd7d6877e83874c394b1d592885c553cabeb3c9c3a587bcc93a010fe9964bab1ff455e38985145ac59617267e588001ae944dc88c3006aefe9465fcf2be2a0e36ae136626c17252655807a41b03a103b90e82b37c60367159473618e90339c43cb01fc30886d56de6787f6fa14b30206e516d7f76050a80a09e012150e15a0ed98afae3fd267f5542da95eaf95b27b89269d9858c2ab33badfd2439990be86c0fe5014ef37bbe47fed1d2da41ee53e5144ecdba275a8a66e4ad25cf28602a9a11e2183ece8d75d8ed417a082b76fe6c9e3d26983e9b57a332fd5ef6e62942cf014568074ac30f8cf124b8de4adadaeb546af45e1d6f3d4a473df187b6618dff7413da06cc74b2881a92dc4e09195663babe6f03be3a66865f0aff105dac8a8e7b2b4e3f250bb15470ad93e645bb0f58ea8afbe61d130ba222cd9de76776586d7a37e75cf8b4c7777f75b7dfcdc5621360521f08f821b7548526f839f7796d6064608755f12d93c05e194f84b1e01297994be670741cbe055738ee25221df5ddfb1666c0f1ea61c60b4046d7471cccd12e8d25517c64e012d9e60443ee9efb8b2d1328e7bc6d10482dc940a15b59df4a7cd28cfd2f9fd01bc1b247fd113618c5dfc6d4fce53465770e2aa2b1a027330069118e0bb5ef28f71673b7b191c7301f5cb9ec383dd7bed3e7a9f9753280e0df4f9a07a0e6997969e760a6f4374db3077b0373e822048d77164a0836d62c1fbfba868113c73c4f3ff2da9b7b07ee0c513ca613665440d18860c834150efec99cf5134c38b21c6ecf1ff2820edd500a7f746bc848a258a1e9a2c64088c8fcbf3151aee84fd02ee6f6d5ca710cc9ad818a85796990edbb0f1b89da02db64596c1cc40de47e99e35d9506e8741e6e4d94c0eeedc324c745b977664b9ec722df0a43bb574378d392066e2a4835518877f59602a74b3e8a0bcaf7554864f9c5fdf26b48d8b79d7fde9c868bc8e2676f768872ba4b1dd823dd85278529ee827cbe1cfb2d4f0ed015de9b35ca7b443428e09c393980394ba0519d50b7313d3df4f6655c0f0146cd64e829fc73049fc61f17542b7c21f78a351d98b2b42659e7ad47bbb9420becf71a061457d9d2c0bae5c4ad7ac4687b338dd54ce1221b9b03ac3f521198f1782c30fdea2595744ab5e9d0bf5e70e26fc2ef550f8af2b7d014bb6efe216852189c11a77d1ebbc6e44a2479f322dd2bf066d25931f6c57f9b674ffc85e8f367f29e9172d018ab56ca6c0b02c2c042c993cc55b458d45c34e571aa7ebd524e24cb404286f89e771e4e5fc98ee7eb38a81fba154da12d06e64f58578f32cd5a7f6f52e8813e3d1d1cf582305e13acda15ac4b9267e854338e03daa43d077ba7130d57d6bffe3741bd886dea7037eab9abc7085a66a8711cb337549b492f112dba8e576dbe794c00c44a0790efd052203e68df120ce5f0b85147003d949eabee60255d7175573fe004779e20664abda2df32e4c29e57613bc025f3298d1e2f742bb0b2219a537e380b57e5a552120028f00444f453317932882563735d9564bfe3eb22b52963f6ac7806da506a8a7b8cfd2eb94f22dcc4f99afdd955d927b2cbbb0e7ab55c4ecaf0ffc3cb5603588c3dbe1710707086fab466ab43d74d73a55bf915be67c93acbecf5d5fc9f46b1a05f4bfdb542acdd61e2d762e0cce3b2623810827149ac23d13eee466bf372c6c742c78bb024b355dac11222970f6d5c8ef3e359921f211f8a1fb06a9abebf6e5ae5ff87ffb877f512afa67745027ebcdd9eb436af2aae79c51d4a12fcd24320a4c5429a5142810f2cf804aa2843f7362ac9d8189aa69573b02a98fb153fdb3cf3ca7cf39bda6acf9c98e10722209b23ba277aa14702ab1548691b1804b1444b33aa5dc6c55c3c0928abaa5dd7b0f69981287064464f700390d71e240dda394e5fdacf9d1c3224563252eabbaf9aa11126474efcfd1b8b20ce02214e0becf93c88b98063587aa4bab71eba53fadf8176a4a7a834f9336826d384722a40e55859ed05b627802852740407aa5dd6d45e98d7409d1c8c3ce33110d767aabeb4290e2fe25f374a3feeae35267bd88a174cfc7890a899277f3f73c3ea1605a0519ccb53c8e00c335bacce6888f82e5c931352011e3496f46675ea233071114dc56c04f289dda68b58f9fd07e00d22df63e5335465da2878864b6e7804bf7f7ec9524b886ab3a3320ed7e4bc647c575f677ee6e7a68617cf0a80768b3bbbd6fc87b0a24b68ca2b5920e11dd026757f132037441c293999bd505ccdeaf3f0ece9892a5258272cf34f5cb02a7c36f307e5bce1d1ce387a04cec20fa6e494c196899dac6a74f8edc7b9061efc2c50bde11327c185c85df765ee1b64e8e66fc09d21f4a5f9f1f8dd4f5c19d866ba2af3f66513f61b1788acabe2f2b38c8be8e16e9cb9db4f41a9aff68456255308ba05bc4861f0fdc54c5d60100dc5ff6d64f1dcd7a4a7d459d53e86f3ade6aa16b1ac8547f00de55651d97665b56bc8ea115cfab4c6cc6b92288f3b409b36ec35b7a808cab2b294c7816bed747e2804717ff7ec84313a70714d29237d80b94b694c79b9045b40c5c4f6f8ea37dffa6126e8d3fa5b955da172a5c9b6b8373b3b753eefd342d3983e459099262f15244e4cd9166d2241f5a7350d79339b6c4f5ac6ae6441b60b0e3a4ed90c48ee1bcd13cc4b6d7daf4741a207a898123d63b1df78dac6bedec7c930d4461aef7bd4d8968e3ef2e11b1e9c653c30db4434d9a5dffddff5f1cd0bd5b4444a72f6a1a0f98d25c2db4cdf5560a789a6d4e91bc491d84e11cbc82b62536d3b106b2af5e2adbe7bf51cb319819d87b1d3ab645425ac473c4e15cbe4d55a9940a4fbd29d06c33b5afc5073905f8570fd1346b62f62191123d5e8f193441917cc57f91f3c10742665780d4775984f45e10138105e9deae21be909995adbc5b0cb9c7bee50b244c3b46e80d538a3814b1af91c813f7d3c5f3f6eb5320639cf6b04ef80c1219c84316874b059bc5da2cb74373ae30ac9b68fd4e61d1fde66facb55987c1b4f25d4ed6c6f2d085c21630db8e5352b50eb3a6f20f912b5f01025be23ed19a40b752e783998316cc3c2561bcd4336e514d8d25cb2eecd93e207aa6834b3300b5a3d2f8be44b01433b54a9ea81972017deb2260c765c73808dafc9b54ba7f3699cfae92df4401474d99cd8f77d413ead09e3a3265d52a6d0cb4bf2338fe2f5f2266dcb1953fe0fa256e38cde3a4b8f0dba33fe8101c1e422b6ec10e56c2d8c8ff146daf2abe8048d5f24bd0a07e36822c176b3795b9cc75494eff6ee6df985504e66814c02b2a81297da9ec57c3e492ae9348bf296f82e6b09ee62d9401028cd58487847c3e569d7553c420075907dc177f03dd994ba1e5884c22535179bcc919b4b5b2afa4555bbbaa5183ebcbc52f68a81358df9514c3670cb0dc5ef116efa08cb0207fc7604dfbf719455667fe0d58a7c89142e5b671f924157f8ca2ab4ab7dc57aa49e3372536ca50fa41bc6e60fa833c9bf6ff814edbff7c6d0bb7a9ba3a871820573b1dac1665fdd9dad8df77b0cb86664c4338b79a10aae58058573e9a003f13ead47121a3871e22a836087a51a56508ff73fcafdf24907ce126b93fa9edfb4272dfc0022adf088cc4fb4cfa1d64d4cd4a5aa4a9f48a3bec155dff</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">请输入密码查看</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>密码文章</category>
+      </categories>
+      <tags>
+        <tag>软件使用</tag>
       </tags>
   </entry>
 </search>
