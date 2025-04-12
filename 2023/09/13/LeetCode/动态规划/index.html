@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://tuchuangmweb.oss-cn-shenzhen.aliyuncs.com/mweb/16946155778775..jpg">
 <meta property="og:image" content="https://tuchuangmweb.oss-cn-shenzhen.aliyuncs.com/mweb/16946155980671..jpg">
 <meta property="article:published_time" content="2023-09-13T14:30:48.769Z">
-<meta property="article:modified_time" content="2024-05-14T16:04:23.220Z">
+<meta property="article:modified_time" content="2025-04-12T06:43:31.750Z">
 <meta property="article:author" content="chen">
 <meta property="article:tag" content="动态规划">
 <meta name="twitter:card" content="summary">
@@ -227,7 +227,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-05-15 00:04:23" itemprop="dateModified" datetime="2024-05-15T00:04:23+08:00">2024-05-15</time>
+                <time title="Modified: 2025-04-12 14:43:31" itemprop="dateModified" datetime="2025-04-12T14:43:31+08:00">2025-04-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -251,7 +251,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><h1 id="1-斐波那契数列"><a href="#1-斐波那契数列" class="headerlink" title="1.斐波那契数列"></a>1.斐波那契数列</h1><h2 id="爬楼梯"><a href="#爬楼梯" class="headerlink" title="爬楼梯"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/climbing-stairs/description/">爬楼梯</a></h2><p>题目描述：有 N 阶楼梯，每次可以上一阶或者两阶，求有多少种上楼梯的方法。</p>
+        <h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><h1 id="1-斐波那契数列"><a href="#1-斐波那契数列" class="headerlink" title="1.斐波那契数列"></a>1.斐波那契数列</h1><h2 id="爬楼梯"><a href="#爬楼梯" class="headerlink" title="爬楼梯"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/climbing-stairs/description/">爬楼梯</a></h2><p>aa题目描述：有 N 阶楼梯，每次可以上一阶或者两阶，求有多少种上楼梯的方法。</p>
 <p>定义一个数组 dp 存储上楼梯的方法数（为了方便讨论，数组下标从 1 开始），dp[i] 表示走到第 i 个楼梯的方法数目。</p>
 <p>第 i 个楼梯可以从第 i-1 和 i-2 个楼梯再走一步到达，走到第 i 个楼梯的方法数为走到第 i-1 和第 i-2 个楼梯的方法数之和。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp[i] = dp[i-1] + dp[i-2]</span><br></pre></td></tr></table></figure>
@@ -381,6 +381,9 @@
 <p>输入：text1 = “abcde”, text2 = “ace”<br>输出：3<br>解释：最长公共子序列是 “ace” ，它的长度为 3 。</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">longestCommonSubsequence</span><span class="params">(String text1, String text2)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n1</span> <span class="operator">=</span> text1.length(), n2 = text2.length();</span><br><span class="line">        <span class="type">int</span>[][] dp = <span class="keyword">new</span> <span class="title class_">int</span>[n1 + <span class="number">1</span>][n2 + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt;= n1; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">1</span>; j &lt;= n2; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (text1.charAt(i - <span class="number">1</span>) == text2.charAt(j - <span class="number">1</span>)) &#123;</span><br><span class="line">                    dp[i][j] = dp[i - <span class="number">1</span>][j - <span class="number">1</span>] + <span class="number">1</span>;  <span class="comment">//长度为i的text1和长度为j的text2的最长公共</span></span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    dp[i][j] = Math.max(dp[i - <span class="number">1</span>][j], dp[i][j - <span class="number">1</span>]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n1][n2];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
 <h1 id="7-0-1背包"><a href="#7-0-1背包" class="headerlink" title="7. 0-1背包"></a>7. 0-1背包</h1><p>有一个容量为 N 的背包，要用这个背包装下物品的价值最大，这些物品有两个属性：体积 w 和价值 v。</p>
 <p>定义一个二维数组 dp 存储最大价值，其中 dp[i][j] 表示前 i 件物品体积不超过 j 的情况下能达到的最大价值。<strong>设第 i 件物品体积为 w，价值为 v</strong>，根据第 i 件物品是否添加到背包中，可以分两种情况讨论：</p>
 <ul>
@@ -492,6 +495,11 @@
 <p>具体地，对于每一天 i，我们按照以下顺序更新这些变量：</p>
 <p>buy1：表示第一次买入股票时的最大利润。由于初始资金为 0，因此购买股票时需扣钱，这里用负数表示。因此，我们需要取 buy1 和 -prices[i] 中的最大值。 sell1：表示第一次卖出股票时的最大利润。如果在第 i 天卖出股票，那么前一天肯定持有股票。因此，我们需要取 sell1 和 buy1 + prices[i] 中的最大值。 buy2：表示第二次买入股票时的最大利润。如果在第 i 天买入股票，那么前一天必须已经卖出了股票。因此，我们需要取 buy2 和 sell1 - prices[i] 中的最大值。 sell2：表示第二次卖出股票时的最大利润。如果在第 i 天卖出股票，那么前一天必须已经买入了股票。因此，我们需要取 sell2 和 buy2 + prices[i] 中的最大值。 最终的答案即为 sell2，表示最多进行两次交易的最大利润。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxProfit</span><span class="params">(<span class="type">int</span>[] prices)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">buy1</span> <span class="operator">=</span> -prices[<span class="number">0</span>], sell1 = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">buy2</span> <span class="operator">=</span> -prices[<span class="number">0</span>], sell2 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> price : prices) &#123;</span><br><span class="line">            buy1 = Math.max(buy1, -price); <span class="comment">// 第一次买股票</span></span><br><span class="line">            sell1 = Math.max(sell1, buy1 + price); <span class="comment">// 第一次卖股票</span></span><br><span class="line">            buy2 = Math.max(buy2, sell1 - price); <span class="comment">// 第二次买股票</span></span><br><span class="line">            sell2 = Math.max(sell2, buy2 + price); <span class="comment">// 第二次卖股票</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sell2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
 <h1 id="9-字符串编辑"><a href="#9-字符串编辑" class="headerlink" title="9.字符串编辑"></a>9.字符串编辑</h1><h2 id="删除两个字符串的字符使它们相等"><a href="#删除两个字符串的字符使它们相等" class="headerlink" title="删除两个字符串的字符使它们相等"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/delete-operation-for-two-strings/description/">删除两个字符串的字符使它们相等</a></h2><p>给定两个单词 word1 和 word2 ，返回使得 word1 和  word2 相同所需的最小步数。<br>每步 可以删除任意一个字符串中的一个字符。</p>
 <blockquote>
 <p>输入: word1 = “sea”, word2 = “eat”<br>输出: 2<br>解释: 第一步将 “sea” 变为 “ea” ，第二步将 “eat “变为 “ea”</p>
@@ -654,7 +662,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

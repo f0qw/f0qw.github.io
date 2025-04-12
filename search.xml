@@ -3,7 +3,7 @@
   <entry>
     <title>动态规划</title>
     <url>/2023/09/13/LeetCode/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
-    <content><![CDATA[<h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><h1 id="1-斐波那契数列"><a href="#1-斐波那契数列" class="headerlink" title="1.斐波那契数列"></a>1.斐波那契数列</h1><h2 id="爬楼梯"><a href="#爬楼梯" class="headerlink" title="爬楼梯"></a><a href="https://leetcode.cn/problems/climbing-stairs/description/">爬楼梯</a></h2><p>题目描述：有 N 阶楼梯，每次可以上一阶或者两阶，求有多少种上楼梯的方法。</p>
+    <content><![CDATA[<h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><h1 id="1-斐波那契数列"><a href="#1-斐波那契数列" class="headerlink" title="1.斐波那契数列"></a>1.斐波那契数列</h1><h2 id="爬楼梯"><a href="#爬楼梯" class="headerlink" title="爬楼梯"></a><a href="https://leetcode.cn/problems/climbing-stairs/description/">爬楼梯</a></h2><p>aa题目描述：有 N 阶楼梯，每次可以上一阶或者两阶，求有多少种上楼梯的方法。</p>
 <p>定义一个数组 dp 存储上楼梯的方法数（为了方便讨论，数组下标从 1 开始），dp[i] 表示走到第 i 个楼梯的方法数目。</p>
 <p>第 i 个楼梯可以从第 i-1 和 i-2 个楼梯再走一步到达，走到第 i 个楼梯的方法数为走到第 i-1 和第 i-2 个楼梯的方法数之和。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">dp[i] = dp[i-1] + dp[i-2]</span><br></pre></td></tr></table></figure>
@@ -133,6 +133,9 @@
 <p>输入：text1 = “abcde”, text2 = “ace”<br>输出：3<br>解释：最长公共子序列是 “ace” ，它的长度为 3 。</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">longestCommonSubsequence</span><span class="params">(String text1, String text2)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n1</span> <span class="operator">=</span> text1.length(), n2 = text2.length();</span><br><span class="line">        <span class="type">int</span>[][] dp = <span class="keyword">new</span> <span class="title class_">int</span>[n1 + <span class="number">1</span>][n2 + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt;= n1; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">1</span>; j &lt;= n2; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (text1.charAt(i - <span class="number">1</span>) == text2.charAt(j - <span class="number">1</span>)) &#123;</span><br><span class="line">                    dp[i][j] = dp[i - <span class="number">1</span>][j - <span class="number">1</span>] + <span class="number">1</span>;  <span class="comment">//长度为i的text1和长度为j的text2的最长公共</span></span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    dp[i][j] = Math.max(dp[i - <span class="number">1</span>][j], dp[i][j - <span class="number">1</span>]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n1][n2];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
 <h1 id="7-0-1背包"><a href="#7-0-1背包" class="headerlink" title="7. 0-1背包"></a>7. 0-1背包</h1><p>有一个容量为 N 的背包，要用这个背包装下物品的价值最大，这些物品有两个属性：体积 w 和价值 v。</p>
 <p>定义一个二维数组 dp 存储最大价值，其中 dp[i][j] 表示前 i 件物品体积不超过 j 的情况下能达到的最大价值。<strong>设第 i 件物品体积为 w，价值为 v</strong>，根据第 i 件物品是否添加到背包中，可以分两种情况讨论：</p>
 <ul>
@@ -244,6 +247,11 @@
 <p>具体地，对于每一天 i，我们按照以下顺序更新这些变量：</p>
 <p>buy1：表示第一次买入股票时的最大利润。由于初始资金为 0，因此购买股票时需扣钱，这里用负数表示。因此，我们需要取 buy1 和 -prices[i] 中的最大值。 sell1：表示第一次卖出股票时的最大利润。如果在第 i 天卖出股票，那么前一天肯定持有股票。因此，我们需要取 sell1 和 buy1 + prices[i] 中的最大值。 buy2：表示第二次买入股票时的最大利润。如果在第 i 天买入股票，那么前一天必须已经卖出了股票。因此，我们需要取 buy2 和 sell1 - prices[i] 中的最大值。 sell2：表示第二次卖出股票时的最大利润。如果在第 i 天卖出股票，那么前一天必须已经买入了股票。因此，我们需要取 sell2 和 buy2 + prices[i] 中的最大值。 最终的答案即为 sell2，表示最多进行两次交易的最大利润。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxProfit</span><span class="params">(<span class="type">int</span>[] prices)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">buy1</span> <span class="operator">=</span> -prices[<span class="number">0</span>], sell1 = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">buy2</span> <span class="operator">=</span> -prices[<span class="number">0</span>], sell2 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> price : prices) &#123;</span><br><span class="line">            buy1 = Math.max(buy1, -price); <span class="comment">// 第一次买股票</span></span><br><span class="line">            sell1 = Math.max(sell1, buy1 + price); <span class="comment">// 第一次卖股票</span></span><br><span class="line">            buy2 = Math.max(buy2, sell1 - price); <span class="comment">// 第二次买股票</span></span><br><span class="line">            sell2 = Math.max(sell2, buy2 + price); <span class="comment">// 第二次卖股票</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sell2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
 <h1 id="9-字符串编辑"><a href="#9-字符串编辑" class="headerlink" title="9.字符串编辑"></a>9.字符串编辑</h1><h2 id="删除两个字符串的字符使它们相等"><a href="#删除两个字符串的字符使它们相等" class="headerlink" title="删除两个字符串的字符使它们相等"></a><a href="https://leetcode.cn/problems/delete-operation-for-two-strings/description/">删除两个字符串的字符使它们相等</a></h2><p>给定两个单词 word1 和 word2 ，返回使得 word1 和  word2 相同所需的最小步数。<br>每步 可以删除任意一个字符串中的一个字符。</p>
 <blockquote>
 <p>输入: word1 = “sea”, word2 = “eat”<br>输出: 2<br>解释: 第一步将 “sea” 变为 “ea” ，第二步将 “eat “变为 “ea”</p>
@@ -1350,6 +1358,948 @@ wg.Wait() // 等待所有登记的goroutine都结束
 <h1 id="SpringBoot"><a href="#SpringBoot" class="headerlink" title="SpringBoot"></a>SpringBoot</h1><h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1>]]></content>
   </entry>
   <entry>
+    <title>python3指南</title>
+    <url>/2024/05/16/python/python3%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>python中单引号字符串和双引号字符串是相同的，他们没有任何区别。<code>同时在 Python 中，没有单独的 char 数据类型</code>。同时还有三引号字符串，可以在三引号中自由地使用单引号和双引号。例如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;This is a multi-line string. This is the first line.</span></span><br><span class="line"><span class="string">This is the second line.</span></span><br><span class="line"><span class="string">&quot;What&#x27;s your name?,&quot; I asked.</span></span><br><span class="line"><span class="string">He said &quot;Bond, James Bond.&quot;</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果想要使用原始字符串</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">r&quot;Newlines are indicated by \n&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="format-方法"><a href="#format-方法" class="headerlink" title="format 方法"></a>format 方法</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">age = <span class="number">20</span></span><br><span class="line">name = <span class="string">&#x27;Swaroop&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&#123;0&#125; was &#123;1&#125; years old when he wrote this book&#x27;</span>.<span class="built_in">format</span>(name, age))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Why is &#123;0&#125; playing with that python?&#x27;</span>.<span class="built_in">format</span>(name))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&#123;&#125; was &#123;&#125; years old when he wrote this book&#x27;</span>.<span class="built_in">format</span>(name, age))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Why is &#123;&#125; playing with that python?&#x27;</span>.<span class="built_in">format</span>(name))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 取十进制小数点后的精度为 3 ，得到的浮点数为 &#x27;0.333&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&#123;0:.3f&#125;&#x27;</span>.<span class="built_in">format</span>(<span class="number">1.0</span>/<span class="number">3</span>))</span><br><span class="line"><span class="comment"># 填充下划线 (_) ，文本居中</span></span><br><span class="line"><span class="comment"># 将 &#x27;___hello___&#x27; 的宽度扩充为 11 </span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&#123;0:_^11&#125;&#x27;</span>.<span class="built_in">format</span>(<span class="string">&#x27;hello&#x27;</span>))</span><br><span class="line"><span class="comment"># 用基于关键字的方法打印显示 &#x27;Swaroop wrote A Byte of Python&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&#123;name&#125; wrote &#123;book&#125;&#x27;</span>.<span class="built_in">format</span>(name=<span class="string">&#x27;Swaroop&#x27;</span>, book=<span class="string">&#x27;A Byte of Python&#x27;</span>))</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="运算符与表达式"><a href="#运算符与表达式" class="headerlink" title="运算符与表达式"></a>运算符与表达式</h1><p><strong>计算的顺序</strong><br><code>lambda</code> ：Lambda 表达式<br><code>if - else</code> ：条件表达式<br><code>or</code> ：布尔或<br><code>and</code> ：布尔与<br><code>not x</code> ：布尔非<br><code>in, not in, is, is not, &lt;, &lt;=, &gt;, &gt;=, !=, ==</code> ：比较，包括成员资格测试和身份测试<br><code>|</code> ：按位或<br><code>^</code> ：按位异或<br><code>&amp;</code> ：按位与<br><code>&lt;&lt;, &gt;&gt;</code> ：移位<br><code>+, -</code> ：加减法<br><code>*, /, //, %</code> ：乘除法，取整和取余<br><code>+x, -x, ~x</code> ：正负号，按位非<br><code>**</code> ：求幂<br><code>x[index], x[index:index], x(arguments...), x.attribute</code> ：订阅，切片，调用，属性引用<br><code>(expressions...), [expressions...], &#123;key: value...&#125;, &#123;expressions...&#125;</code> ： 绑定或者元组显示，列表显示，字典显示，设置显示</p>
+<h1 id="控制流"><a href="#控制流" class="headerlink" title="控制流"></a>控制流</h1><h2 id="if和while"><a href="#if和while" class="headerlink" title="if和while"></a>if和while</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">number = <span class="number">23</span></span><br><span class="line">running = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> running:</span><br><span class="line">    guess = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;Enter an integer : &#x27;</span>))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> guess == number:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Congratulations, you guessed it.&#x27;</span>)</span><br><span class="line">        <span class="comment"># 这会导致 while 循环停止</span></span><br><span class="line">        running = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">elif</span> guess &lt; number:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;No, it is a little higher than that.&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;No, it is a little lower than that.&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;The while loop is over.&#x27;</span>)</span><br><span class="line">    <span class="comment"># 你可以在此处继续进行其它你想做的操作</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Done&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="for"><a href="#for" class="headerlink" title="for"></a>for</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># else 部分是可选的。如果程序有该部分，那么在 for 循环结束后一定会执行一次该部分。</span></span><br><span class="line"><span class="comment"># 除非遇到 break 语句</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">5</span>):</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;The for loop is over&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="global语句"><a href="#global语句" class="headerlink" title="global语句"></a>global语句</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = <span class="number">50</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>():</span><br><span class="line">    <span class="keyword">global</span> x</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;x is&#x27;</span>, x) <span class="comment"># x is 50</span></span><br><span class="line">    x = <span class="number">2</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Changed global x to&#x27;</span>, x) <span class="comment"># Changed global x to 2</span></span><br><span class="line"></span><br><span class="line">func()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Value of x is&#x27;</span>, x) <span class="comment"># Value of x is 2</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="默认参数值"><a href="#默认参数值" class="headerlink" title="默认参数值"></a>默认参数值</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">say</span>(<span class="params">message, times=<span class="number">1</span></span>):</span><br><span class="line">    <span class="built_in">print</span>(message * times)</span><br><span class="line"></span><br><span class="line">say(<span class="string">&#x27;Hello&#x27;</span>)</span><br><span class="line">say(<span class="string">&#x27;World&#x27;</span>, <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="关键字参数"><a href="#关键字参数" class="headerlink" title="关键字参数"></a>关键字参数</h2><p>这样做有两个优势：其一，这样给函数传递参数时更加简单，因为我们不需要担心参数的位置。其二，我们可以只给我们想要改变的参数赋值，让其他参数使用默认值。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>(<span class="params">a, b=<span class="number">5</span>, c=<span class="number">10</span></span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;a is&#x27;</span>, a, <span class="string">&#x27;and b is&#x27;</span>, b, <span class="string">&#x27;and c is&#x27;</span>, c)</span><br><span class="line"></span><br><span class="line">func(<span class="number">3</span>, <span class="number">7</span>)</span><br><span class="line">func(<span class="number">25</span>, c=<span class="number">24</span>)  <span class="comment"># c是关键字参数，其中b又有默认参数</span></span><br><span class="line">func(c=<span class="number">50</span>, a=<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="可变参数"><a href="#可变参数" class="headerlink" title="可变参数"></a>可变参数</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">total</span>(<span class="params">a=<span class="number">5</span>, *numbers, **phonebook</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;a&#x27;</span>, a)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 遍历元组中的所有项</span></span><br><span class="line">    <span class="keyword">for</span> single_item <span class="keyword">in</span> numbers:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;single_item&#x27;</span>, single_item)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 遍历字典中的所有项</span></span><br><span class="line">    <span class="keyword">for</span> first_part, second_part <span class="keyword">in</span> phonebook.items():</span><br><span class="line">        <span class="built_in">print</span>(first_part,second_part)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(total(<span class="number">10</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,Jack=<span class="number">1123</span>,John=<span class="number">2231</span>,Inge=<span class="number">1560</span>))</span><br></pre></td></tr></table></figure>
+<p>最后的None是因为函数没有返回值</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ python function_varargs.py</span><br><span class="line">a 10</span><br><span class="line">single_item 1</span><br><span class="line">single_item 2</span><br><span class="line">single_item 3</span><br><span class="line">Inge 1560</span><br><span class="line">John 2231</span><br><span class="line">Jack 1123</span><br><span class="line">None</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="文档字符串"><a href="#文档字符串" class="headerlink" title="文档字符串"></a>文档字符串</h2><p>Python 有一个十分美妙的特性 文档字符串 (documentation strings)，通常简称为 DocStrings。<br>我们可以通过 print_max 函数的 <strong>doc</strong> 属性来访问它的 DocStrings，注意：属性 doc 的前后都有两个下划线。你只需要记住 Python 把 任何 东西都当作对象，这也包括函数<br>如果你在 Python 中已经尝试过 help()，那么你已经见识到 DocStings 的用处了。help() 函数做的事情就是抓取对应函数的 <strong>doc</strong> 属性，并以美观的方式打印出来。你可以对上面编写的函数尝试这一点，只需要在代码的最后加上一行 help(print_max) 。记住 按 q 可以退出 help。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">print_max</span>(<span class="params">x, y</span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;Prints the maximum of two numbers.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    The two values must be integers.&#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="comment"># 如果有必要，将参数转为整数</span></span><br><span class="line">    x = <span class="built_in">int</span>(x)</span><br><span class="line">    y = <span class="built_in">int</span>(y)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> x &gt; y:</span><br><span class="line">        <span class="built_in">print</span>(x, <span class="string">&#x27;is maximum&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(y, <span class="string">&#x27;is maximum&#x27;</span>)</span><br><span class="line"></span><br><span class="line">print_max(<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(print_max.__doc__)</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h1><h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h1 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h1><h1 id="输入与输出"><a href="#输入与输出" class="headerlink" title="输入与输出"></a>输入与输出</h1><h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1><h1 id="标准库"><a href="#标准库" class="headerlink" title="标准库"></a>标准库</h1>]]></content>
+      <categories>
+        <category>语言</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Redis高级</title>
+    <url>/2022/08/01/redis/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20Redis%E9%AB%98%E7%BA%A7/</url>
+    <content><![CDATA[<h1 id="第二章：Redis高级"><a href="#第二章：Redis高级" class="headerlink" title="第二章：Redis高级"></a>第二章：Redis高级</h1><h2 id="学习目标"><a href="#学习目标" class="headerlink" title="学习目标"></a>学习目标</h2><p>目标1：能够说出redis中的数据删除策与略淘汰策略</p>
+<p>目标2：能够说出主从复制的概念，工作流程以及场景问题及解决方案</p>
+<p>目标3：能够说出哨兵的作用以及工作原理，以及如何启用哨兵</p>
+<p>目标4：能够说出集群的架构设计，完成集群的搭建</p>
+<p>目标5：能够说出缓存预热，雪崩，击穿，穿透的概念，能说出redis的相关监控指标</p>
+<h2 id="1-数据删除与淘汰策略"><a href="#1-数据删除与淘汰策略" class="headerlink" title="1.数据删除与淘汰策略"></a>1.数据删除与淘汰策略</h2><h3 id="1-1-过期数据"><a href="#1-1-过期数据" class="headerlink" title="1.1 过期数据"></a>1.1 过期数据</h3><h4 id="1-1-1-Redis中的数据特征"><a href="#1-1-1-Redis中的数据特征" class="headerlink" title="1.1.1 Redis中的数据特征"></a><strong>1.1.1 Redis中的数据特征</strong></h4><p>Redis是一种内存级数据库，所有数据均存放在内存中，内存中的数据可以通过TTL指令获取其状态</p>
+<p>TTL返回的值有三种情况：正数，-1，-2</p>
+<ul>
+<li><strong>正数</strong>：代表该数据在内存中还能存活的时间</li>
+<li><strong>-1</strong>：永久有效的数据</li>
+<li><strong>2</strong> ：已经过期的数据 或被删除的数据 或 未定义的数据</li>
+</ul>
+<p><strong>删除策略就是针对已过期数据的处理策略</strong>，已过期的数据是真的就立即删除了吗？其实也不是，我们会有多种删除策略，是分情况的，在不同的场景下使用不同的删除方式会有不同效果，这也正是我们要将的数据的删除策略的问题</p>
+<h4 id="1-1-2-时效性数据的存储结构"><a href="#1-1-2-时效性数据的存储结构" class="headerlink" title="1.1.2 时效性数据的存储结构"></a>1.1.2 时效性数据的存储结构</h4><p>在Redis中，如何给数据设置它的失效周期呢？数据的时效在redis中如何存储呢？看下图：</p>
+<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032338242.png"></p>
+<p>过期数据是一块独立的存储空间，Hash结构，field是内存地址，value是过期时间，保存了所有key的过期描述，在最终进行过期处理的时候，对该空间的数据进行检测， 当时间到期之后通过field找到内存该地址处的数据，然后进行相关操作。</p>
+<h3 id="1-2-数据删除策略"><a href="#1-2-数据删除策略" class="headerlink" title="1.2 数据删除策略"></a>1.2 数据删除策略</h3><h4 id="1-2-1-数据删除策略的目标"><a href="#1-2-1-数据删除策略的目标" class="headerlink" title="1.2.1 数据删除策略的目标"></a>1.2.1 数据删除策略的目标</h4><p>在内存占用与CPU占用之间寻找一种平衡，顾此失彼都会造成整体redis性能的下降，甚至引发服务器宕机或 内存泄露</p>
+<p>针对过期数据要进行删除的时候都有哪些删除策略呢？</p>
+<ul>
+<li>1.定时删除</li>
+<li>2.惰性删除</li>
+<li>3.定期删除</li>
+</ul>
+<h4 id="1-2-2-定时删除"><a href="#1-2-2-定时删除" class="headerlink" title="1.2.2 定时删除"></a>1.2.2 定时删除</h4><p>创建一个定时器，当key设置有过期时间，且过期时间到达时，由定时器任务立即执行对键的删除操作</p>
+<ul>
+<li><strong>优点</strong>：节约内存，到时就删除，快速释放掉不必要的内存占用</li>
+<li><strong>缺点</strong>：CPU压力很大，无论CPU此时负载量多高，均占用CPU，会影响redis服务器响应时间和指令吞吐量</li>
+<li><strong>总结</strong>：用处理器性能换取存储空间（拿时间换空间）</li>
+</ul>
+<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032339557.png"></p>
+<h4 id="1-2-3-惰性删除"><a href="#1-2-3-惰性删除" class="headerlink" title="1.2.3 惰性删除"></a>1.2.3 惰性删除</h4><p>数据到达过期时间，不做处理。等下次访问该数据时，我们需要判断</p>
+<ol>
+<li>如果未过期，返回数据</li>
+<li>发现已过期，删除，返回不存在</li>
+</ol>
+<ul>
+<li><strong>优点</strong>：节约CPU性能，发现必须删除的时候才删除</li>
+<li><strong>缺点</strong>：内存压力很大，出现长期占用内存的数据</li>
+<li><strong>总结</strong>：用存储空间换取处理器性能（拿时间换空间）</li>
+</ul>
+<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032339637.png"></p>
+<h4 id="1-2-4-定期删除"><a href="#1-2-4-定期删除" class="headerlink" title="1.2.4 定期删除"></a>1.2.4 定期删除</h4><p>定时删除和惰性删除这两种方案都是走的极端，那有没有折中方案？</p>
+<p>我们来讲redis的定期删除方案：</p>
+<ul>
+<li><p>Redis启动服务器初始化时，读取配置server.hz的值，默认为10</p>
+</li>
+<li><p>每秒钟执行server.hz次<strong>serverCron()</strong>——–&gt;<strong>databasesCron()</strong>———&gt;<strong>activeExpireCycle()</strong></p>
+</li>
+<li><p>**activeExpireCycle()*<em>对每个expires[</em>]逐一进行检测，每次执行耗时：250ms/server.hz</p>
+</li>
+<li><p>对某个expires[*]检测时，随机挑选W个key检测</p>
+</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">如果key超时，删除key</span><br><span class="line"></span><br><span class="line">如果一轮中删除的key的数量&gt;W<span class="emphasis">*25%，循环该过程</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">如果一轮中删除的key的数量≤W*</span>25%，检查下一个expires[<span class="emphasis">*]，0-15循环</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">W取值=ACTIVE_EXPIRE_CYCLE_LOOKUPS_PER_LOOP属性值</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>参数current_db用于记录<strong>activeExpireCycle()</strong> 进入哪个expires[*] 执行</p>
+</li>
+<li><p>如果activeExpireCycle()执行时间到期，下次从current_db继续向下执行</p>
+</li>
+</ul>
+<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032339400.png"></p>
+<p>总的来说：定期删除就是周期性轮询redis库中的时效性数据，采用随机抽取的策略，利用过期数据占比的方式控制删除频度</p>
+<ul>
+<li><strong>特点1</strong>：CPU性能占用设置有峰值，检测频度可自定义设置</li>
+<li><strong>特点2</strong>：内存压力不是很大，长期占用内存的冷数据会被持续清理</li>
+<li><strong>总结</strong>：周期性抽查存储空间（随机抽查，重点抽查）</li>
+</ul>
+<h4 id="1-2-5-删除策略对比"><a href="#1-2-5-删除策略对比" class="headerlink" title="1.2.5 删除策略对比"></a>1.2.5 删除策略对比</h4><p>1：定时删除：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">节约内存，无占用,</span><br><span class="line">不分时段占用CPU资源，频度高,</span><br><span class="line">拿时间换空间</span><br></pre></td></tr></table></figure>
+
+<p>2：惰性删除：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">内存占用严重</span><br><span class="line">延时执行，CPU利用率高</span><br><span class="line">拿空间换时间</span><br></pre></td></tr></table></figure>
+
+<p>3：定期删除：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">内存定期随机清理</span><br><span class="line">每秒花费固定的CPU资源维护内存</span><br><span class="line">随机抽查，重点抽查</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3-数据淘汰策略（逐出算法）"><a href="#1-3-数据淘汰策略（逐出算法）" class="headerlink" title="1.3 数据淘汰策略（逐出算法）"></a>1.3 数据淘汰策略（逐出算法）</h3><h4 id="1-3-1-淘汰策略概述"><a href="#1-3-1-淘汰策略概述" class="headerlink" title="1.3.1 淘汰策略概述"></a>1.3.1 淘汰策略概述</h4><p>什么叫数据淘汰策略？什么样的应用场景需要用到数据淘汰策略？</p>
+<p>当新数据进入redis时，如果内存不足怎么办？在执行每一个命令前，会调用**freeMemoryIfNeeded()**检测内存是否充足。如果内存不满足新 加入数据的最低存储要求，redis要临时删除一些数据为当前指令清理存储空间。清理数据的策略称为逐出算法。</p>
+<p>注意：逐出数据的过程不是100%能够清理出足够的可使用的内存空间，如果不成功则反复执行。当对所有数据尝试完毕，  如不能达到内存清理的要求，将出现错误信息如下</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">(error) OOM command not allowed when used memory &gt;&#x27;maxmemory&#x27;</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-3-2-策略配置"><a href="#1-3-2-策略配置" class="headerlink" title="1.3.2 策略配置"></a>1.3.2 策略配置</h4><p>影响数据淘汰的相关配置如下：</p>
+<p>1：最大可使用内存，即占用物理内存的比例，默认值为0，表示不限制。生产环境中根据需求设定，通常设置在50%以上</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">maxmemory</span> <span class="string">?mb</span></span><br></pre></td></tr></table></figure>
+
+<p>2：每次选取待删除数据的个数，采用随机获取数据的方式作为待检测删除数据</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">maxmemory-samples</span> <span class="string">count</span></span><br></pre></td></tr></table></figure>
+
+<p>3：对数据进行删除的选择策略</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">maxmemory-policy</span> <span class="string">policy</span></span><br></pre></td></tr></table></figure>
+
+<p>那数据删除的策略policy到底有几种呢？一共是<strong>3类8种</strong></p>
+<p><strong>第一类</strong>：检测易失数据（可能会过期的数据集server.db[i].expires ）</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">volatile-lru：挑选最近最少使用的数据淘汰</span></span><br><span class="line"><span class="attr">volatile-lfu：挑选最近使用次数最少的数据淘汰</span></span><br><span class="line"><span class="attr">volatile-ttl：挑选将要过期的数据淘汰</span></span><br><span class="line"><span class="attr">volatile-random：任意选择数据淘汰</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032339450.png"></p>
+<p><strong>第二类</strong>：检测全库数据（所有数据集server.db[i].dict ）</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">allkeys-lru：挑选最近最少使用的数据淘汰</span></span><br><span class="line"><span class="attr">allkeLyRs-lfu：：挑选最近使用次数最少的数据淘汰</span></span><br><span class="line"><span class="attr">allkeys-random：任意选择数据淘汰，相当于随机</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>第三类</strong>：放弃数据驱逐</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">no-enviction（驱逐）：禁止驱逐数据(redis4.0中默认策略)，会引发OOM(Out</span> <span class="string">Of Memory)</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：这些策略是配置到哪个属性上？怎么配置？如下所示</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">maxmemory-policy</span> <span class="string">volatile-lru</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>数据淘汰策略配置依据</strong></p>
+<p> 使用INFO命令输出监控信息，查询缓存 hit 和 miss 的次数，根据业务需求调优Redis配置</p>
+<h2 id="2-主从复制"><a href="#2-主从复制" class="headerlink" title="2.主从复制"></a>2.主从复制</h2><h3 id="2-1-主从复制简介"><a href="#2-1-主从复制简介" class="headerlink" title="2.1 主从复制简介"></a>2.1 主从复制简介</h3><h4 id="2-1-1-高可用"><a href="#2-1-1-高可用" class="headerlink" title="2.1.1 高可用"></a>2.1.1 高可用</h4><p>首先我们要理解互联网应用因为其独有的特性我们演化出的<strong>三高</strong>架构</p>
+<ul>
+<li><p>高并发</p>
+<blockquote>
+<p>应用要提供某一业务要能支持很多客户端同时访问的能力，我们称为并发，高并发意思就很明确了</p>
+</blockquote>
+</li>
+<li><p>高性能</p>
+<blockquote>
+<p>性能带给我们最直观的感受就是：速度快，时间短</p>
+</blockquote>
+</li>
+<li><p>高可用</p>
+</li>
+</ul>
+<p><strong>可用性</strong>：一年中应用服务正常运行的时间占全年时间的百分比，如下图：表示了应用服务在全年宕机的时间</p>
+<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032339749.png"></p>
+<p>我们把这些时间加在一起就是全年应用服务不可用的时间，然后我们可以得到应用服务全年可用的时间</p>
+<blockquote>
+<p>4小时27分15秒+11分36秒+2分16秒=4小时41分7秒=16867秒</p>
+<p>1年=365<em>24</em>60*60=31536000秒</p>
+<p>可用性=（31536000-16867）/31536000*100%=99.9465151%</p>
+</blockquote>
+<p>业界可用性目标**5个9，即99.999%**，即服务器年宕机时长低于315秒，约5.25分钟</p>
+<h4 id="2-1-2-主从复制概念"><a href="#2-1-2-主从复制概念" class="headerlink" title="2.1.2 主从复制概念"></a>2.1.2 主从复制概念</h4><p>知道了三高的概念之后，我们想：你的“Redis”是否高可用？那我们要来分析单机redis的风险与问题</p>
+<p>问题1.机器故障</p>
+<ul>
+<li>现象：硬盘故障、系统崩溃</li>
+<li>本质：数据丢失，很可能对业务造成灾难性打击</li>
+<li>结论：基本上会放弃使用redis.</li>
+</ul>
+<p>问题2.容量瓶颈</p>
+<ul>
+<li>现象：内存不足，从16G升级到64G，从64G升级到128G，无限升级内存</li>
+<li>本质：穷，硬件条件跟不上</li>
+<li>结论：放弃使用redis</li>
+</ul>
+<p>结论：</p>
+<p>为了避免单点Redis服务器故障，准备多台服务器，互相连通。将数据复制多个副本保存在不同的服务器上，连接在一起，并保证数据是同步的。即使有其中一台服务器宕机，其他服务器依然可以继续提供服务，实现Redis的高可用，同时实现数据冗余备份。</p>
+<p>多台服务器连接方案：</p>
+<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032339819.png"></p>
+<ul>
+<li>提供数据方：<strong>master</strong></li>
+</ul>
+<p>主服务器，主节点，主库主客户端</p>
+<ul>
+<li>接收数据方：<strong>slave</strong></li>
+</ul>
+<p>从服务器，从节点，从库</p>
+<p>从客户端</p>
+<ul>
+<li>需要解决的问题：</li>
+</ul>
+<p>数据同步（master的数据复制到slave中）</p>
+<p>这里我们可以来解释主从复制的概念：</p>
+<p><strong>概念：主从复制即将master中的数据即时、有效的复制到slave中</strong></p>
+<p><strong>特征</strong>：一个master可以拥有多个slave，一个slave只对应一个master</p>
+<p><strong>职责</strong>：master和slave各自的职责不一样</p>
+<p>master:</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">写数据</span><br><span class="line"></span><br><span class="line">执行写操作时，将出现变化的数据自动同步到slave</span><br><span class="line"></span><br><span class="line">读数据（可忽略）</span><br></pre></td></tr></table></figure>
+
+<p>slave:</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">读数据</span><br><span class="line"></span><br><span class="line">写数据（禁止）</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-3-主从复制的作用"><a href="#2-1-3-主从复制的作用" class="headerlink" title="2.1.3 主从复制的作用"></a>2.1.3 主从复制的作用</h4><ul>
+<li>读写分离：master写、slave读，提高服务器的读写负载能力</li>
+<li>负载均衡：基于主从结构，配合读写分离，由slave分担master负载，并根据需求的变化，改变slave的数 量，通过多个从节点分担数据读取负载，大大提高Redis服务器并发量与数据吞吐量</li>
+<li>故障恢复：当master出现问题时，由slave提供服务，实现快速的故障恢复</li>
+<li>数据冗余：实现数据热备份，是持久化之外的一种数据冗余方式</li>
+<li>高可用基石：基于主从复制，构建哨兵模式与集群，实现Redis的高可用方案</li>
+</ul>
+<h3 id="2-2-主从复制工作流程"><a href="#2-2-主从复制工作流程" class="headerlink" title="2.2 主从复制工作流程"></a>2.2 主从复制工作流程</h3><p>主从复制过程大体可以分为3个阶段</p>
+<ul>
+<li>建立连接阶段（即准备阶段）</li>
+<li>数据同步阶段</li>
+<li>命令传播阶段（反复同步）</li>
+</ul>
+<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032339463.png"></p>
+<p>而命令的传播其实有4种，分别如下：</p>
+<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032339043.png"></p>
+<h4 id="2-2-1-主从复制的工作流程（三个阶段）"><a href="#2-2-1-主从复制的工作流程（三个阶段）" class="headerlink" title="2.2.1 主从复制的工作流程（三个阶段）"></a>2.2.1 主从复制的工作流程（三个阶段）</h4><h5 id="2-2-1-1-阶段一：建立连接"><a href="#2-2-1-1-阶段一：建立连接" class="headerlink" title="2.2.1.1 阶段一：建立连接"></a>2.2.1.1 阶段一：建立连接</h5><p>建立slave到master的连接，使master能够识别slave，并保存slave端口号</p>
+<p>流程如下：</p>
+<ol>
+<li>步骤1：设置master的地址和端口，保存master信息</li>
+<li>步骤2：建立socket连接</li>
+<li>步骤3：发送ping命令（定时器任务）</li>
+<li>步骤4：身份验证</li>
+<li>步骤5：发送slave端口信息</li>
+</ol>
+<p>至此，主从连接成功！</p>
+<p>当前状态：</p>
+<p>slave：保存master的地址与端口</p>
+<p>master：保存slave的端口</p>
+<p>总体：之间创建了连接的socket</p>
+<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032340745.png"></p>
+<p><strong>master和slave互联</strong></p>
+<p>接下来就要通过某种方式将master和slave连接到一起</p>
+<p>方式一：客户端发送命令</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">slaveof</span> <span class="string">masterip masterport</span></span><br></pre></td></tr></table></figure>
+
+<p>方式二：启动服务器参数</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">redis-server</span> <span class="string">--slaveof masterip masterport</span></span><br></pre></td></tr></table></figure>
+
+<p>方式三：服务器配置（<strong>主流方式</strong>）</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">slaveof</span> <span class="string">masterip masterport</span></span><br></pre></td></tr></table></figure>
+
+<p>slave系统信息</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">master_link_down_since_seconds</span></span><br><span class="line"><span class="attr">masterhost</span> <span class="string">&amp; masterport</span></span><br></pre></td></tr></table></figure>
+
+<p>master系统信息</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">uslave_listening_port(多个)</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>主从断开连接</strong></p>
+<p>断开slave与master的连接，slave断开连接后，不会删除已有数据，只是不再接受master发送的数据</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">slaveof</span> <span class="string">no one</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>授权访问</strong></p>
+<p>master客户端发送命令设置密码</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">requirepass</span> <span class="string">password</span></span><br></pre></td></tr></table></figure>
+
+<p>master配置文件设置密码</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">config</span> <span class="string">set requirepass password</span></span><br><span class="line"><span class="attr">config</span> <span class="string">get requirepass</span></span><br></pre></td></tr></table></figure>
+
+<p>slave客户端发送命令设置密码</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">auth</span> <span class="string">password</span></span><br></pre></td></tr></table></figure>
+
+<p>slave配置文件设置密码</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">masterauth</span> <span class="string">password</span></span><br></pre></td></tr></table></figure>
+
+<p>slave启动服务器设置密码</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">redis-server</span> <span class="string">–a password</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="2-2-1-2-阶段二：数据同步"><a href="#2-2-1-2-阶段二：数据同步" class="headerlink" title="2.2.1.2 阶段二：数据同步"></a>2.2.1.2 阶段二：数据同步</h5><ul>
+<li>在slave初次连接master后，复制master中的所有数据到slave</li>
+<li>将slave的数据库状态更新成master当前的数据库状态</li>
+</ul>
+<p>同步过程如下：</p>
+<ol>
+<li>步骤1：请求同步数据</li>
+<li>步骤2：创建RDB同步数据</li>
+<li>步骤3：恢复RDB同步数据</li>
+<li>步骤4：请求部分同步数据</li>
+<li>步骤5：恢复部分同步数据</li>
+</ol>
+<p>至此，数据同步工作完成！</p>
+<p>当前状态：</p>
+<p>slave：具有master端全部数据，包含RDB过程接收的数据</p>
+<p>master：保存slave当前数据同步的位置</p>
+<p>总体：之间完成了数据克隆</p>
+<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032340237.png"></p>
+<p><strong>数据同步阶段master说明</strong></p>
+<p>1：如果master数据量巨大，数据同步阶段应避开流量高峰期，避免造成master阻塞，影响业务正常执行</p>
+<p>2：复制缓冲区大小设定不合理，会导致数据溢出。如进行全量复制周期太长，进行部分复制时发现数据已经存在丢失的情况，必须进行第二次全量复制，致使slave陷入死循环状态。</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">repl-backlog-size</span> <span class="string">?mb</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>master单机内存占用主机内存的比例不应过大，建议使用50%-70%的内存，留下30%-50%的内存用于执 行bgsave命令和创建复制缓冲区</li>
+</ol>
+<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032340078.png"></p>
+<p><strong>数据同步阶段slave说明</strong></p>
+<ol>
+<li><p>为避免slave进行全量复制、部分复制时服务器响应阻塞或数据不同步，建议关闭此期间的对外服务</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">slave-serve-stale-data</span> <span class="string">yes|no</span></span><br></pre></td></tr></table></figure></li>
+<li><p>数据同步阶段，master发送给slave信息可以理解master是slave的一个客户端，主动向slave发送命令</p>
+</li>
+<li><p>多个slave同时对master请求数据同步，master发送的RDB文件增多，会对带宽造成巨大冲击，如果master带宽不足，因此数据同步需要根据业务需求，适量错峰</p>
+</li>
+<li><p>slave过多时，建议调整拓扑结构，由一主多从结构变为树状结构，中间的节点既是master，也是 slave。注意使用树状结构时，由于层级深度，导致深度越高的slave与最顶层master间数据同步延迟 较大，数据一致性变差，应谨慎选择</p>
+</li>
+</ol>
+<h5 id="2-2-1-3-阶段三：命令传播"><a href="#2-2-1-3-阶段三：命令传播" class="headerlink" title="2.2.1.3 阶段三：命令传播"></a>2.2.1.3 阶段三：命令传播</h5><ul>
+<li>当master数据库状态被修改后，导致主从服务器数据库状态不一致，此时需要让主从数据同步到一致的状态，同步的动作称为命令传播</li>
+<li>master将接收到的数据变更命令发送给slave，slave接收命令后执行命令</li>
+</ul>
+<p><strong>命令传播阶段的部分复制</strong></p>
+<p>命令传播阶段出现了断网现象：</p>
+<p>网络闪断闪连：忽略</p>
+<p>短时间网络中断：部分复制</p>
+<p>长时间网络中断：全量复制</p>
+<p>这里我们主要来看部分复制，部分复制的三个核心要素</p>
+<ol>
+<li>服务器的运行 id（run id）</li>
+<li>主服务器的复制积压缓冲区</li>
+<li>主从服务器的复制偏移量</li>
+</ol>
+<ul>
+<li>服务器运行ID（runid）</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">概念：服务器运行ID是每一台服务器每次运行的身份识别码，一台服务器多次运行可以生成多个运行id</span><br><span class="line"></span><br><span class="line">组成：运行id由40位字符组成，是一个随机的十六进制字符</span><br><span class="line">例如：fdc9ff13b9bbaab28db42b3d50f852bb5e3fcdce</span><br><span class="line"></span><br><span class="line">作用：运行id被用于在服务器间进行传输，识别身份</span><br><span class="line">如果想两次操作均对同一台服务器进行，必须每次操作携带对应的运行id，用于对方识别</span><br><span class="line"></span><br><span class="line">实现方式：运行id在每台服务器启动时自动生成的，master在首次连接slave时，会将自己的运行ID发送给slave，</span><br><span class="line">slave保存此ID，通过info Server命令，可以查看节点的runid</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>复制缓冲区</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">概念：复制缓冲区，又名复制积压缓冲区，是一个先进先出（FIFO）的队列，用于存储服务器执行过的命令，每次传播命令，master都会将传播的命令记录下来，并存储在复制缓冲区</span><br><span class="line"><span class="code">	复制缓冲区默认数据存储空间大小是1M</span></span><br><span class="line"><span class="code">	当入队元素的数量大于队列长度时，最先入队的元素会被弹出，而新元素会被放入队列</span></span><br><span class="line"><span class="code">作用：用于保存master收到的所有指令（仅影响数据变更的指令，例如set，select）</span></span><br><span class="line"><span class="code"></span></span><br><span class="line">数据来源：当master接收到主客户端的指令时，除了将指令执行，会将该指令存储到缓冲区中</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032340249.png"></p>
+<p>复制缓冲区内部工作原理：</p>
+<p>组成</p>
+<ul>
+<li><p>偏移量</p>
+<blockquote>
+<p>概念：一个数字，描述复制缓冲区中的指令字节位置</p>
+<p>分类：</p>
+<ul>
+<li>master复制偏移量：记录发送给所有slave的指令字节对应的位置（多个）</li>
+<li>slave复制偏移量：记录slave接收master发送过来的指令字节对应的位置（一个）</li>
+</ul>
+<p>作用：同步信息，比对master与slave的差异，当slave断线后，恢复数据使用</p>
+<p>数据来源：</p>
+<ul>
+<li>master端：发送一次记录一次</li>
+<li>slave端：接收一次记录一次</li>
+</ul>
+</blockquote>
+</li>
+<li><p>字节值</p>
+</li>
+</ul>
+<p>工作原理</p>
+<ul>
+<li>通过offset区分不同的slave当前数据传播的差异</li>
+<li>master记录已发送的信息对应的offset</li>
+<li>slave记录已接收的信息对应的offset</li>
+</ul>
+<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032340372.png"></p>
+<h4 id="2-2-2-流程更新-全量复制-部分复制"><a href="#2-2-2-流程更新-全量复制-部分复制" class="headerlink" title="2.2.2 流程更新(全量复制/部分复制)"></a>2.2.2 流程更新(全量复制/部分复制)</h4><p>我们再次的总结一下主从复制的三个阶段的工作流程：</p>
+<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032340838.png"></p>
+<h4 id="2-2-3-心跳机制"><a href="#2-2-3-心跳机制" class="headerlink" title="2.2.3 心跳机制"></a>2.2.3 心跳机制</h4><p>什么是心跳机制？</p>
+<p>进入命令传播阶段候，master与slave间需要进行信息交换，使用心跳机制进行维护，实现双方连接保持在线</p>
+<p>master心跳：</p>
+<ul>
+<li>内部指令：PING</li>
+<li>周期：由repl-ping-slave-period决定，默认10秒</li>
+<li>作用：判断slave是否在线</li>
+<li>查询：INFO replication  获取slave最后一次连接时间间隔，lag项维持在0或1视为正常</li>
+</ul>
+<p>slave心跳任务</p>
+<ul>
+<li>内部指令：REPLCONF ACK {offset}</li>
+<li>周期：1秒</li>
+<li>作用1：汇报slave自己的复制偏移量，获取最新的数据变更指令</li>
+<li>作用2：判断master是否在线</li>
+</ul>
+<p>心跳阶段注意事项：</p>
+<ul>
+<li>当slave多数掉线，或延迟过高时，master为保障数据稳定性，将拒绝所有信息同步</li>
+</ul>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">min-slaves-to-write</span> <span class="string">2</span></span><br><span class="line"><span class="attr">min-slaves-max-lag</span> <span class="string">8</span></span><br></pre></td></tr></table></figure>
+
+<p>slave数量少于2个，或者所有slave的延迟都大于等于8秒时，强制关闭master写功能，停止数据同步</p>
+<ul>
+<li>slave数量由slave发送REPLCONF ACK命令做确认</li>
+</ul>
+<ul>
+<li>slave延迟由slave发送REPLCONF ACK命令做确认</li>
+</ul>
+<p>至此：我们可以总结出完整的主从复制流程：</p>
+<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032340104.png"></p>
+<h3 id="2-3-主从复制常见问题"><a href="#2-3-主从复制常见问题" class="headerlink" title="2.3 主从复制常见问题"></a>2.3 主从复制常见问题</h3><h4 id="2-3-1-频繁的全量复制"><a href="#2-3-1-频繁的全量复制" class="headerlink" title="2.3.1 频繁的全量复制"></a>2.3.1 频繁的全量复制</h4><ul>
+<li>伴随着系统的运行，master的数据量会越来越大，一旦master重启，runid将发生变化，会导致全部slave的全量复制操作</li>
+</ul>
+<p>内部优化调整方案：</p>
+<p>1：master内部创建master_replid变量，使用runid相同的策略生成，长度41位，并发送给所有slave</p>
+<p>2：在master关闭时执行命令shutdown save，进行RDB持久化,将runid与offset保存到RDB文件中</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">repl-id  repl-offset</span><br><span class="line"></span><br><span class="line">通过redis-check-rdb命令可以查看该信息</span><br></pre></td></tr></table></figure>
+
+<p>3：master重启后加载RDB文件，恢复数据，重启后，将RDB文件中保存的repl-id与repl-offset加载到内存中</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">master<span class="emphasis">_repl_</span>id=repl  master<span class="emphasis">_repl_</span>offset =repl-offset</span><br><span class="line"></span><br><span class="line">通过info命令可以查看该信息</span><br></pre></td></tr></table></figure>
+
+<p>作用：本机保存上次runid，重启后恢复该值，使所有slave认为还是之前的master</p>
+<ul>
+<li>第二种出现频繁全量复制的问题现象：网络环境不佳，出现网络中断，slave不提供服务</li>
+</ul>
+<p>问题原因：复制缓冲区过小，断网后slave的offset越界，触发全量复制</p>
+<p>最终结果：slave反复进行全量复制</p>
+<p>解决方案：修改复制缓冲区大小</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">repl-backlog-size</span> <span class="string">?mb</span></span><br></pre></td></tr></table></figure>
+
+<p>建议设置如下：</p>
+<p>1.测算从master到slave的重连平均时长second</p>
+<p>2.获取master平均每秒产生写命令数据总量write_size_per_second</p>
+<p>3.最优复制缓冲区空间 = 2 * second * write_size_per_second</p>
+<h4 id="2-3-2-频繁的网络中断"><a href="#2-3-2-频繁的网络中断" class="headerlink" title="2.3.2 频繁的网络中断"></a>2.3.2 频繁的网络中断</h4><ul>
+<li>问题现象：master的CPU占用过高 或 slave频繁断开连接</li>
+</ul>
+<p>问题原因</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">slave每1秒发送REPLCONFACK命令到master</span><br><span class="line"></span><br><span class="line">当slave接到了慢查询时（keys <span class="emphasis">* ，hgetall等），会大量占用CPU性能</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">master每1秒调用复制定时函数replicationCron()，比对slave发现长时间没有进行响应</span></span><br></pre></td></tr></table></figure>
+
+<p>最终结果：master各种资源（输出缓冲区、带宽、连接等）被严重占用</p>
+<p>解决方案：通过设置合理的超时时间，确认是否释放slave</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">repl-timeout</span> <span class="string">seconds</span></span><br></pre></td></tr></table></figure>
+
+<p>该参数定义了超时时间的阈值（默认60秒），超过该值，释放slave</p>
+<ul>
+<li>问题现象：slave与master连接断开</li>
+</ul>
+<p>问题原因</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">master发送ping指令频度较低</span><br><span class="line"></span><br><span class="line">master设定超时时间较短</span><br><span class="line"></span><br><span class="line">ping指令在网络中存在丢包</span><br></pre></td></tr></table></figure>
+
+<p>解决方案：提高ping指令发送的频度</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">repl-ping-slave-period</span> <span class="string">seconds</span></span><br></pre></td></tr></table></figure>
+
+<p>超时时间repl-time的时间至少是ping指令频度的5到10倍，否则slave很容易判定超时</p>
+<h4 id="2-3-3-数据不一致"><a href="#2-3-3-数据不一致" class="headerlink" title="2.3.3 数据不一致"></a>2.3.3 数据不一致</h4><p>问题现象：多个slave获取相同数据不同步</p>
+<p>问题原因：网络信息不同步，数据发送有延迟</p>
+<p>解决方案</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">优化主从间的网络环境，通常放置在同一个机房部署，如使用阿里云等云服务器时要注意此现象</span><br><span class="line"></span><br><span class="line">监控主从节点延迟（通过offset）判断，如果slave延迟过大，暂时屏蔽程序对该slave的数据访问</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">slave-serve-stale-data</span>	<span class="string">yes|no</span></span><br></pre></td></tr></table></figure>
+
+<p>开启后仅响应info、slaveof等少数命令（慎用，除非对数据一致性要求很高）</p>
+<h2 id="3-哨兵模式"><a href="#3-哨兵模式" class="headerlink" title="3.哨兵模式"></a>3.哨兵模式</h2><h3 id="3-1-哨兵简介"><a href="#3-1-哨兵简介" class="headerlink" title="3.1 哨兵简介"></a>3.1 哨兵简介</h3><h4 id="3-1-1-哨兵概念"><a href="#3-1-1-哨兵概念" class="headerlink" title="3.1.1 哨兵概念"></a>3.1.1 哨兵概念</h4><p>首先我们来看一个业务场景：如果redis的master宕机了，此时应该怎么办？</p>
+<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032340435.png"></p>
+<p>那此时我们可能需要从一堆的slave中重新选举出一个新的master，那这个操作过程是什么样的呢？这里面会有什么问题出现呢？</p>
+<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032340460.png"></p>
+<p>要实现这些功能，我们就需要redis的哨兵，那哨兵是什么呢？</p>
+<p><strong>哨兵</strong></p>
+<p>哨兵(sentinel) 是一个分布式系统，用于对主从结构中的每台服务器进行<strong>监控</strong>，当出现故障时通过<strong>投票</strong>机制<strong>选择</strong>新的master并将所有slave连接到新的master。</p>
+<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032341820.png"></p>
+<h4 id="3-1-2-哨兵作用"><a href="#3-1-2-哨兵作用" class="headerlink" title="3.1.2 哨兵作用"></a>3.1.2 哨兵作用</h4><p>哨兵的作用：</p>
+<ul>
+<li><p>监控：监控master和slave</p>
+<p>不断的检查master和slave是否正常运行</p>
+<p>master存活检测、master与slave运行情况检测</p>
+</li>
+</ul>
+<ul>
+<li>通知（提醒）：当被监控的服务器出现问题时，向其他（哨兵间，客户端）发送通知</li>
+</ul>
+<ul>
+<li>自动故障转移：断开master与slave连接，选取一个slave作为master，将其他slave连接新的master，并告知客户端新的服务器地址</li>
+</ul>
+<p>注意：哨兵也是一台redis服务器，只是不提供数据相关服务，通常哨兵的数量配置为单数</p>
+<h3 id="3-2-启用哨兵"><a href="#3-2-启用哨兵" class="headerlink" title="3.2 启用哨兵"></a>3.2 启用哨兵</h3><p>配置哨兵</p>
+<ul>
+<li><p>配置一拖二的主从结构（利用之前的方式启动即可）</p>
+</li>
+<li><p>配置三个哨兵（配置相同，端口不同），参看sentinel.conf</p>
+</li>
+</ul>
+<p>1：设置哨兵监听的主服务器信息， sentinel_number表示参与投票的哨兵数量</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">sentinel</span> <span class="string">monitor master_name  master_host	master_port	 sentinel_number</span></span><br></pre></td></tr></table></figure>
+<p>2：设置判定服务器宕机时长，该设置控制是否进行主从切换</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">sentinel</span> <span class="string">down-after-milliseconds master_name	million_seconds</span></span><br></pre></td></tr></table></figure>
+
+<p>3：设置故障切换的最大超时时</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">sentinel</span> <span class="string">failover-timeout master_name	million_seconds</span></span><br></pre></td></tr></table></figure>
+
+<p>4：设置主从切换后，同时进行数据同步的slave数量，数值越大，要求网络资源越高，数值越小，同步时间越长</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">sentinel</span> <span class="string">parallel-syncs master_name sync_slave_number</span></span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>启动哨兵</li>
+</ul>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">redis-sentinel</span> <span class="string">filename</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-哨兵工作原理"><a href="#3-3-哨兵工作原理" class="headerlink" title="3.3 哨兵工作原理"></a>3.3 哨兵工作原理</h3><p>哨兵在进行主从切换过程中经历三个阶段</p>
+<ul>
+<li>监控</li>
+<li>通知</li>
+<li>故障转移</li>
+</ul>
+<h4 id="3-3-1-监控"><a href="#3-3-1-监控" class="headerlink" title="3.3.1 监控"></a>3.3.1 监控</h4><p>用于同步各个节点的状态信息</p>
+<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032341193.png"></p>
+<ul>
+<li>获取各个sentinel的状态（是否在线）</li>
+</ul>
+<ul>
+<li>获取master的状态</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">master属性</span><br><span class="line"><span class="code">	prunid</span></span><br><span class="line"><span class="code">	prole：master</span></span><br><span class="line"><span class="code">各个slave的详细信息	</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>获取所有slave的状态（根据master中的slave信息）</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">slave属性</span><br><span class="line"><span class="code">	prunid</span></span><br><span class="line"><span class="code">	prole：slave</span></span><br><span class="line"><span class="code">	pmaster_host、master_port</span></span><br><span class="line"><span class="code">	poffset</span></span><br></pre></td></tr></table></figure>
+
+<p>其内部的工作原理具体如下：</p>
+<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032341526.png"></p>
+<h4 id="3-3-2-通知"><a href="#3-3-2-通知" class="headerlink" title="3.3.2 通知"></a>3.3.2 通知</h4><p>sentinel在通知阶段要不断的去获取master/slave的信息，然后在各个sentinel之间进行共享，具体的流程如下：</p>
+<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032341521.png"></p>
+<h4 id="3-3-3-故障转移"><a href="#3-3-3-故障转移" class="headerlink" title="3.3.3 故障转移"></a>3.3.3 故障转移</h4><p>当master宕机后sentinel是如何知晓并判断出master是真的宕机了呢？我们来看具体的操作流程</p>
+<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032341973.png"></p>
+<p>当sentinel认定master下线之后，此时需要决定更换master，那这件事由哪个sentinel来做呢？这时候sentinel之间要进行选举，如下图所示：</p>
+<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032341326.png"></p>
+<p>在选举的时候每一个人手里都有一票，而每一个人的又都想当这个处理事故的人，那怎么办？大家就开始抢，于是每个人都会发出一个指令，在内网里边告诉大家我要当选举人，比如说现在的sentinel1和sentinel4发出这个选举指令了，那么sentinel2既能接到sentinel1的也能接到sentinel4的，接到了他们的申请以后呢，sentinel2他就会把他的一票投给其中一方，投给谁呢？谁先过来我投给谁，假设sentinel1先过来，所以这个票就给到了sentinel1。那么给过去以后呢，现在sentinel1就拿到了一票，按照这样的一种形式，最终会有一个选举结果。对应的选举最终得票多的，那自然就成为了处理事故的人。需要注意在这个过程中有可能会存在失败的现象，就是一轮选举完没有选取，那就会接着进行第二轮第三轮直到完成选举。</p>
+<p>接下来就是由选举胜出的sentinel去从slave中选一个新的master出来的工作，这个流程是什么样的呢？</p>
+<p>首先它有一个在服务器列表中挑选备选master的原则</p>
+<ul>
+<li>不在线的OUT</li>
+</ul>
+<ul>
+<li>响应慢的OUT</li>
+</ul>
+<ul>
+<li>与原master断开时间久的OUT</li>
+</ul>
+<ul>
+<li><p>优先原则</p>
+<p>​    优先级<br>​        offset<br>​        runid</p>
+</li>
+</ul>
+<p>选出新的master之后，发送指令（ sentinel ）给其他的slave：</p>
+<ul>
+<li>向新的master发送slaveof no one</li>
+</ul>
+<ul>
+<li>向其他slave发送slaveof 新masterIP端口</li>
+</ul>
+<p><strong>总结</strong>：故障转移阶段</p>
+<ol>
+<li>发现问题，主观下线与客观下线</li>
+<li>竞选负责人</li>
+<li>优选新master</li>
+<li>新master上任，其他slave切换master，原master作为slave故障恢复后连接</li>
+</ol>
+<h2 id="4-集群cluster"><a href="#4-集群cluster" class="headerlink" title="4.集群cluster"></a>4.集群cluster</h2><p>现状问题：业务发展过程中遇到的峰值瓶颈</p>
+<ul>
+<li>redis提供的服务OPS可以达到10万/秒，当前业务OPS已经达到10万/秒</li>
+<li>内存单机容量达到256G，当前业务需求内存容量1T</li>
+<li>使用集群的方式可以快速解决上述问题</li>
+</ul>
+<h3 id="4-1-集群简介"><a href="#4-1-集群简介" class="headerlink" title="4.1 集群简介"></a>4.1 集群简介</h3><p>集群就是使用网络将若干台计算机联通起来，并提供统一的管理方式，使其对外呈现单机的服务效果</p>
+<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032341545.png"></p>
+<p><strong>集群作用：</strong></p>
+<ul>
+<li>分散单台服务器的访问压力，实现负载均衡</li>
+<li>分散单台服务器的存储压力，实现可扩展性</li>
+<li>降低单台服务器宕机带来的业务灾难</li>
+</ul>
+<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032341078.png"></p>
+<h3 id="4-2-Cluster集群结构设计"><a href="#4-2-Cluster集群结构设计" class="headerlink" title="4.2 Cluster集群结构设计"></a>4.2 Cluster集群结构设计</h3><p><strong>数据存储设计：</strong></p>
+<ol>
+<li><p>通过算法设计，计算出key应该保存的位置</p>
+</li>
+<li><p>将所有的存储空间计划切割成16384份，每台主机保存一部分</p>
+<p>注意：每份代表的是一个存储空间，不是一个key的保存空间</p>
+</li>
+<li><p>将key按照计算出的结果放到对应的存储空间</p>
+</li>
+</ol>
+<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032341991.png"></p>
+<p>那redis的集群是如何增强可扩展性的呢？譬如我们要增加一个集群节点</p>
+<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032342016.png"></p>
+<p>当我们查找数据时，集群是如何操作的呢？</p>
+<ul>
+<li>各个数据库相互通信，保存各个库中槽的编号数据</li>
+<li>一次命中，直接返回</li>
+<li>一次未命中，告知具体位置</li>
+</ul>
+<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032342930.png"></p>
+<h3 id="4-3-Cluster集群结构搭建"><a href="#4-3-Cluster集群结构搭建" class="headerlink" title="4.3 Cluster集群结构搭建"></a>4.3 Cluster集群结构搭建</h3><p>首先要明确的几个要点：</p>
+<ul>
+<li>配置服务器（3主3从）</li>
+<li>建立通信（Meet）</li>
+<li>分槽（Slot）</li>
+<li>搭建主从（master-slave）</li>
+</ul>
+<p><strong>Cluster配置</strong></p>
+<ul>
+<li>是否启用cluster，加入cluster节点</li>
+</ul>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">cluster-enabled</span> <span class="string">yes|no</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>cluster配置文件名，该文件属于自动生成，仅用于快速查找文件并查询文件内容</li>
+</ul>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">cluster-config-file</span> <span class="string">filename</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>节点服务响应超时时间，用于判定该节点是否下线或切换为从节点</li>
+</ul>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">cluster-node-timeout</span> <span class="string">milliseconds</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>master连接的slave最小数量</li>
+</ul>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">cluster-migration-barrier</span> <span class="string">min_slave_number</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Cluster节点操作命令</strong></p>
+<ul>
+<li> 查看集群节点信息</li>
+</ul>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">cluster</span> <span class="string">nodes</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>更改slave指向新的master</li>
+</ul>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">cluster</span> <span class="string">replicate master-id</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>发现一个新节点，新增master</li>
+</ul>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">cluster</span> <span class="string">meet ip:port</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>忽略一个没有solt的节点</li>
+</ul>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">cluster</span> <span class="string">forget server_id</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>手动故障转移</li>
+</ul>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">cluster</span> <span class="string">failover</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>集群操作命令：</strong></p>
+<ul>
+<li>创建集群</li>
+</ul>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">redis-cli</span> <span class="string">–-cluster create masterhost1:masterport1 masterhost2:masterport2  masterhost3:masterport3 [masterhostn:masterportn …] slavehost1:slaveport1  slavehost2:slaveport2 slavehost3:slaveport3 -–cluster-replicas n</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：master与slave的数量要匹配，一个master对应n个slave，由最后的参数n决定</p>
+<p>master与slave的匹配顺序为第一个master与前n个slave分为一组，形成主从结构</p>
+<ul>
+<li>添加master到当前集群中，连接时可以指定任意现有节点地址与端口</li>
+</ul>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">redis-cli</span> <span class="string">--cluster add-node new-master-host:new-master-port now-host:now-port</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>添加slave</li>
+</ul>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">redis-cli</span> <span class="string">--cluster add-node new-slave-host:new-slave-port master-host:master-port --cluster-slave --cluster-master-id masterid</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>删除节点，如果删除的节点是master，必须保障其中没有槽slot</li>
+</ul>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">redis-cli</span> <span class="string">--cluster del-node del-slave-host:del-slave-port del-slave-id</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>重新分槽，分槽是从具有槽的master中划分一部分给其他master，过程中不创建新的槽</li>
+</ul>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">redis-cli</span> <span class="string">--cluster reshard new-master-host:new-master:port --cluster-from src-  master-id1, src-master-id2, src-master-idn --cluster-to target-master-id --  cluster-slots slots</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：将需要参与分槽的所有masterid不分先后顺序添加到参数中，使用，分隔</p>
+<p>指定目标得到的槽的数量，所有的槽将平均从每个来源的master处获取</p>
+<ul>
+<li>重新分配槽，从具有槽的master中分配指定数量的槽到另一个master中，常用于清空指定master中的槽</li>
+</ul>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">redis-cli</span> <span class="string">--cluster reshard src-master-host:src-master-port --cluster-from src-  master-id --cluster-to target-master-id --cluster-slots slots --cluster-yes</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="5-企业级解决方案"><a href="#5-企业级解决方案" class="headerlink" title="5.企业级解决方案"></a>5.企业级解决方案</h2><h3 id="5-1-缓存预热"><a href="#5-1-缓存预热" class="headerlink" title="5.1 缓存预热"></a>5.1 缓存预热</h3><p><strong>场景</strong>：“宕机”</p>
+<p>服务器启动后迅速宕机</p>
+<p><strong>问题排查</strong>：</p>
+<p>1.请求数量较高，大量的请求过来之后都需要去从缓存中获取数据，但是缓存中又没有，此时从数据库中查找数据然后将数据再存入缓存，造成了短期内对redis的高强度操作从而导致问题</p>
+<p>2.主从之间数据吞吐量较大，数据同步操作频度较高</p>
+<p><strong>解决方案：</strong></p>
+<ul>
+<li>前置准备工作：</li>
+</ul>
+<p>1.日常例行统计数据访问记录，统计访问频度较高的热点数据</p>
+<p>2.利用LRU数据删除策略，构建数据留存队列例如：storm与kafka配合</p>
+<ul>
+<li>准备工作：</li>
+</ul>
+<p>1.将统计结果中的数据分类，根据级别，redis优先加载级别较高的热点数据</p>
+<p>2.利用分布式多服务器同时进行数据读取，提速数据加载过程</p>
+<p>3.热点数据主从同时预热</p>
+<ul>
+<li>实施：</li>
+</ul>
+<p>4.使用脚本程序固定触发数据预热过程</p>
+<p>5.如果条件允许，使用了CDN（内容分发网络），效果会更好</p>
+<p><strong>总的来说</strong>：缓存预热就是系统启动前，提前将相关的缓存数据直接加载到缓存系统。避免在用户请求的时候，先查询数据库，然后再将数据缓存的问题！用户直接查询事先被预热的缓存数据！</p>
+<h3 id="5-2-缓存雪崩"><a href="#5-2-缓存雪崩" class="headerlink" title="5.2 缓存雪崩"></a>5.2 缓存雪崩</h3><p><strong>场景</strong>：数据库服务器崩溃，一连串的场景会随之儿来</p>
+<p>1.系统平稳运行过程中，忽然数据库连接量激增</p>
+<p>2.应用服务器无法及时处理请求</p>
+<p>3.大量408，500错误页面出现</p>
+<p>4.客户反复刷新页面获取数据</p>
+<p>5.数据库崩溃</p>
+<p>6.应用服务器崩溃</p>
+<p>7.重启应用服务器无效</p>
+<p>8.Redis服务器崩溃</p>
+<p>9.Redis集群崩溃</p>
+<p>10.重启数据库后再次被瞬间流量放倒</p>
+<p><strong>问题排查</strong>：</p>
+<p>1.在一个较短的时间内，缓存中较多的key集中过期</p>
+<p>2.此周期内请求访问过期的数据，redis未命中，redis向数据库获取数据</p>
+<p>3.数据库同时接收到大量的请求无法及时处理</p>
+<p>4.Redis大量请求被积压，开始出现超时现象</p>
+<p>5.数据库流量激增，数据库崩溃</p>
+<p>6.重启后仍然面对缓存中无数据可用</p>
+<p>7.Redis服务器资源被严重占用，Redis服务器崩溃</p>
+<p>8.Redis集群呈现崩塌，集群瓦解</p>
+<p>9.应用服务器无法及时得到数据响应请求，来自客户端的请求数量越来越多，应用服务器崩溃</p>
+<p>10.应用服务器，redis，数据库全部重启，效果不理想</p>
+<p>总而言之就两点：短时间范围内，大量key集中过期</p>
+<p><strong>解决方案</strong></p>
+<ul>
+<li>思路：</li>
+</ul>
+<p>1.更多的页面静态化处理</p>
+<p>2.构建多级缓存架构</p>
+<p>​    Nginx缓存+redis缓存+ehcache缓存</p>
+<p>3.检测Mysql严重耗时业务进行优化</p>
+<p>​    对数据库的瓶颈排查：例如超时查询、耗时较高事务等</p>
+<p>4.灾难预警机制</p>
+<p>​    监控redis服务器性能指标</p>
+<p>​        CPU占用、CPU使用率</p>
+<p>​        内存容量</p>
+<p>​        查询平均响应时间</p>
+<p>​        线程数</p>
+<p>5.限流、降级</p>
+<p>短时间范围内牺牲一些客户体验，限制一部分请求访问，降低应用服务器压力，待业务低速运转后再逐步放开访问</p>
+<ul>
+<li>落地实践：</li>
+</ul>
+<p>1.LRU与LFU切换</p>
+<p>2.数据有效期策略调整</p>
+<p>​    根据业务数据有效期进行分类错峰，A类90分钟，B类80分钟，C类70分钟</p>
+<p>​    过期时间使用固定时间+随机值的形式，稀释集中到期的key的数量</p>
+<p>3.超热数据使用永久key</p>
+<p>4.定期维护（自动+人工）</p>
+<p>​    对即将过期数据做访问量分析，确认是否延时，配合访问量统计，做热点数据的延时</p>
+<p>5.加锁：慎用！</p>
+<p><strong>总的来说</strong>：缓存雪崩就是瞬间过期数据量太大，导致对数据库服务器造成压力。如能够有效避免过期时间集中，可以有效解决雪崩现象的 出现（约40%），配合其他策略一起使用，并监控服务器的运行数据，根据运行记录做快速调整。</p>
+<h3 id="5-3-缓存击穿"><a href="#5-3-缓存击穿" class="headerlink" title="5.3 缓存击穿"></a>5.3 缓存击穿</h3><p><strong>场景</strong>：还是数据库服务器崩溃，但是跟之前的场景有点不太一样</p>
+<p>1.系统平稳运行过程中</p>
+<p>2.数据库连接量瞬间激增</p>
+<p>3.Redis服务器无大量key过期</p>
+<p>4.Redis内存平稳，无波动</p>
+<p>5.Redis服务器CPU正常</p>
+<p>6.数据库崩溃</p>
+<p><strong>问题排查：</strong></p>
+<p>1.Redis中某个key过期，该key访问量巨大</p>
+<p>2.多个数据请求从服务器直接压到Redis后，均未命中</p>
+<p>3.Redis在短时间内发起了大量对数据库中同一数据的访问</p>
+<p>总而言之就两点：单个key高热数据，key过期</p>
+<p><strong>解决方案</strong>：</p>
+<p>1.预先设定</p>
+<p>​    以电商为例，每个商家根据店铺等级，指定若干款主打商品，在购物节期间，加大此类信息key的过期时长 注意：购物节不仅仅指当天，以及后续若干天，访问峰值呈现逐渐降低的趋势</p>
+<p>2.现场调整</p>
+<p>​    监控访问量，对自然流量激增的数据延长过期时间或设置为永久性key</p>
+<p>3.后台刷新数据</p>
+<p>​    启动定时任务，高峰期来临之前，刷新数据有效期，确保不丢失</p>
+<p>4.二级缓存</p>
+<p>​    设置不同的失效时间，保障不会被同时淘汰就行</p>
+<p>5.加锁</p>
+<p>​    分布式锁，防止被击穿，但是要注意也是性能瓶颈，慎重！</p>
+<p><strong>总的来说</strong>：缓存击穿就是单个高热数据过期的瞬间，数据访问量较大，未命中redis后，发起了大量对同一数据的数据库访问，导致对数 据库服务器造成压力。应对策略应该在业务数据分析与预防方面进行，配合运行监控测试与即时调整策略，毕竟单个key的过 期监控难度较高，配合雪崩处理策略即可。</p>
+<h3 id="5-4-缓存穿透"><a href="#5-4-缓存穿透" class="headerlink" title="5.4 缓存穿透"></a>5.4 缓存穿透</h3><p><strong>场景</strong>：数据库服务器又崩溃了，跟之前的一样吗？</p>
+<p>1.系统平稳运行过程中</p>
+<p>2.应用服务器流量随时间增量较大</p>
+<p>3.Redis服务器命中率随时间逐步降低</p>
+<p>4.Redis内存平稳，内存无压力</p>
+<p>5.Redis服务器CPU占用激增</p>
+<p>6.数据库服务器压力激增</p>
+<p>7.数据库崩溃</p>
+<p><strong>问题排查：</strong></p>
+<p>1.Redis中大面积出现未命中</p>
+<p>2.出现非正常URL访问</p>
+<p><strong>问题分析</strong>：</p>
+<ul>
+<li>获取的数据在数据库中也不存在，数据库查询未得到对应数据</li>
+<li>Redis获取到null数据未进行持久化，直接返回</li>
+<li>下次此类数据到达重复上述过程</li>
+<li>出现黑客攻击服务器</li>
+</ul>
+<p><strong>解决方案</strong>：</p>
+<p>1.缓存null</p>
+<p>​    对查询结果为null的数据进行缓存（长期使用，定期清理），设定短时限，例如30-60秒，最高5分钟</p>
+<p>2.白名单策略</p>
+<p>​    提前预热各种分类数据id对应的bitmaps，id作为bitmaps的offset，相当于设置了数据白名单。当加载正常数据时放行，加载异常数据时直接拦截（效率偏低）</p>
+<p>​    使用布隆过滤器（有关布隆过滤器的命中问题对当前状况可以忽略）</p>
+<p>2.实施监控</p>
+<p>​    实时监控redis命中率（业务正常范围时，通常会有一个波动值）与null数据的占比</p>
+<p>​        非活动时段波动：通常检测3-5倍，超过5倍纳入重点排查对象</p>
+<p>​        活动时段波动：通常检测10-50倍，超过50倍纳入重点排查对象</p>
+<p>​    根据倍数不同，启动不同的排查流程。然后使用黑名单进行防控（运营）</p>
+<p>4.key加密</p>
+<p>​    问题出现后，临时启动防灾业务key，对key进行业务层传输加密服务，设定校验程序，过来的key校验</p>
+<p>​    例如每天随机分配60个加密串，挑选2到3个，混淆到页面数据id中，发现访问key不满足规则，驳回数据访问</p>
+<p><strong>总的来说</strong>：缓存击穿是指访问了不存在的数据，跳过了合法数据的redis数据缓存阶段，每次访问数据库，导致对数据库服务器造成压力。通常此类数据的出现量是一个较低的值，当出现此类情况以毒攻毒，并及时报警。应对策略应该在临时预案防范方面多做文章。</p>
+<p>无论是黑名单还是白名单，都是对整体系统的压力，警报解除后尽快移除。</p>
+<h3 id="5-5-性能指标监控"><a href="#5-5-性能指标监控" class="headerlink" title="5.5 性能指标监控"></a>5.5 性能指标监控</h3><p>redis中的监控指标如下：</p>
+<ul>
+<li>性能指标：Performance</li>
+</ul>
+<blockquote>
+<p>响应请求的平均时间:</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;latency</span></span><br></pre></td></tr></table></figure>
+
+<p>平均每秒处理请求总数</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;instantaneous_ops_per_sec</span></span><br></pre></td></tr></table></figure>
+
+<p>缓存查询命中率（通过查询总次数与查询得到非nil数据总次数计算而来）</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;hit_rate(calculated)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li><p>内存指标：Memory</p>
+<blockquote>
+<p>当前内存使用量</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;used_memory</span></span><br></pre></td></tr></table></figure>
+
+<p>内存碎片率（关系到是否进行碎片整理）</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;mem_fragmentation_ratio</span></span><br></pre></td></tr></table></figure>
+
+<p>为避免内存溢出删除的key的总数量</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;evicted_keys</span></span><br></pre></td></tr></table></figure>
+
+<p>基于阻塞操作（BLPOP等）影响的客户端数量</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;blocked_clients</span></span><br></pre></td></tr></table></figure></blockquote>
+</li>
+<li><p>基本活动指标：Basic_activity</p>
+</li>
+</ul>
+<blockquote>
+<p>当前客户端连接总数</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;connected_clients</span></span><br></pre></td></tr></table></figure>
+
+<p>当前连接slave总数</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;connected_slaves</span></span><br></pre></td></tr></table></figure>
+
+<p>最后一次主从信息交换距现在的秒</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;master_last_io_seconds_ago</span></span><br></pre></td></tr></table></figure>
+
+<p>key的总数</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;keyspace</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>持久性指标：Persistence</li>
+</ul>
+<blockquote>
+<p>当前服务器最后一次RDB持久化的时间</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;rdb_last_save_time</span></span><br></pre></td></tr></table></figure>
+
+<p>当前服务器最后一次RDB持久化后数据变化总量</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;rdb_changes_since_last_save</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>错误指标：Error</li>
+</ul>
+<blockquote>
+<p>被拒绝连接的客户端总数（基于达到最大连接值的因素）</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;rejected_connections</span></span><br></pre></td></tr></table></figure>
+
+<p>key未命中的总次数</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;keyspace_misses</span></span><br></pre></td></tr></table></figure>
+
+<p>主从断开的秒数</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;master_link_down_since_seconds</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>要对redis的相关指标进行监控，我们可以采用一些用具：</p>
+<ul>
+<li>CloudInsight Redis</li>
+<li>Prometheus</li>
+<li>Redis-stat</li>
+<li>Redis-faina</li>
+<li>RedisLive</li>
+<li>zabbix</li>
+</ul>
+<p>也有一些命令工具：</p>
+<ul>
+<li>benchmark</li>
+</ul>
+<blockquote>
+<p>测试当前服务器的并发性能</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;redis-benchmark</span> <span class="string">[-h ] [-p ] [-c ] [-n &lt;requests]&gt; [-k ]</span></span><br></pre></td></tr></table></figure>
+
+<p>范例1：50个连接，10000次请求对应的性能</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;redis-benchmark</span></span><br></pre></td></tr></table></figure>
+
+<p>范例2：100个连接，5000次请求对应的性能</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;redis-benchmark</span> <span class="string">-c 100 -n 5000</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032342731.png"></p>
+</blockquote>
+<ul>
+<li><p>redis-cli</p>
+<p>​    monitor：启动服务器调试信息</p>
+</li>
+</ul>
+<blockquote>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;monitor</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<pre><code>  slowlog：慢日志
+</code></pre>
+<blockquote>
+<p>获取慢查询日志</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;slowlog</span> <span class="string">[operator]</span></span><br></pre></td></tr></table></figure>
+
+<p>​    get ：获取慢查询日志信息</p>
+<p>​    len ：获取慢查询日志条目数</p>
+<p>​    reset ：重置慢查询日志</p>
+<p>相关配置</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;slowlog-log-slower-than</span> <span class="string">1000 #设置慢查询的时间下线，单位：微妙</span></span><br><span class="line"><span class="attr">&gt;slowlog-max-len</span> <span class="string">100	#设置慢查询命令对应的日志显示长度，单位：命令数</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
     <title>Redis入门</title>
     <url>/2022/08/01/redis/%E7%AC%AC%E4%B8%80%E7%AB%A0%20Redis%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<h1 id="第一章-Redis基础"><a href="#第一章-Redis基础" class="headerlink" title="第一章 Redis基础"></a>第一章 Redis基础</h1><p><strong>课程计划</strong></p>
@@ -2293,928 +3243,6 @@ wg.Wait() // 等待所有登记的goroutine都结束
 <li>双保险策略，同时开启 RDB和 AOF，重启后，Redis优先使用 AOF 来恢复数据，降低丢失数据的量</li>
 </ul>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Redis高级</title>
-    <url>/2022/08/01/redis/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20Redis%E9%AB%98%E7%BA%A7/</url>
-    <content><![CDATA[<h1 id="第二章：Redis高级"><a href="#第二章：Redis高级" class="headerlink" title="第二章：Redis高级"></a>第二章：Redis高级</h1><h2 id="学习目标"><a href="#学习目标" class="headerlink" title="学习目标"></a>学习目标</h2><p>目标1：能够说出redis中的数据删除策与略淘汰策略</p>
-<p>目标2：能够说出主从复制的概念，工作流程以及场景问题及解决方案</p>
-<p>目标3：能够说出哨兵的作用以及工作原理，以及如何启用哨兵</p>
-<p>目标4：能够说出集群的架构设计，完成集群的搭建</p>
-<p>目标5：能够说出缓存预热，雪崩，击穿，穿透的概念，能说出redis的相关监控指标</p>
-<h2 id="1-数据删除与淘汰策略"><a href="#1-数据删除与淘汰策略" class="headerlink" title="1.数据删除与淘汰策略"></a>1.数据删除与淘汰策略</h2><h3 id="1-1-过期数据"><a href="#1-1-过期数据" class="headerlink" title="1.1 过期数据"></a>1.1 过期数据</h3><h4 id="1-1-1-Redis中的数据特征"><a href="#1-1-1-Redis中的数据特征" class="headerlink" title="1.1.1 Redis中的数据特征"></a><strong>1.1.1 Redis中的数据特征</strong></h4><p>Redis是一种内存级数据库，所有数据均存放在内存中，内存中的数据可以通过TTL指令获取其状态</p>
-<p>TTL返回的值有三种情况：正数，-1，-2</p>
-<ul>
-<li><strong>正数</strong>：代表该数据在内存中还能存活的时间</li>
-<li><strong>-1</strong>：永久有效的数据</li>
-<li><strong>2</strong> ：已经过期的数据 或被删除的数据 或 未定义的数据</li>
-</ul>
-<p><strong>删除策略就是针对已过期数据的处理策略</strong>，已过期的数据是真的就立即删除了吗？其实也不是，我们会有多种删除策略，是分情况的，在不同的场景下使用不同的删除方式会有不同效果，这也正是我们要将的数据的删除策略的问题</p>
-<h4 id="1-1-2-时效性数据的存储结构"><a href="#1-1-2-时效性数据的存储结构" class="headerlink" title="1.1.2 时效性数据的存储结构"></a>1.1.2 时效性数据的存储结构</h4><p>在Redis中，如何给数据设置它的失效周期呢？数据的时效在redis中如何存储呢？看下图：</p>
-<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032338242.png"></p>
-<p>过期数据是一块独立的存储空间，Hash结构，field是内存地址，value是过期时间，保存了所有key的过期描述，在最终进行过期处理的时候，对该空间的数据进行检测， 当时间到期之后通过field找到内存该地址处的数据，然后进行相关操作。</p>
-<h3 id="1-2-数据删除策略"><a href="#1-2-数据删除策略" class="headerlink" title="1.2 数据删除策略"></a>1.2 数据删除策略</h3><h4 id="1-2-1-数据删除策略的目标"><a href="#1-2-1-数据删除策略的目标" class="headerlink" title="1.2.1 数据删除策略的目标"></a>1.2.1 数据删除策略的目标</h4><p>在内存占用与CPU占用之间寻找一种平衡，顾此失彼都会造成整体redis性能的下降，甚至引发服务器宕机或 内存泄露</p>
-<p>针对过期数据要进行删除的时候都有哪些删除策略呢？</p>
-<ul>
-<li>1.定时删除</li>
-<li>2.惰性删除</li>
-<li>3.定期删除</li>
-</ul>
-<h4 id="1-2-2-定时删除"><a href="#1-2-2-定时删除" class="headerlink" title="1.2.2 定时删除"></a>1.2.2 定时删除</h4><p>创建一个定时器，当key设置有过期时间，且过期时间到达时，由定时器任务立即执行对键的删除操作</p>
-<ul>
-<li><strong>优点</strong>：节约内存，到时就删除，快速释放掉不必要的内存占用</li>
-<li><strong>缺点</strong>：CPU压力很大，无论CPU此时负载量多高，均占用CPU，会影响redis服务器响应时间和指令吞吐量</li>
-<li><strong>总结</strong>：用处理器性能换取存储空间（拿时间换空间）</li>
-</ul>
-<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032339557.png"></p>
-<h4 id="1-2-3-惰性删除"><a href="#1-2-3-惰性删除" class="headerlink" title="1.2.3 惰性删除"></a>1.2.3 惰性删除</h4><p>数据到达过期时间，不做处理。等下次访问该数据时，我们需要判断</p>
-<ol>
-<li>如果未过期，返回数据</li>
-<li>发现已过期，删除，返回不存在</li>
-</ol>
-<ul>
-<li><strong>优点</strong>：节约CPU性能，发现必须删除的时候才删除</li>
-<li><strong>缺点</strong>：内存压力很大，出现长期占用内存的数据</li>
-<li><strong>总结</strong>：用存储空间换取处理器性能（拿时间换空间）</li>
-</ul>
-<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032339637.png"></p>
-<h4 id="1-2-4-定期删除"><a href="#1-2-4-定期删除" class="headerlink" title="1.2.4 定期删除"></a>1.2.4 定期删除</h4><p>定时删除和惰性删除这两种方案都是走的极端，那有没有折中方案？</p>
-<p>我们来讲redis的定期删除方案：</p>
-<ul>
-<li><p>Redis启动服务器初始化时，读取配置server.hz的值，默认为10</p>
-</li>
-<li><p>每秒钟执行server.hz次<strong>serverCron()</strong>——–&gt;<strong>databasesCron()</strong>———&gt;<strong>activeExpireCycle()</strong></p>
-</li>
-<li><p>**activeExpireCycle()*<em>对每个expires[</em>]逐一进行检测，每次执行耗时：250ms/server.hz</p>
-</li>
-<li><p>对某个expires[*]检测时，随机挑选W个key检测</p>
-</li>
-</ul>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">如果key超时，删除key</span><br><span class="line"></span><br><span class="line">如果一轮中删除的key的数量&gt;W<span class="emphasis">*25%，循环该过程</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">如果一轮中删除的key的数量≤W*</span>25%，检查下一个expires[<span class="emphasis">*]，0-15循环</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">W取值=ACTIVE_EXPIRE_CYCLE_LOOKUPS_PER_LOOP属性值</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>参数current_db用于记录<strong>activeExpireCycle()</strong> 进入哪个expires[*] 执行</p>
-</li>
-<li><p>如果activeExpireCycle()执行时间到期，下次从current_db继续向下执行</p>
-</li>
-</ul>
-<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032339400.png"></p>
-<p>总的来说：定期删除就是周期性轮询redis库中的时效性数据，采用随机抽取的策略，利用过期数据占比的方式控制删除频度</p>
-<ul>
-<li><strong>特点1</strong>：CPU性能占用设置有峰值，检测频度可自定义设置</li>
-<li><strong>特点2</strong>：内存压力不是很大，长期占用内存的冷数据会被持续清理</li>
-<li><strong>总结</strong>：周期性抽查存储空间（随机抽查，重点抽查）</li>
-</ul>
-<h4 id="1-2-5-删除策略对比"><a href="#1-2-5-删除策略对比" class="headerlink" title="1.2.5 删除策略对比"></a>1.2.5 删除策略对比</h4><p>1：定时删除：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">节约内存，无占用,</span><br><span class="line">不分时段占用CPU资源，频度高,</span><br><span class="line">拿时间换空间</span><br></pre></td></tr></table></figure>
-
-<p>2：惰性删除：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">内存占用严重</span><br><span class="line">延时执行，CPU利用率高</span><br><span class="line">拿空间换时间</span><br></pre></td></tr></table></figure>
-
-<p>3：定期删除：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">内存定期随机清理</span><br><span class="line">每秒花费固定的CPU资源维护内存</span><br><span class="line">随机抽查，重点抽查</span><br></pre></td></tr></table></figure>
-
-<h3 id="1-3-数据淘汰策略（逐出算法）"><a href="#1-3-数据淘汰策略（逐出算法）" class="headerlink" title="1.3 数据淘汰策略（逐出算法）"></a>1.3 数据淘汰策略（逐出算法）</h3><h4 id="1-3-1-淘汰策略概述"><a href="#1-3-1-淘汰策略概述" class="headerlink" title="1.3.1 淘汰策略概述"></a>1.3.1 淘汰策略概述</h4><p>什么叫数据淘汰策略？什么样的应用场景需要用到数据淘汰策略？</p>
-<p>当新数据进入redis时，如果内存不足怎么办？在执行每一个命令前，会调用**freeMemoryIfNeeded()**检测内存是否充足。如果内存不满足新 加入数据的最低存储要求，redis要临时删除一些数据为当前指令清理存储空间。清理数据的策略称为逐出算法。</p>
-<p>注意：逐出数据的过程不是100%能够清理出足够的可使用的内存空间，如果不成功则反复执行。当对所有数据尝试完毕，  如不能达到内存清理的要求，将出现错误信息如下</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">(error) OOM command not allowed when used memory &gt;&#x27;maxmemory&#x27;</span><br></pre></td></tr></table></figure>
-
-<h4 id="1-3-2-策略配置"><a href="#1-3-2-策略配置" class="headerlink" title="1.3.2 策略配置"></a>1.3.2 策略配置</h4><p>影响数据淘汰的相关配置如下：</p>
-<p>1：最大可使用内存，即占用物理内存的比例，默认值为0，表示不限制。生产环境中根据需求设定，通常设置在50%以上</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">maxmemory</span> <span class="string">?mb</span></span><br></pre></td></tr></table></figure>
-
-<p>2：每次选取待删除数据的个数，采用随机获取数据的方式作为待检测删除数据</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">maxmemory-samples</span> <span class="string">count</span></span><br></pre></td></tr></table></figure>
-
-<p>3：对数据进行删除的选择策略</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">maxmemory-policy</span> <span class="string">policy</span></span><br></pre></td></tr></table></figure>
-
-<p>那数据删除的策略policy到底有几种呢？一共是<strong>3类8种</strong></p>
-<p><strong>第一类</strong>：检测易失数据（可能会过期的数据集server.db[i].expires ）</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">volatile-lru：挑选最近最少使用的数据淘汰</span></span><br><span class="line"><span class="attr">volatile-lfu：挑选最近使用次数最少的数据淘汰</span></span><br><span class="line"><span class="attr">volatile-ttl：挑选将要过期的数据淘汰</span></span><br><span class="line"><span class="attr">volatile-random：任意选择数据淘汰</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032339450.png"></p>
-<p><strong>第二类</strong>：检测全库数据（所有数据集server.db[i].dict ）</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">allkeys-lru：挑选最近最少使用的数据淘汰</span></span><br><span class="line"><span class="attr">allkeLyRs-lfu：：挑选最近使用次数最少的数据淘汰</span></span><br><span class="line"><span class="attr">allkeys-random：任意选择数据淘汰，相当于随机</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>第三类</strong>：放弃数据驱逐</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">no-enviction（驱逐）：禁止驱逐数据(redis4.0中默认策略)，会引发OOM(Out</span> <span class="string">Of Memory)</span></span><br></pre></td></tr></table></figure>
-
-<p>注意：这些策略是配置到哪个属性上？怎么配置？如下所示</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">maxmemory-policy</span> <span class="string">volatile-lru</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>数据淘汰策略配置依据</strong></p>
-<p> 使用INFO命令输出监控信息，查询缓存 hit 和 miss 的次数，根据业务需求调优Redis配置</p>
-<h2 id="2-主从复制"><a href="#2-主从复制" class="headerlink" title="2.主从复制"></a>2.主从复制</h2><h3 id="2-1-主从复制简介"><a href="#2-1-主从复制简介" class="headerlink" title="2.1 主从复制简介"></a>2.1 主从复制简介</h3><h4 id="2-1-1-高可用"><a href="#2-1-1-高可用" class="headerlink" title="2.1.1 高可用"></a>2.1.1 高可用</h4><p>首先我们要理解互联网应用因为其独有的特性我们演化出的<strong>三高</strong>架构</p>
-<ul>
-<li><p>高并发</p>
-<blockquote>
-<p>应用要提供某一业务要能支持很多客户端同时访问的能力，我们称为并发，高并发意思就很明确了</p>
-</blockquote>
-</li>
-<li><p>高性能</p>
-<blockquote>
-<p>性能带给我们最直观的感受就是：速度快，时间短</p>
-</blockquote>
-</li>
-<li><p>高可用</p>
-</li>
-</ul>
-<p><strong>可用性</strong>：一年中应用服务正常运行的时间占全年时间的百分比，如下图：表示了应用服务在全年宕机的时间</p>
-<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032339749.png"></p>
-<p>我们把这些时间加在一起就是全年应用服务不可用的时间，然后我们可以得到应用服务全年可用的时间</p>
-<blockquote>
-<p>4小时27分15秒+11分36秒+2分16秒=4小时41分7秒=16867秒</p>
-<p>1年=365<em>24</em>60*60=31536000秒</p>
-<p>可用性=（31536000-16867）/31536000*100%=99.9465151%</p>
-</blockquote>
-<p>业界可用性目标**5个9，即99.999%**，即服务器年宕机时长低于315秒，约5.25分钟</p>
-<h4 id="2-1-2-主从复制概念"><a href="#2-1-2-主从复制概念" class="headerlink" title="2.1.2 主从复制概念"></a>2.1.2 主从复制概念</h4><p>知道了三高的概念之后，我们想：你的“Redis”是否高可用？那我们要来分析单机redis的风险与问题</p>
-<p>问题1.机器故障</p>
-<ul>
-<li>现象：硬盘故障、系统崩溃</li>
-<li>本质：数据丢失，很可能对业务造成灾难性打击</li>
-<li>结论：基本上会放弃使用redis.</li>
-</ul>
-<p>问题2.容量瓶颈</p>
-<ul>
-<li>现象：内存不足，从16G升级到64G，从64G升级到128G，无限升级内存</li>
-<li>本质：穷，硬件条件跟不上</li>
-<li>结论：放弃使用redis</li>
-</ul>
-<p>结论：</p>
-<p>为了避免单点Redis服务器故障，准备多台服务器，互相连通。将数据复制多个副本保存在不同的服务器上，连接在一起，并保证数据是同步的。即使有其中一台服务器宕机，其他服务器依然可以继续提供服务，实现Redis的高可用，同时实现数据冗余备份。</p>
-<p>多台服务器连接方案：</p>
-<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032339819.png"></p>
-<ul>
-<li>提供数据方：<strong>master</strong></li>
-</ul>
-<p>主服务器，主节点，主库主客户端</p>
-<ul>
-<li>接收数据方：<strong>slave</strong></li>
-</ul>
-<p>从服务器，从节点，从库</p>
-<p>从客户端</p>
-<ul>
-<li>需要解决的问题：</li>
-</ul>
-<p>数据同步（master的数据复制到slave中）</p>
-<p>这里我们可以来解释主从复制的概念：</p>
-<p><strong>概念：主从复制即将master中的数据即时、有效的复制到slave中</strong></p>
-<p><strong>特征</strong>：一个master可以拥有多个slave，一个slave只对应一个master</p>
-<p><strong>职责</strong>：master和slave各自的职责不一样</p>
-<p>master:</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">写数据</span><br><span class="line"></span><br><span class="line">执行写操作时，将出现变化的数据自动同步到slave</span><br><span class="line"></span><br><span class="line">读数据（可忽略）</span><br></pre></td></tr></table></figure>
-
-<p>slave:</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">读数据</span><br><span class="line"></span><br><span class="line">写数据（禁止）</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-1-3-主从复制的作用"><a href="#2-1-3-主从复制的作用" class="headerlink" title="2.1.3 主从复制的作用"></a>2.1.3 主从复制的作用</h4><ul>
-<li>读写分离：master写、slave读，提高服务器的读写负载能力</li>
-<li>负载均衡：基于主从结构，配合读写分离，由slave分担master负载，并根据需求的变化，改变slave的数 量，通过多个从节点分担数据读取负载，大大提高Redis服务器并发量与数据吞吐量</li>
-<li>故障恢复：当master出现问题时，由slave提供服务，实现快速的故障恢复</li>
-<li>数据冗余：实现数据热备份，是持久化之外的一种数据冗余方式</li>
-<li>高可用基石：基于主从复制，构建哨兵模式与集群，实现Redis的高可用方案</li>
-</ul>
-<h3 id="2-2-主从复制工作流程"><a href="#2-2-主从复制工作流程" class="headerlink" title="2.2 主从复制工作流程"></a>2.2 主从复制工作流程</h3><p>主从复制过程大体可以分为3个阶段</p>
-<ul>
-<li>建立连接阶段（即准备阶段）</li>
-<li>数据同步阶段</li>
-<li>命令传播阶段（反复同步）</li>
-</ul>
-<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032339463.png"></p>
-<p>而命令的传播其实有4种，分别如下：</p>
-<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032339043.png"></p>
-<h4 id="2-2-1-主从复制的工作流程（三个阶段）"><a href="#2-2-1-主从复制的工作流程（三个阶段）" class="headerlink" title="2.2.1 主从复制的工作流程（三个阶段）"></a>2.2.1 主从复制的工作流程（三个阶段）</h4><h5 id="2-2-1-1-阶段一：建立连接"><a href="#2-2-1-1-阶段一：建立连接" class="headerlink" title="2.2.1.1 阶段一：建立连接"></a>2.2.1.1 阶段一：建立连接</h5><p>建立slave到master的连接，使master能够识别slave，并保存slave端口号</p>
-<p>流程如下：</p>
-<ol>
-<li>步骤1：设置master的地址和端口，保存master信息</li>
-<li>步骤2：建立socket连接</li>
-<li>步骤3：发送ping命令（定时器任务）</li>
-<li>步骤4：身份验证</li>
-<li>步骤5：发送slave端口信息</li>
-</ol>
-<p>至此，主从连接成功！</p>
-<p>当前状态：</p>
-<p>slave：保存master的地址与端口</p>
-<p>master：保存slave的端口</p>
-<p>总体：之间创建了连接的socket</p>
-<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032340745.png"></p>
-<p><strong>master和slave互联</strong></p>
-<p>接下来就要通过某种方式将master和slave连接到一起</p>
-<p>方式一：客户端发送命令</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">slaveof</span> <span class="string">masterip masterport</span></span><br></pre></td></tr></table></figure>
-
-<p>方式二：启动服务器参数</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">redis-server</span> <span class="string">--slaveof masterip masterport</span></span><br></pre></td></tr></table></figure>
-
-<p>方式三：服务器配置（<strong>主流方式</strong>）</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">slaveof</span> <span class="string">masterip masterport</span></span><br></pre></td></tr></table></figure>
-
-<p>slave系统信息</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">master_link_down_since_seconds</span></span><br><span class="line"><span class="attr">masterhost</span> <span class="string">&amp; masterport</span></span><br></pre></td></tr></table></figure>
-
-<p>master系统信息</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">uslave_listening_port(多个)</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>主从断开连接</strong></p>
-<p>断开slave与master的连接，slave断开连接后，不会删除已有数据，只是不再接受master发送的数据</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">slaveof</span> <span class="string">no one</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>授权访问</strong></p>
-<p>master客户端发送命令设置密码</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">requirepass</span> <span class="string">password</span></span><br></pre></td></tr></table></figure>
-
-<p>master配置文件设置密码</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">config</span> <span class="string">set requirepass password</span></span><br><span class="line"><span class="attr">config</span> <span class="string">get requirepass</span></span><br></pre></td></tr></table></figure>
-
-<p>slave客户端发送命令设置密码</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">auth</span> <span class="string">password</span></span><br></pre></td></tr></table></figure>
-
-<p>slave配置文件设置密码</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">masterauth</span> <span class="string">password</span></span><br></pre></td></tr></table></figure>
-
-<p>slave启动服务器设置密码</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">redis-server</span> <span class="string">–a password</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="2-2-1-2-阶段二：数据同步"><a href="#2-2-1-2-阶段二：数据同步" class="headerlink" title="2.2.1.2 阶段二：数据同步"></a>2.2.1.2 阶段二：数据同步</h5><ul>
-<li>在slave初次连接master后，复制master中的所有数据到slave</li>
-<li>将slave的数据库状态更新成master当前的数据库状态</li>
-</ul>
-<p>同步过程如下：</p>
-<ol>
-<li>步骤1：请求同步数据</li>
-<li>步骤2：创建RDB同步数据</li>
-<li>步骤3：恢复RDB同步数据</li>
-<li>步骤4：请求部分同步数据</li>
-<li>步骤5：恢复部分同步数据</li>
-</ol>
-<p>至此，数据同步工作完成！</p>
-<p>当前状态：</p>
-<p>slave：具有master端全部数据，包含RDB过程接收的数据</p>
-<p>master：保存slave当前数据同步的位置</p>
-<p>总体：之间完成了数据克隆</p>
-<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032340237.png"></p>
-<p><strong>数据同步阶段master说明</strong></p>
-<p>1：如果master数据量巨大，数据同步阶段应避开流量高峰期，避免造成master阻塞，影响业务正常执行</p>
-<p>2：复制缓冲区大小设定不合理，会导致数据溢出。如进行全量复制周期太长，进行部分复制时发现数据已经存在丢失的情况，必须进行第二次全量复制，致使slave陷入死循环状态。</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">repl-backlog-size</span> <span class="string">?mb</span></span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>master单机内存占用主机内存的比例不应过大，建议使用50%-70%的内存，留下30%-50%的内存用于执 行bgsave命令和创建复制缓冲区</li>
-</ol>
-<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032340078.png"></p>
-<p><strong>数据同步阶段slave说明</strong></p>
-<ol>
-<li><p>为避免slave进行全量复制、部分复制时服务器响应阻塞或数据不同步，建议关闭此期间的对外服务</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">slave-serve-stale-data</span> <span class="string">yes|no</span></span><br></pre></td></tr></table></figure></li>
-<li><p>数据同步阶段，master发送给slave信息可以理解master是slave的一个客户端，主动向slave发送命令</p>
-</li>
-<li><p>多个slave同时对master请求数据同步，master发送的RDB文件增多，会对带宽造成巨大冲击，如果master带宽不足，因此数据同步需要根据业务需求，适量错峰</p>
-</li>
-<li><p>slave过多时，建议调整拓扑结构，由一主多从结构变为树状结构，中间的节点既是master，也是 slave。注意使用树状结构时，由于层级深度，导致深度越高的slave与最顶层master间数据同步延迟 较大，数据一致性变差，应谨慎选择</p>
-</li>
-</ol>
-<h5 id="2-2-1-3-阶段三：命令传播"><a href="#2-2-1-3-阶段三：命令传播" class="headerlink" title="2.2.1.3 阶段三：命令传播"></a>2.2.1.3 阶段三：命令传播</h5><ul>
-<li>当master数据库状态被修改后，导致主从服务器数据库状态不一致，此时需要让主从数据同步到一致的状态，同步的动作称为命令传播</li>
-<li>master将接收到的数据变更命令发送给slave，slave接收命令后执行命令</li>
-</ul>
-<p><strong>命令传播阶段的部分复制</strong></p>
-<p>命令传播阶段出现了断网现象：</p>
-<p>网络闪断闪连：忽略</p>
-<p>短时间网络中断：部分复制</p>
-<p>长时间网络中断：全量复制</p>
-<p>这里我们主要来看部分复制，部分复制的三个核心要素</p>
-<ol>
-<li>服务器的运行 id（run id）</li>
-<li>主服务器的复制积压缓冲区</li>
-<li>主从服务器的复制偏移量</li>
-</ol>
-<ul>
-<li>服务器运行ID（runid）</li>
-</ul>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">概念：服务器运行ID是每一台服务器每次运行的身份识别码，一台服务器多次运行可以生成多个运行id</span><br><span class="line"></span><br><span class="line">组成：运行id由40位字符组成，是一个随机的十六进制字符</span><br><span class="line">例如：fdc9ff13b9bbaab28db42b3d50f852bb5e3fcdce</span><br><span class="line"></span><br><span class="line">作用：运行id被用于在服务器间进行传输，识别身份</span><br><span class="line">如果想两次操作均对同一台服务器进行，必须每次操作携带对应的运行id，用于对方识别</span><br><span class="line"></span><br><span class="line">实现方式：运行id在每台服务器启动时自动生成的，master在首次连接slave时，会将自己的运行ID发送给slave，</span><br><span class="line">slave保存此ID，通过info Server命令，可以查看节点的runid</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>复制缓冲区</li>
-</ul>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">概念：复制缓冲区，又名复制积压缓冲区，是一个先进先出（FIFO）的队列，用于存储服务器执行过的命令，每次传播命令，master都会将传播的命令记录下来，并存储在复制缓冲区</span><br><span class="line"><span class="code">	复制缓冲区默认数据存储空间大小是1M</span></span><br><span class="line"><span class="code">	当入队元素的数量大于队列长度时，最先入队的元素会被弹出，而新元素会被放入队列</span></span><br><span class="line"><span class="code">作用：用于保存master收到的所有指令（仅影响数据变更的指令，例如set，select）</span></span><br><span class="line"><span class="code"></span></span><br><span class="line">数据来源：当master接收到主客户端的指令时，除了将指令执行，会将该指令存储到缓冲区中</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032340249.png"></p>
-<p>复制缓冲区内部工作原理：</p>
-<p>组成</p>
-<ul>
-<li><p>偏移量</p>
-<blockquote>
-<p>概念：一个数字，描述复制缓冲区中的指令字节位置</p>
-<p>分类：</p>
-<ul>
-<li>master复制偏移量：记录发送给所有slave的指令字节对应的位置（多个）</li>
-<li>slave复制偏移量：记录slave接收master发送过来的指令字节对应的位置（一个）</li>
-</ul>
-<p>作用：同步信息，比对master与slave的差异，当slave断线后，恢复数据使用</p>
-<p>数据来源：</p>
-<ul>
-<li>master端：发送一次记录一次</li>
-<li>slave端：接收一次记录一次</li>
-</ul>
-</blockquote>
-</li>
-<li><p>字节值</p>
-</li>
-</ul>
-<p>工作原理</p>
-<ul>
-<li>通过offset区分不同的slave当前数据传播的差异</li>
-<li>master记录已发送的信息对应的offset</li>
-<li>slave记录已接收的信息对应的offset</li>
-</ul>
-<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032340372.png"></p>
-<h4 id="2-2-2-流程更新-全量复制-部分复制"><a href="#2-2-2-流程更新-全量复制-部分复制" class="headerlink" title="2.2.2 流程更新(全量复制/部分复制)"></a>2.2.2 流程更新(全量复制/部分复制)</h4><p>我们再次的总结一下主从复制的三个阶段的工作流程：</p>
-<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032340838.png"></p>
-<h4 id="2-2-3-心跳机制"><a href="#2-2-3-心跳机制" class="headerlink" title="2.2.3 心跳机制"></a>2.2.3 心跳机制</h4><p>什么是心跳机制？</p>
-<p>进入命令传播阶段候，master与slave间需要进行信息交换，使用心跳机制进行维护，实现双方连接保持在线</p>
-<p>master心跳：</p>
-<ul>
-<li>内部指令：PING</li>
-<li>周期：由repl-ping-slave-period决定，默认10秒</li>
-<li>作用：判断slave是否在线</li>
-<li>查询：INFO replication  获取slave最后一次连接时间间隔，lag项维持在0或1视为正常</li>
-</ul>
-<p>slave心跳任务</p>
-<ul>
-<li>内部指令：REPLCONF ACK {offset}</li>
-<li>周期：1秒</li>
-<li>作用1：汇报slave自己的复制偏移量，获取最新的数据变更指令</li>
-<li>作用2：判断master是否在线</li>
-</ul>
-<p>心跳阶段注意事项：</p>
-<ul>
-<li>当slave多数掉线，或延迟过高时，master为保障数据稳定性，将拒绝所有信息同步</li>
-</ul>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">min-slaves-to-write</span> <span class="string">2</span></span><br><span class="line"><span class="attr">min-slaves-max-lag</span> <span class="string">8</span></span><br></pre></td></tr></table></figure>
-
-<p>slave数量少于2个，或者所有slave的延迟都大于等于8秒时，强制关闭master写功能，停止数据同步</p>
-<ul>
-<li>slave数量由slave发送REPLCONF ACK命令做确认</li>
-</ul>
-<ul>
-<li>slave延迟由slave发送REPLCONF ACK命令做确认</li>
-</ul>
-<p>至此：我们可以总结出完整的主从复制流程：</p>
-<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032340104.png"></p>
-<h3 id="2-3-主从复制常见问题"><a href="#2-3-主从复制常见问题" class="headerlink" title="2.3 主从复制常见问题"></a>2.3 主从复制常见问题</h3><h4 id="2-3-1-频繁的全量复制"><a href="#2-3-1-频繁的全量复制" class="headerlink" title="2.3.1 频繁的全量复制"></a>2.3.1 频繁的全量复制</h4><ul>
-<li>伴随着系统的运行，master的数据量会越来越大，一旦master重启，runid将发生变化，会导致全部slave的全量复制操作</li>
-</ul>
-<p>内部优化调整方案：</p>
-<p>1：master内部创建master_replid变量，使用runid相同的策略生成，长度41位，并发送给所有slave</p>
-<p>2：在master关闭时执行命令shutdown save，进行RDB持久化,将runid与offset保存到RDB文件中</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">repl-id  repl-offset</span><br><span class="line"></span><br><span class="line">通过redis-check-rdb命令可以查看该信息</span><br></pre></td></tr></table></figure>
-
-<p>3：master重启后加载RDB文件，恢复数据，重启后，将RDB文件中保存的repl-id与repl-offset加载到内存中</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">master<span class="emphasis">_repl_</span>id=repl  master<span class="emphasis">_repl_</span>offset =repl-offset</span><br><span class="line"></span><br><span class="line">通过info命令可以查看该信息</span><br></pre></td></tr></table></figure>
-
-<p>作用：本机保存上次runid，重启后恢复该值，使所有slave认为还是之前的master</p>
-<ul>
-<li>第二种出现频繁全量复制的问题现象：网络环境不佳，出现网络中断，slave不提供服务</li>
-</ul>
-<p>问题原因：复制缓冲区过小，断网后slave的offset越界，触发全量复制</p>
-<p>最终结果：slave反复进行全量复制</p>
-<p>解决方案：修改复制缓冲区大小</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">repl-backlog-size</span> <span class="string">?mb</span></span><br></pre></td></tr></table></figure>
-
-<p>建议设置如下：</p>
-<p>1.测算从master到slave的重连平均时长second</p>
-<p>2.获取master平均每秒产生写命令数据总量write_size_per_second</p>
-<p>3.最优复制缓冲区空间 = 2 * second * write_size_per_second</p>
-<h4 id="2-3-2-频繁的网络中断"><a href="#2-3-2-频繁的网络中断" class="headerlink" title="2.3.2 频繁的网络中断"></a>2.3.2 频繁的网络中断</h4><ul>
-<li>问题现象：master的CPU占用过高 或 slave频繁断开连接</li>
-</ul>
-<p>问题原因</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">slave每1秒发送REPLCONFACK命令到master</span><br><span class="line"></span><br><span class="line">当slave接到了慢查询时（keys <span class="emphasis">* ，hgetall等），会大量占用CPU性能</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">master每1秒调用复制定时函数replicationCron()，比对slave发现长时间没有进行响应</span></span><br></pre></td></tr></table></figure>
-
-<p>最终结果：master各种资源（输出缓冲区、带宽、连接等）被严重占用</p>
-<p>解决方案：通过设置合理的超时时间，确认是否释放slave</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">repl-timeout</span> <span class="string">seconds</span></span><br></pre></td></tr></table></figure>
-
-<p>该参数定义了超时时间的阈值（默认60秒），超过该值，释放slave</p>
-<ul>
-<li>问题现象：slave与master连接断开</li>
-</ul>
-<p>问题原因</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">master发送ping指令频度较低</span><br><span class="line"></span><br><span class="line">master设定超时时间较短</span><br><span class="line"></span><br><span class="line">ping指令在网络中存在丢包</span><br></pre></td></tr></table></figure>
-
-<p>解决方案：提高ping指令发送的频度</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">repl-ping-slave-period</span> <span class="string">seconds</span></span><br></pre></td></tr></table></figure>
-
-<p>超时时间repl-time的时间至少是ping指令频度的5到10倍，否则slave很容易判定超时</p>
-<h4 id="2-3-3-数据不一致"><a href="#2-3-3-数据不一致" class="headerlink" title="2.3.3 数据不一致"></a>2.3.3 数据不一致</h4><p>问题现象：多个slave获取相同数据不同步</p>
-<p>问题原因：网络信息不同步，数据发送有延迟</p>
-<p>解决方案</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">优化主从间的网络环境，通常放置在同一个机房部署，如使用阿里云等云服务器时要注意此现象</span><br><span class="line"></span><br><span class="line">监控主从节点延迟（通过offset）判断，如果slave延迟过大，暂时屏蔽程序对该slave的数据访问</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">slave-serve-stale-data</span>	<span class="string">yes|no</span></span><br></pre></td></tr></table></figure>
-
-<p>开启后仅响应info、slaveof等少数命令（慎用，除非对数据一致性要求很高）</p>
-<h2 id="3-哨兵模式"><a href="#3-哨兵模式" class="headerlink" title="3.哨兵模式"></a>3.哨兵模式</h2><h3 id="3-1-哨兵简介"><a href="#3-1-哨兵简介" class="headerlink" title="3.1 哨兵简介"></a>3.1 哨兵简介</h3><h4 id="3-1-1-哨兵概念"><a href="#3-1-1-哨兵概念" class="headerlink" title="3.1.1 哨兵概念"></a>3.1.1 哨兵概念</h4><p>首先我们来看一个业务场景：如果redis的master宕机了，此时应该怎么办？</p>
-<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032340435.png"></p>
-<p>那此时我们可能需要从一堆的slave中重新选举出一个新的master，那这个操作过程是什么样的呢？这里面会有什么问题出现呢？</p>
-<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032340460.png"></p>
-<p>要实现这些功能，我们就需要redis的哨兵，那哨兵是什么呢？</p>
-<p><strong>哨兵</strong></p>
-<p>哨兵(sentinel) 是一个分布式系统，用于对主从结构中的每台服务器进行<strong>监控</strong>，当出现故障时通过<strong>投票</strong>机制<strong>选择</strong>新的master并将所有slave连接到新的master。</p>
-<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032341820.png"></p>
-<h4 id="3-1-2-哨兵作用"><a href="#3-1-2-哨兵作用" class="headerlink" title="3.1.2 哨兵作用"></a>3.1.2 哨兵作用</h4><p>哨兵的作用：</p>
-<ul>
-<li><p>监控：监控master和slave</p>
-<p>不断的检查master和slave是否正常运行</p>
-<p>master存活检测、master与slave运行情况检测</p>
-</li>
-</ul>
-<ul>
-<li>通知（提醒）：当被监控的服务器出现问题时，向其他（哨兵间，客户端）发送通知</li>
-</ul>
-<ul>
-<li>自动故障转移：断开master与slave连接，选取一个slave作为master，将其他slave连接新的master，并告知客户端新的服务器地址</li>
-</ul>
-<p>注意：哨兵也是一台redis服务器，只是不提供数据相关服务，通常哨兵的数量配置为单数</p>
-<h3 id="3-2-启用哨兵"><a href="#3-2-启用哨兵" class="headerlink" title="3.2 启用哨兵"></a>3.2 启用哨兵</h3><p>配置哨兵</p>
-<ul>
-<li><p>配置一拖二的主从结构（利用之前的方式启动即可）</p>
-</li>
-<li><p>配置三个哨兵（配置相同，端口不同），参看sentinel.conf</p>
-</li>
-</ul>
-<p>1：设置哨兵监听的主服务器信息， sentinel_number表示参与投票的哨兵数量</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">sentinel</span> <span class="string">monitor master_name  master_host	master_port	 sentinel_number</span></span><br></pre></td></tr></table></figure>
-<p>2：设置判定服务器宕机时长，该设置控制是否进行主从切换</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">sentinel</span> <span class="string">down-after-milliseconds master_name	million_seconds</span></span><br></pre></td></tr></table></figure>
-
-<p>3：设置故障切换的最大超时时</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">sentinel</span> <span class="string">failover-timeout master_name	million_seconds</span></span><br></pre></td></tr></table></figure>
-
-<p>4：设置主从切换后，同时进行数据同步的slave数量，数值越大，要求网络资源越高，数值越小，同步时间越长</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">sentinel</span> <span class="string">parallel-syncs master_name sync_slave_number</span></span><br></pre></td></tr></table></figure>
-
-
-<ul>
-<li>启动哨兵</li>
-</ul>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">redis-sentinel</span> <span class="string">filename</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="3-3-哨兵工作原理"><a href="#3-3-哨兵工作原理" class="headerlink" title="3.3 哨兵工作原理"></a>3.3 哨兵工作原理</h3><p>哨兵在进行主从切换过程中经历三个阶段</p>
-<ul>
-<li>监控</li>
-<li>通知</li>
-<li>故障转移</li>
-</ul>
-<h4 id="3-3-1-监控"><a href="#3-3-1-监控" class="headerlink" title="3.3.1 监控"></a>3.3.1 监控</h4><p>用于同步各个节点的状态信息</p>
-<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032341193.png"></p>
-<ul>
-<li>获取各个sentinel的状态（是否在线）</li>
-</ul>
-<ul>
-<li>获取master的状态</li>
-</ul>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">master属性</span><br><span class="line"><span class="code">	prunid</span></span><br><span class="line"><span class="code">	prole：master</span></span><br><span class="line"><span class="code">各个slave的详细信息	</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>获取所有slave的状态（根据master中的slave信息）</li>
-</ul>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">slave属性</span><br><span class="line"><span class="code">	prunid</span></span><br><span class="line"><span class="code">	prole：slave</span></span><br><span class="line"><span class="code">	pmaster_host、master_port</span></span><br><span class="line"><span class="code">	poffset</span></span><br></pre></td></tr></table></figure>
-
-<p>其内部的工作原理具体如下：</p>
-<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032341526.png"></p>
-<h4 id="3-3-2-通知"><a href="#3-3-2-通知" class="headerlink" title="3.3.2 通知"></a>3.3.2 通知</h4><p>sentinel在通知阶段要不断的去获取master/slave的信息，然后在各个sentinel之间进行共享，具体的流程如下：</p>
-<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032341521.png"></p>
-<h4 id="3-3-3-故障转移"><a href="#3-3-3-故障转移" class="headerlink" title="3.3.3 故障转移"></a>3.3.3 故障转移</h4><p>当master宕机后sentinel是如何知晓并判断出master是真的宕机了呢？我们来看具体的操作流程</p>
-<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032341973.png"></p>
-<p>当sentinel认定master下线之后，此时需要决定更换master，那这件事由哪个sentinel来做呢？这时候sentinel之间要进行选举，如下图所示：</p>
-<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032341326.png"></p>
-<p>在选举的时候每一个人手里都有一票，而每一个人的又都想当这个处理事故的人，那怎么办？大家就开始抢，于是每个人都会发出一个指令，在内网里边告诉大家我要当选举人，比如说现在的sentinel1和sentinel4发出这个选举指令了，那么sentinel2既能接到sentinel1的也能接到sentinel4的，接到了他们的申请以后呢，sentinel2他就会把他的一票投给其中一方，投给谁呢？谁先过来我投给谁，假设sentinel1先过来，所以这个票就给到了sentinel1。那么给过去以后呢，现在sentinel1就拿到了一票，按照这样的一种形式，最终会有一个选举结果。对应的选举最终得票多的，那自然就成为了处理事故的人。需要注意在这个过程中有可能会存在失败的现象，就是一轮选举完没有选取，那就会接着进行第二轮第三轮直到完成选举。</p>
-<p>接下来就是由选举胜出的sentinel去从slave中选一个新的master出来的工作，这个流程是什么样的呢？</p>
-<p>首先它有一个在服务器列表中挑选备选master的原则</p>
-<ul>
-<li>不在线的OUT</li>
-</ul>
-<ul>
-<li>响应慢的OUT</li>
-</ul>
-<ul>
-<li>与原master断开时间久的OUT</li>
-</ul>
-<ul>
-<li><p>优先原则</p>
-<p>​    优先级<br>​        offset<br>​        runid</p>
-</li>
-</ul>
-<p>选出新的master之后，发送指令（ sentinel ）给其他的slave：</p>
-<ul>
-<li>向新的master发送slaveof no one</li>
-</ul>
-<ul>
-<li>向其他slave发送slaveof 新masterIP端口</li>
-</ul>
-<p><strong>总结</strong>：故障转移阶段</p>
-<ol>
-<li>发现问题，主观下线与客观下线</li>
-<li>竞选负责人</li>
-<li>优选新master</li>
-<li>新master上任，其他slave切换master，原master作为slave故障恢复后连接</li>
-</ol>
-<h2 id="4-集群cluster"><a href="#4-集群cluster" class="headerlink" title="4.集群cluster"></a>4.集群cluster</h2><p>现状问题：业务发展过程中遇到的峰值瓶颈</p>
-<ul>
-<li>redis提供的服务OPS可以达到10万/秒，当前业务OPS已经达到10万/秒</li>
-<li>内存单机容量达到256G，当前业务需求内存容量1T</li>
-<li>使用集群的方式可以快速解决上述问题</li>
-</ul>
-<h3 id="4-1-集群简介"><a href="#4-1-集群简介" class="headerlink" title="4.1 集群简介"></a>4.1 集群简介</h3><p>集群就是使用网络将若干台计算机联通起来，并提供统一的管理方式，使其对外呈现单机的服务效果</p>
-<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032341545.png"></p>
-<p><strong>集群作用：</strong></p>
-<ul>
-<li>分散单台服务器的访问压力，实现负载均衡</li>
-<li>分散单台服务器的存储压力，实现可扩展性</li>
-<li>降低单台服务器宕机带来的业务灾难</li>
-</ul>
-<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032341078.png"></p>
-<h3 id="4-2-Cluster集群结构设计"><a href="#4-2-Cluster集群结构设计" class="headerlink" title="4.2 Cluster集群结构设计"></a>4.2 Cluster集群结构设计</h3><p><strong>数据存储设计：</strong></p>
-<ol>
-<li><p>通过算法设计，计算出key应该保存的位置</p>
-</li>
-<li><p>将所有的存储空间计划切割成16384份，每台主机保存一部分</p>
-<p>注意：每份代表的是一个存储空间，不是一个key的保存空间</p>
-</li>
-<li><p>将key按照计算出的结果放到对应的存储空间</p>
-</li>
-</ol>
-<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032341991.png"></p>
-<p>那redis的集群是如何增强可扩展性的呢？譬如我们要增加一个集群节点</p>
-<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032342016.png"></p>
-<p>当我们查找数据时，集群是如何操作的呢？</p>
-<ul>
-<li>各个数据库相互通信，保存各个库中槽的编号数据</li>
-<li>一次命中，直接返回</li>
-<li>一次未命中，告知具体位置</li>
-</ul>
-<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032342930.png"></p>
-<h3 id="4-3-Cluster集群结构搭建"><a href="#4-3-Cluster集群结构搭建" class="headerlink" title="4.3 Cluster集群结构搭建"></a>4.3 Cluster集群结构搭建</h3><p>首先要明确的几个要点：</p>
-<ul>
-<li>配置服务器（3主3从）</li>
-<li>建立通信（Meet）</li>
-<li>分槽（Slot）</li>
-<li>搭建主从（master-slave）</li>
-</ul>
-<p><strong>Cluster配置</strong></p>
-<ul>
-<li>是否启用cluster，加入cluster节点</li>
-</ul>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">cluster-enabled</span> <span class="string">yes|no</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>cluster配置文件名，该文件属于自动生成，仅用于快速查找文件并查询文件内容</li>
-</ul>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">cluster-config-file</span> <span class="string">filename</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>节点服务响应超时时间，用于判定该节点是否下线或切换为从节点</li>
-</ul>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">cluster-node-timeout</span> <span class="string">milliseconds</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>master连接的slave最小数量</li>
-</ul>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">cluster-migration-barrier</span> <span class="string">min_slave_number</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>Cluster节点操作命令</strong></p>
-<ul>
-<li> 查看集群节点信息</li>
-</ul>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">cluster</span> <span class="string">nodes</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>更改slave指向新的master</li>
-</ul>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">cluster</span> <span class="string">replicate master-id</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>发现一个新节点，新增master</li>
-</ul>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">cluster</span> <span class="string">meet ip:port</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>忽略一个没有solt的节点</li>
-</ul>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">cluster</span> <span class="string">forget server_id</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>手动故障转移</li>
-</ul>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">cluster</span> <span class="string">failover</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>集群操作命令：</strong></p>
-<ul>
-<li>创建集群</li>
-</ul>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">redis-cli</span> <span class="string">–-cluster create masterhost1:masterport1 masterhost2:masterport2  masterhost3:masterport3 [masterhostn:masterportn …] slavehost1:slaveport1  slavehost2:slaveport2 slavehost3:slaveport3 -–cluster-replicas n</span></span><br></pre></td></tr></table></figure>
-
-<p>注意：master与slave的数量要匹配，一个master对应n个slave，由最后的参数n决定</p>
-<p>master与slave的匹配顺序为第一个master与前n个slave分为一组，形成主从结构</p>
-<ul>
-<li>添加master到当前集群中，连接时可以指定任意现有节点地址与端口</li>
-</ul>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">redis-cli</span> <span class="string">--cluster add-node new-master-host:new-master-port now-host:now-port</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>添加slave</li>
-</ul>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">redis-cli</span> <span class="string">--cluster add-node new-slave-host:new-slave-port master-host:master-port --cluster-slave --cluster-master-id masterid</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>删除节点，如果删除的节点是master，必须保障其中没有槽slot</li>
-</ul>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">redis-cli</span> <span class="string">--cluster del-node del-slave-host:del-slave-port del-slave-id</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>重新分槽，分槽是从具有槽的master中划分一部分给其他master，过程中不创建新的槽</li>
-</ul>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">redis-cli</span> <span class="string">--cluster reshard new-master-host:new-master:port --cluster-from src-  master-id1, src-master-id2, src-master-idn --cluster-to target-master-id --  cluster-slots slots</span></span><br></pre></td></tr></table></figure>
-
-<p>注意：将需要参与分槽的所有masterid不分先后顺序添加到参数中，使用，分隔</p>
-<p>指定目标得到的槽的数量，所有的槽将平均从每个来源的master处获取</p>
-<ul>
-<li>重新分配槽，从具有槽的master中分配指定数量的槽到另一个master中，常用于清空指定master中的槽</li>
-</ul>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">redis-cli</span> <span class="string">--cluster reshard src-master-host:src-master-port --cluster-from src-  master-id --cluster-to target-master-id --cluster-slots slots --cluster-yes</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="5-企业级解决方案"><a href="#5-企业级解决方案" class="headerlink" title="5.企业级解决方案"></a>5.企业级解决方案</h2><h3 id="5-1-缓存预热"><a href="#5-1-缓存预热" class="headerlink" title="5.1 缓存预热"></a>5.1 缓存预热</h3><p><strong>场景</strong>：“宕机”</p>
-<p>服务器启动后迅速宕机</p>
-<p><strong>问题排查</strong>：</p>
-<p>1.请求数量较高，大量的请求过来之后都需要去从缓存中获取数据，但是缓存中又没有，此时从数据库中查找数据然后将数据再存入缓存，造成了短期内对redis的高强度操作从而导致问题</p>
-<p>2.主从之间数据吞吐量较大，数据同步操作频度较高</p>
-<p><strong>解决方案：</strong></p>
-<ul>
-<li>前置准备工作：</li>
-</ul>
-<p>1.日常例行统计数据访问记录，统计访问频度较高的热点数据</p>
-<p>2.利用LRU数据删除策略，构建数据留存队列例如：storm与kafka配合</p>
-<ul>
-<li>准备工作：</li>
-</ul>
-<p>1.将统计结果中的数据分类，根据级别，redis优先加载级别较高的热点数据</p>
-<p>2.利用分布式多服务器同时进行数据读取，提速数据加载过程</p>
-<p>3.热点数据主从同时预热</p>
-<ul>
-<li>实施：</li>
-</ul>
-<p>4.使用脚本程序固定触发数据预热过程</p>
-<p>5.如果条件允许，使用了CDN（内容分发网络），效果会更好</p>
-<p><strong>总的来说</strong>：缓存预热就是系统启动前，提前将相关的缓存数据直接加载到缓存系统。避免在用户请求的时候，先查询数据库，然后再将数据缓存的问题！用户直接查询事先被预热的缓存数据！</p>
-<h3 id="5-2-缓存雪崩"><a href="#5-2-缓存雪崩" class="headerlink" title="5.2 缓存雪崩"></a>5.2 缓存雪崩</h3><p><strong>场景</strong>：数据库服务器崩溃，一连串的场景会随之儿来</p>
-<p>1.系统平稳运行过程中，忽然数据库连接量激增</p>
-<p>2.应用服务器无法及时处理请求</p>
-<p>3.大量408，500错误页面出现</p>
-<p>4.客户反复刷新页面获取数据</p>
-<p>5.数据库崩溃</p>
-<p>6.应用服务器崩溃</p>
-<p>7.重启应用服务器无效</p>
-<p>8.Redis服务器崩溃</p>
-<p>9.Redis集群崩溃</p>
-<p>10.重启数据库后再次被瞬间流量放倒</p>
-<p><strong>问题排查</strong>：</p>
-<p>1.在一个较短的时间内，缓存中较多的key集中过期</p>
-<p>2.此周期内请求访问过期的数据，redis未命中，redis向数据库获取数据</p>
-<p>3.数据库同时接收到大量的请求无法及时处理</p>
-<p>4.Redis大量请求被积压，开始出现超时现象</p>
-<p>5.数据库流量激增，数据库崩溃</p>
-<p>6.重启后仍然面对缓存中无数据可用</p>
-<p>7.Redis服务器资源被严重占用，Redis服务器崩溃</p>
-<p>8.Redis集群呈现崩塌，集群瓦解</p>
-<p>9.应用服务器无法及时得到数据响应请求，来自客户端的请求数量越来越多，应用服务器崩溃</p>
-<p>10.应用服务器，redis，数据库全部重启，效果不理想</p>
-<p>总而言之就两点：短时间范围内，大量key集中过期</p>
-<p><strong>解决方案</strong></p>
-<ul>
-<li>思路：</li>
-</ul>
-<p>1.更多的页面静态化处理</p>
-<p>2.构建多级缓存架构</p>
-<p>​    Nginx缓存+redis缓存+ehcache缓存</p>
-<p>3.检测Mysql严重耗时业务进行优化</p>
-<p>​    对数据库的瓶颈排查：例如超时查询、耗时较高事务等</p>
-<p>4.灾难预警机制</p>
-<p>​    监控redis服务器性能指标</p>
-<p>​        CPU占用、CPU使用率</p>
-<p>​        内存容量</p>
-<p>​        查询平均响应时间</p>
-<p>​        线程数</p>
-<p>5.限流、降级</p>
-<p>短时间范围内牺牲一些客户体验，限制一部分请求访问，降低应用服务器压力，待业务低速运转后再逐步放开访问</p>
-<ul>
-<li>落地实践：</li>
-</ul>
-<p>1.LRU与LFU切换</p>
-<p>2.数据有效期策略调整</p>
-<p>​    根据业务数据有效期进行分类错峰，A类90分钟，B类80分钟，C类70分钟</p>
-<p>​    过期时间使用固定时间+随机值的形式，稀释集中到期的key的数量</p>
-<p>3.超热数据使用永久key</p>
-<p>4.定期维护（自动+人工）</p>
-<p>​    对即将过期数据做访问量分析，确认是否延时，配合访问量统计，做热点数据的延时</p>
-<p>5.加锁：慎用！</p>
-<p><strong>总的来说</strong>：缓存雪崩就是瞬间过期数据量太大，导致对数据库服务器造成压力。如能够有效避免过期时间集中，可以有效解决雪崩现象的 出现（约40%），配合其他策略一起使用，并监控服务器的运行数据，根据运行记录做快速调整。</p>
-<h3 id="5-3-缓存击穿"><a href="#5-3-缓存击穿" class="headerlink" title="5.3 缓存击穿"></a>5.3 缓存击穿</h3><p><strong>场景</strong>：还是数据库服务器崩溃，但是跟之前的场景有点不太一样</p>
-<p>1.系统平稳运行过程中</p>
-<p>2.数据库连接量瞬间激增</p>
-<p>3.Redis服务器无大量key过期</p>
-<p>4.Redis内存平稳，无波动</p>
-<p>5.Redis服务器CPU正常</p>
-<p>6.数据库崩溃</p>
-<p><strong>问题排查：</strong></p>
-<p>1.Redis中某个key过期，该key访问量巨大</p>
-<p>2.多个数据请求从服务器直接压到Redis后，均未命中</p>
-<p>3.Redis在短时间内发起了大量对数据库中同一数据的访问</p>
-<p>总而言之就两点：单个key高热数据，key过期</p>
-<p><strong>解决方案</strong>：</p>
-<p>1.预先设定</p>
-<p>​    以电商为例，每个商家根据店铺等级，指定若干款主打商品，在购物节期间，加大此类信息key的过期时长 注意：购物节不仅仅指当天，以及后续若干天，访问峰值呈现逐渐降低的趋势</p>
-<p>2.现场调整</p>
-<p>​    监控访问量，对自然流量激增的数据延长过期时间或设置为永久性key</p>
-<p>3.后台刷新数据</p>
-<p>​    启动定时任务，高峰期来临之前，刷新数据有效期，确保不丢失</p>
-<p>4.二级缓存</p>
-<p>​    设置不同的失效时间，保障不会被同时淘汰就行</p>
-<p>5.加锁</p>
-<p>​    分布式锁，防止被击穿，但是要注意也是性能瓶颈，慎重！</p>
-<p><strong>总的来说</strong>：缓存击穿就是单个高热数据过期的瞬间，数据访问量较大，未命中redis后，发起了大量对同一数据的数据库访问，导致对数 据库服务器造成压力。应对策略应该在业务数据分析与预防方面进行，配合运行监控测试与即时调整策略，毕竟单个key的过 期监控难度较高，配合雪崩处理策略即可。</p>
-<h3 id="5-4-缓存穿透"><a href="#5-4-缓存穿透" class="headerlink" title="5.4 缓存穿透"></a>5.4 缓存穿透</h3><p><strong>场景</strong>：数据库服务器又崩溃了，跟之前的一样吗？</p>
-<p>1.系统平稳运行过程中</p>
-<p>2.应用服务器流量随时间增量较大</p>
-<p>3.Redis服务器命中率随时间逐步降低</p>
-<p>4.Redis内存平稳，内存无压力</p>
-<p>5.Redis服务器CPU占用激增</p>
-<p>6.数据库服务器压力激增</p>
-<p>7.数据库崩溃</p>
-<p><strong>问题排查：</strong></p>
-<p>1.Redis中大面积出现未命中</p>
-<p>2.出现非正常URL访问</p>
-<p><strong>问题分析</strong>：</p>
-<ul>
-<li>获取的数据在数据库中也不存在，数据库查询未得到对应数据</li>
-<li>Redis获取到null数据未进行持久化，直接返回</li>
-<li>下次此类数据到达重复上述过程</li>
-<li>出现黑客攻击服务器</li>
-</ul>
-<p><strong>解决方案</strong>：</p>
-<p>1.缓存null</p>
-<p>​    对查询结果为null的数据进行缓存（长期使用，定期清理），设定短时限，例如30-60秒，最高5分钟</p>
-<p>2.白名单策略</p>
-<p>​    提前预热各种分类数据id对应的bitmaps，id作为bitmaps的offset，相当于设置了数据白名单。当加载正常数据时放行，加载异常数据时直接拦截（效率偏低）</p>
-<p>​    使用布隆过滤器（有关布隆过滤器的命中问题对当前状况可以忽略）</p>
-<p>2.实施监控</p>
-<p>​    实时监控redis命中率（业务正常范围时，通常会有一个波动值）与null数据的占比</p>
-<p>​        非活动时段波动：通常检测3-5倍，超过5倍纳入重点排查对象</p>
-<p>​        活动时段波动：通常检测10-50倍，超过50倍纳入重点排查对象</p>
-<p>​    根据倍数不同，启动不同的排查流程。然后使用黑名单进行防控（运营）</p>
-<p>4.key加密</p>
-<p>​    问题出现后，临时启动防灾业务key，对key进行业务层传输加密服务，设定校验程序，过来的key校验</p>
-<p>​    例如每天随机分配60个加密串，挑选2到3个，混淆到页面数据id中，发现访问key不满足规则，驳回数据访问</p>
-<p><strong>总的来说</strong>：缓存击穿是指访问了不存在的数据，跳过了合法数据的redis数据缓存阶段，每次访问数据库，导致对数据库服务器造成压力。通常此类数据的出现量是一个较低的值，当出现此类情况以毒攻毒，并及时报警。应对策略应该在临时预案防范方面多做文章。</p>
-<p>无论是黑名单还是白名单，都是对整体系统的压力，警报解除后尽快移除。</p>
-<h3 id="5-5-性能指标监控"><a href="#5-5-性能指标监控" class="headerlink" title="5.5 性能指标监控"></a>5.5 性能指标监控</h3><p>redis中的监控指标如下：</p>
-<ul>
-<li>性能指标：Performance</li>
-</ul>
-<blockquote>
-<p>响应请求的平均时间:</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;latency</span></span><br></pre></td></tr></table></figure>
-
-<p>平均每秒处理请求总数</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;instantaneous_ops_per_sec</span></span><br></pre></td></tr></table></figure>
-
-<p>缓存查询命中率（通过查询总次数与查询得到非nil数据总次数计算而来）</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;hit_rate(calculated)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-</blockquote>
-<ul>
-<li><p>内存指标：Memory</p>
-<blockquote>
-<p>当前内存使用量</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;used_memory</span></span><br></pre></td></tr></table></figure>
-
-<p>内存碎片率（关系到是否进行碎片整理）</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;mem_fragmentation_ratio</span></span><br></pre></td></tr></table></figure>
-
-<p>为避免内存溢出删除的key的总数量</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;evicted_keys</span></span><br></pre></td></tr></table></figure>
-
-<p>基于阻塞操作（BLPOP等）影响的客户端数量</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;blocked_clients</span></span><br></pre></td></tr></table></figure></blockquote>
-</li>
-<li><p>基本活动指标：Basic_activity</p>
-</li>
-</ul>
-<blockquote>
-<p>当前客户端连接总数</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;connected_clients</span></span><br></pre></td></tr></table></figure>
-
-<p>当前连接slave总数</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;connected_slaves</span></span><br></pre></td></tr></table></figure>
-
-<p>最后一次主从信息交换距现在的秒</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;master_last_io_seconds_ago</span></span><br></pre></td></tr></table></figure>
-
-<p>key的总数</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;keyspace</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<ul>
-<li>持久性指标：Persistence</li>
-</ul>
-<blockquote>
-<p>当前服务器最后一次RDB持久化的时间</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;rdb_last_save_time</span></span><br></pre></td></tr></table></figure>
-
-<p>当前服务器最后一次RDB持久化后数据变化总量</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;rdb_changes_since_last_save</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<ul>
-<li>错误指标：Error</li>
-</ul>
-<blockquote>
-<p>被拒绝连接的客户端总数（基于达到最大连接值的因素）</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;rejected_connections</span></span><br></pre></td></tr></table></figure>
-
-<p>key未命中的总次数</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;keyspace_misses</span></span><br></pre></td></tr></table></figure>
-
-<p>主从断开的秒数</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;master_link_down_since_seconds</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>要对redis的相关指标进行监控，我们可以采用一些用具：</p>
-<ul>
-<li>CloudInsight Redis</li>
-<li>Prometheus</li>
-<li>Redis-stat</li>
-<li>Redis-faina</li>
-<li>RedisLive</li>
-<li>zabbix</li>
-</ul>
-<p>也有一些命令工具：</p>
-<ul>
-<li>benchmark</li>
-</ul>
-<blockquote>
-<p>测试当前服务器的并发性能</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;redis-benchmark</span> <span class="string">[-h ] [-p ] [-c ] [-n &lt;requests]&gt; [-k ]</span></span><br></pre></td></tr></table></figure>
-
-<p>范例1：50个连接，10000次请求对应的性能</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;redis-benchmark</span></span><br></pre></td></tr></table></figure>
-
-<p>范例2：100个连接，5000次请求对应的性能</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;redis-benchmark</span> <span class="string">-c 100 -n 5000</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://tuchuangf0qw.oss-cn-fuzhou.aliyuncs.com/typora_images/202208032342731.png"></p>
-</blockquote>
-<ul>
-<li><p>redis-cli</p>
-<p>​    monitor：启动服务器调试信息</p>
-</li>
-</ul>
-<blockquote>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;monitor</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<pre><code>  slowlog：慢日志
-</code></pre>
-<blockquote>
-<p>获取慢查询日志</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;slowlog</span> <span class="string">[operator]</span></span><br></pre></td></tr></table></figure>
-
-<p>​    get ：获取慢查询日志信息</p>
-<p>​    len ：获取慢查询日志条目数</p>
-<p>​    reset ：重置慢查询日志</p>
-<p>相关配置</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">&gt;slowlog-log-slower-than</span> <span class="string">1000 #设置慢查询的时间下线，单位：微妙</span></span><br><span class="line"><span class="attr">&gt;slowlog-max-len</span> <span class="string">100	#设置慢查询命令对应的日志显示长度，单位：命令数</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-]]></content>
-  </entry>
-  <entry>
-    <title>python3指南</title>
-    <url>/2024/05/16/python/python3%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>python中单引号字符串和双引号字符串是相同的，他们没有任何区别。<code>同时在 Python 中，没有单独的 char 数据类型</code>。同时还有三引号字符串，可以在三引号中自由地使用单引号和双引号。例如：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;This is a multi-line string. This is the first line.</span></span><br><span class="line"><span class="string">This is the second line.</span></span><br><span class="line"><span class="string">&quot;What&#x27;s your name?,&quot; I asked.</span></span><br><span class="line"><span class="string">He said &quot;Bond, James Bond.&quot;</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>如果想要使用原始字符串</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">r&quot;Newlines are indicated by \n&quot;</span></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="format-方法"><a href="#format-方法" class="headerlink" title="format 方法"></a>format 方法</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">age = <span class="number">20</span></span><br><span class="line">name = <span class="string">&#x27;Swaroop&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&#123;0&#125; was &#123;1&#125; years old when he wrote this book&#x27;</span>.<span class="built_in">format</span>(name, age))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Why is &#123;0&#125; playing with that python?&#x27;</span>.<span class="built_in">format</span>(name))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&#123;&#125; was &#123;&#125; years old when he wrote this book&#x27;</span>.<span class="built_in">format</span>(name, age))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Why is &#123;&#125; playing with that python?&#x27;</span>.<span class="built_in">format</span>(name))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 取十进制小数点后的精度为 3 ，得到的浮点数为 &#x27;0.333&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&#123;0:.3f&#125;&#x27;</span>.<span class="built_in">format</span>(<span class="number">1.0</span>/<span class="number">3</span>))</span><br><span class="line"><span class="comment"># 填充下划线 (_) ，文本居中</span></span><br><span class="line"><span class="comment"># 将 &#x27;___hello___&#x27; 的宽度扩充为 11 </span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&#123;0:_^11&#125;&#x27;</span>.<span class="built_in">format</span>(<span class="string">&#x27;hello&#x27;</span>))</span><br><span class="line"><span class="comment"># 用基于关键字的方法打印显示 &#x27;Swaroop wrote A Byte of Python&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&#123;name&#125; wrote &#123;book&#125;&#x27;</span>.<span class="built_in">format</span>(name=<span class="string">&#x27;Swaroop&#x27;</span>, book=<span class="string">&#x27;A Byte of Python&#x27;</span>))</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="运算符与表达式"><a href="#运算符与表达式" class="headerlink" title="运算符与表达式"></a>运算符与表达式</h1><h1 id="控制流"><a href="#控制流" class="headerlink" title="控制流"></a>控制流</h1><h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h1 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h1><h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h1 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h1><h1 id="输入与输出"><a href="#输入与输出" class="headerlink" title="输入与输出"></a>输入与输出</h1><h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1><h1 id="标准库"><a href="#标准库" class="headerlink" title="标准库"></a>标准库</h1>]]></content>
-      <categories>
-        <category>语言</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
   </entry>
   <entry>
     <title>hexo使用指南</title>
